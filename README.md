@@ -2,6 +2,10 @@
 
 Digital Content Store Project (Semester 2, 2014/2015).
 
+## Documentation
+
+[ER Models][erd]
+
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]
@@ -19,3 +23,4 @@ Digital Content Store Project (Semester 2, 2014/2015).
 [mysql-workbench]: http://dev.mysql.com/downloads/workbench/
 [backbonejs]: http://backbonejs.org/
 [flask]: http://flask.pocoo.org/
+[erd]: docs/erd.svg
