@@ -6,6 +6,23 @@ Digital Content Store Project (Semester 2, 2014/2015).
 
 [ER Models][erd]
 
+## Setup
+
+```
+
+# Install requirement
+pip install -r requirements.txt
+
+# Migrate Database
+python manage.py migrate
+
+# Create Super USer
+python manage.py createsuperuser
+
+# Start Local Server
+python manage.py runserver
+```
+
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]
