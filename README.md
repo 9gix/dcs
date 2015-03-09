@@ -14,20 +14,19 @@ Digital Content Store Project (Semester 2, 2014/2015).
 pip install -r requirements.txt
 
 # Migrate Database
-python manage.py migrate
+python dcs/manage.py migrate
 
 # Create Super USer
-python manage.py createsuperuser
+python dcs/manage.py createsuperuser
 
 # Start Local Server
-python manage.py runserver
+python dcs/manage.py runserver
 ```
 
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]
-* Web Framework (Server): [Flask][flask]
-* Web Framework (Client): [Backbone.js][backbonejs]
+* Web Framework: [Django][django]
 
 ## Core Developer
 
@@ -38,6 +37,5 @@ python manage.py runserver
 * Nathan
 
 [mysql-workbench]: http://dev.mysql.com/downloads/workbench/
-[backbonejs]: http://backbonejs.org/
-[flask]: http://flask.pocoo.org/
+[django]: https://www.djangoproject.com/
 [erd]: docs/erd.svg
