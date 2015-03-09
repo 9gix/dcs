@@ -1,6 +1,6 @@
 # Local settings for dcs project.  
 LOCAL_SETTINGS = True
-from settings import *
+from dcs.settings import *
 
 DEBUG = True
 
@@ -18,5 +18,5 @@ DATABASES = {
     }
 }
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'tik8g&=7)8mjbv@ji2r#=7i_yz0n_)_uu8%ad#0^vkks40%e5h'

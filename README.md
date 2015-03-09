@@ -8,25 +8,34 @@ Digital Content Store Project (Semester 2, 2014/2015).
 
 ## Setup
 
+Python 3
+
 ```
+# Clone Project
+git clone git@github.com:exclusive-gix/cs2102-store.git dcs
+cd dcs
 
 # Install requirement
 pip install -r requirements.txt
 
-# Migrate Database
-python dcs/manage.py migrate
+# Configure Project
+cp dcs/__local_settings.py dcs/local_settings.py
 
-# Create Super USer
-python dcs/manage.py createsuperuser
+# Migrate Database
+python manage.py migrate
+
+# Create Super User
+python manage.py createsuperuser
 
 # Start Local Server
-python dcs/manage.py runserver
+python manage.py runserver
 ```
 
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]
-* Web Framework: [Django][django]
+* Web Framework (Server): [Django][django]
+* Web Framework (Client): [Backbone.js][backbonejs]
 
 ## Core Developer
 
@@ -38,4 +47,5 @@ python dcs/manage.py runserver
 
 [mysql-workbench]: http://dev.mysql.com/downloads/workbench/
 [django]: https://www.djangoproject.com/
+[backbonejs]: http://backbonejs.org/
 [erd]: docs/erd.svg
