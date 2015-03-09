@@ -55,3 +55,6 @@ target/
 
 # Backup File
 *.bak
+
+# Sqlite
+*.sqlite3
