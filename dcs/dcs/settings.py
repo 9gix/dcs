@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # External Application
+    'django_extensions',
 
 
     # Internal Application
