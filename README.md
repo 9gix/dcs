@@ -58,6 +58,9 @@ python manage.py migrate <app_name> zero
 # Note: every forward migration must have its backward migration
 # For example: a sql script for create table, 
 # must have its corresponding drop table
+
+# Create table sql script should be located in `schema` folder.
+# These sql scripts will be loaded by django migration script.
 ```
 
 
