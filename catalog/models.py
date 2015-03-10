@@ -11,6 +11,10 @@ class Multimedia(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        managed = False
+        db_table = 'multimedia'
+
 
 class Book(Multimedia):
     isbn13 = models.CharField(max_length=13)
@@ -18,19 +22,39 @@ class Book(Multimedia):
 
     published_on = models.DateField()
 
+    class Meta:
+        managed = False
+        db_table = 'book'
+
 
 class Music(Multimedia):
     duration = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'music'
 
 class Album(models.Model):
     name = models.CharField(max_length=45)
     musics = models.ManyToManyField('Music')
 
+    class Meta:
+        managed = False
+        db_table = 'album'
+
 class Application(Multimedia):
     version = models.CharField(max_length=10)
 
+    class Meta:
+        managed = False
+        db_table = 'application'
+
 class Movie(Multimedia):
     duration = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'movie'
 
 
 
