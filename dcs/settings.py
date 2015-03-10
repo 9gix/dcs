@@ -41,7 +41,7 @@ INSTALLED_APPS = (
 
 
     # Internal Application
-    'catalog',
+    'multimedia',
 )
 
 MIDDLEWARE_CLASSES = (
