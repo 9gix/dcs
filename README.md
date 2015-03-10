@@ -32,6 +32,35 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Database Guide
+
+1. Create a Schema in MySQL
+2. Configure database in `local_settings.py`
+
+```
+# Creating an empty migration:
+python manage.py makemigrations --empty <app_name> <revision:optional>
+
+# Executing migration script:
+python manage.py migrate <app_name:optional> <revision:optional>
+
+# Rollback all application database migration:
+python manage.py migrate <app_name> zero
+```
+
+# Migration Script Guide
+
+```
+# file: <app_name>/migrations/<rev>_<label>.py
+# Execute SQL use RunSQL:
+# https://docs.djangoproject.com/en/1.7/ref/migration-operations/#runsql
+
+# Note: every forward migration must have its backward migration
+# For example: a sql script for create table, 
+# must have its corresponding drop table
+```
+
+
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]

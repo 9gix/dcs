@@ -18,6 +18,7 @@ class Multimedia(models.Model):
 
 
 class Book(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
     isbn13 = models.CharField(max_length=13)
     isbn10 = models.CharField(max_length=10)
 
@@ -29,6 +30,7 @@ class Book(Multimedia):
 
 
 class Music(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField()
 
     class Meta:
@@ -45,6 +47,7 @@ class Album(models.Model):
         db_table = 'album'
 
 class Application(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
     version = models.CharField(max_length=10)
 
     class Meta:
@@ -52,6 +55,7 @@ class Application(Multimedia):
         db_table = 'application'
 
 class Movie(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField()
 
     class Meta:
