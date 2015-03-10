@@ -1,5 +1,8 @@
 # Project Specific File
 
+# Compiled static and media files
+public
+
 local_settings.py
 
 # Byte-compiled / optimized / DLL files
