@@ -8,7 +8,8 @@ Digital Content Store Project (Semester 2, 2014/2015).
 
 ## Setup
 
-Python 3
+* Python 3
+* MySQL Server
 
 ```
 # Clone Project
