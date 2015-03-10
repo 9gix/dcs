@@ -3,7 +3,7 @@ from django.db import models
 
 class Crew(models.Model):
     id = models.IntegerField(primary_key=True)
-    multimedia = models.ForeignKey('Multimedia')
+    multimedia = models.ForeignKey('multimedia.Multimedia')
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
     organization = models.ForeignKey('Organization')
