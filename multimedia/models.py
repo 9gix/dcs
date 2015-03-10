@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Multimedia(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -17,6 +18,7 @@ class Multimedia(models.Model):
 
 
 class Book(Multimedia):
+    id = models.IntegerField(primary_key=True)
     isbn13 = models.CharField(max_length=13)
     isbn10 = models.CharField(max_length=10)
 
@@ -28,6 +30,7 @@ class Book(Multimedia):
 
 
 class Music(Multimedia):
+    id = models.IntegerField(primary_key=True)
     duration = models.IntegerField()
 
     class Meta:
@@ -35,6 +38,7 @@ class Music(Multimedia):
         db_table = 'music'
 
 class Album(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=45)
     musics = models.ManyToManyField('Music')
 
@@ -43,6 +47,7 @@ class Album(models.Model):
         db_table = 'album'
 
 class Application(Multimedia):
+    id = models.IntegerField(primary_key=True)
     version = models.CharField(max_length=10)
 
     class Meta:
@@ -50,6 +55,7 @@ class Application(Multimedia):
         db_table = 'application'
 
 class Movie(Multimedia):
+    id = models.IntegerField(primary_key=True)
     duration = models.IntegerField()
 
     class Meta:
@@ -57,27 +63,12 @@ class Movie(Multimedia):
         db_table = 'movie'
 
 
-
-# CREW MODEL
-
-class Crew(models.Model):
-    multimedia = models.ForeignKey('Multimedia')
-    person = models.ForeignKey('Person')
-    role = models.ForeignKey('Role')
-    organization = models.ForeignKey('Organization')
-
-
-class Role(models.Model):
-    name = models.CharField(max_length=45)
-
-class Person(models.Model):
-    name = models.CharField(max_length=45)
-
-class Organization(models.Model):
-    name = models.CharField(max_length=45)
-
-
-# Category
 class Category(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=45)
     parent = models.ForeignKey('self')
+
+    class Meta:
+        managed = False
+        db_table = 'category'
+
