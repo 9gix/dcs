@@ -3,6 +3,8 @@
 # Compiled static and media files
 public
 
+local_settings.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
