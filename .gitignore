@@ -1,6 +1,8 @@
 # Project Specific File
-
 local_settings.py
+
+# Compiled static and media files
+public
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
