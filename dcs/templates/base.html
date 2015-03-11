@@ -10,6 +10,9 @@
     <!-- Custom styles for this template -->
     <link href="{% static "css/base.css" %}" rel="stylesheet">
 
+    <!-- Custom styles for pages using this template -->
+    {% block css %}{% endblock %}
+
   </head>
 
   <body>
@@ -58,7 +61,12 @@
         <p class="text-muted">Place sticky footer content here.</p>
       </div>
     </footer>
+
+    <!-- Bootstrap core CSS -->
     <script src="{% static "js/jquery-2.1.3.js" %}"></script>
     <script src="{% static "js/bootstrap.js" %}"></script>
+
+    <!-- Custom scripts for pages using this template -->
+    {% block js %}{% endblock %}
   </body>
 </html>
