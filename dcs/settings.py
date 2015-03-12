@@ -17,9 +17,6 @@ PUBLIC_DIR = os.path.join(BASE_DIR, 'public')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tik8g&=7)8mjbv@ji2r#=7i_yz0n_)_uu8%ad#0^vkks40%e5h'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -41,10 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # External Application
+    'django_extensions',
 
 
     # Internal Application
-    'catalog',
+    'crew',
+    'multimedia',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,6 +77,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+
 STATIC_URL = '/statics/'
 
 STATIC_ROOT = os.path.join(PUBLIC_DIR, 'statics')
@@ -98,6 +98,6 @@ try:
     LOCAL_SETTINGS
 except NameError:
     try:
-        from local_settings import *
+        from dcs.local_settings import *
     except ImportError:
         pass

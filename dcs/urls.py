@@ -9,6 +9,7 @@ urlpatterns = patterns('',
 
     url(r'^$', 'dcs.views.home', name='home'), # mock, CHANGE later!
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^multimedia/', include('multimedia.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
