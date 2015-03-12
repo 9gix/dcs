@@ -1,0 +1,15 @@
+{% extends "multimedia/book_base.html" %}
+
+{% block content %}
+{{ block.super }}
+<h2>Book List</h2>
+
+<ul>
+  {% for book in books %}
+  <li>
+    <a href="{{ book.url }}">{{ book.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
