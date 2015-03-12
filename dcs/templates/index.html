@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
 {% block title %}
-Home
+Digital Content Store - Home
+{% endblock %}
+
+{% block css %}
+<link href="{% static "css/index.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
