@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXIST multimedia_content (
 
 CREATE TABLE IF NOT EXIST multimedia_review (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    comment TEXT,
+    comment TEXT NOT NULL,
     rating INT NOT NULL,
     multimedia_id INT NOT NULL REFERENCES multimedia(id)
 );
