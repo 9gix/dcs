@@ -44,8 +44,11 @@ python manage.py makemigrations --empty <app_name> <revision:optional>
 # Executing migration script:
 python manage.py migrate <app_name:optional> <revision:optional>
 
-# Rollback all application database migration:
+# Rollback application database migration:
 python manage.py migrate <app_name> zero
+
+# Database Reset (WARNING!! IRREVERSIBLE Destroy database)
+python manage.py reset_db
 ```
 
 # Migration Script Guide
