@@ -1,7 +1,7 @@
-DROP TABLE multimedia_review;
-DROP TABLE multimedia_content;
-DROP TABLE multimedia_category;
-DROP TABLE content;
-DROP TABLE category;
+DROP TABLE IF EXIST multimedia_review;
+DROP TABLE IF EXIST multimedia_content;
+DROP TABLE IF EXIST multimedia_category;
+DROP TABLE IF EXIST content;
+DROP TABLE IF EXIST category;
 DROP TABLE book;
 DROP TABLE multimedia;

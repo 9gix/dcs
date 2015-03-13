@@ -20,19 +20,19 @@ CREATE TABLE book (
         REFERENCES multimedia (id)
 );
 
-CREATE TABLE category (
+CREATE TABLE IF NOT EXIST category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     parent_category_id INT NOT NULL REFERENCES category(id)
 );
 
-CREATE TABLE multimedia_category (
+CREATE TABLE IF NOT EXIST multimedia_category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL REFERENCES multimedia(id),
     category_id INT NOT NULL REFERENCES category(id)
 );
 
-CREATE TABLE content (
+CREATE TABLE IF NOT EXIST content (
     id INT PRIMARY KEY AUTO_INCREMENT,
     caption VARCHAR(128) NOT NULL,
     url VARCHAR(200) NOT NULL,
@@ -40,13 +40,13 @@ CREATE TABLE content (
     modified_at DATETIME NOT NULL
 );
 
-CREATE TABLE multimedia_content (
+CREATE TABLE IF NOT EXIST multimedia_content (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL REFERENCES multimedia(id),
     content_id INT NOT NULL REFERENCES content(id)
 );
 
-CREATE TABLE multimedia_review (
+CREATE TABLE IF NOT EXIST multimedia_review (
     id INT PRIMARY KEY AUTO_INCREMENT,
     comment TEXT,
     rating INT NOT NULL,
