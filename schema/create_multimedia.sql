@@ -23,17 +23,17 @@ CREATE TABLE IF NOT EXISTS book (
 CREATE TABLE IF NOT EXISTS album (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS music (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL REFERENCES multimedia(id),
     duration INT NULL
-)
+);
 
 CREATE TABLE IF NOT EXISTS album_music (
     id INT PRIMARY KEY AUTO_INCREMENT,
     album_id INT NOT NULL REFERENCES album(id),
     music_id INT NOT NULL REFERENCES music(id)
-)
+);
 
