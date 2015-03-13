@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import (
         Multimedia, Application, Book,
-        Album, Music, Movie,
+        Album, Music, Movie, AlbumMusic,
         Category, MultimediaCategory,
-        MultimediaContent, MultimediaReview,
+        MultimediaContent, MultimediaReview
 )
 
 
@@ -12,6 +12,7 @@ admin.site.register(Book)
 admin.site.register(Album)
 admin.site.register(Music)
 admin.site.register(Movie)
+admin.site.register(AlbumMusic)
 admin.site.register(Category)
 admin.site.register(MultimediaCategory)
 admin.site.register(MultimediaContent)

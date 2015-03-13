@@ -6,7 +6,7 @@ class Crew(models.Model):
     multimedia = models.ForeignKey('multimedia.Multimedia')
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
-    organization = models.ForeignKey('Organization')
+    organisation = models.ForeignKey('Organisation')
 
     class Meta:
         managed = False
@@ -29,10 +29,10 @@ class Person(models.Model):
         managed = False
         db_table = 'person'
 
-class Organization(models.Model):
+class Organisation(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=45)
 
     class Meta:
         managed = False
-        db_table = 'organization'
+        db_table = 'organisation'
