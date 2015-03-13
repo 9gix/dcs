@@ -15,8 +15,12 @@ CREATE TABLE IF NOT EXISTS person (
 
 CREATE TABLE IF NOT EXISTS crew (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    multimedia_id INT REFERENCES multimedia(id),
-    person_id INT REFERENCES person(id),
-    role_id INT REFERENCES role(id),
-    organisation_id INT REFERENCES organisation(id)
+    multimedia_id INT NOT NULL,
+    person_id INT NOT NULL,
+    role_id INT NOT NULL,
+    organisation_id INT NOT NULL,
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
+    FOREIGN KEY (person_id) REFERENCES person(id),
+    FOREIGN KEY (role_id) REFERENCES role(id),
+    FOREIGN KEY (organisation_id) REFERENCES organisation(id)
 );
