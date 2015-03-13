@@ -6,7 +6,7 @@ class Crew(models.Model):
     multimedia = models.ForeignKey('multimedia.Multimedia')
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
-    organization = models.ForeignKey('Organization')
+    organisation = models.ForeignKey('Organisation')
 
     class Meta:
         managed = False
