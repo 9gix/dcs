@@ -8,7 +8,6 @@ class Multimedia(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
-    content = models.OneToOneField('MultimediaContent') # parent_link=True?
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
@@ -98,9 +97,9 @@ class MultimediaContent(models.Model):
     id = models.IntegerField(primary_key=True)
     multimedia_id = models.ForeignKey('Multimedia')
     caption = models.CharField(max_length=128)
-    url = models.CharField(max_length=200)
-    created_at = model.DateTimeField(auto_now_add=True)
-    modified_at = model.DateTimeField(auto_now=True)
+    url = models.URLField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         managed = False
@@ -109,10 +108,10 @@ class MultimediaContent(models.Model):
 class MultimediaReview(models.Model):
     id = models.IntegerField(primary_key=True)
     multimedia_id = models.ForeignKey('Multimedia')
-    comment = models.TextField()
+    comment = models.TextField(blank=True)
     rating = models.IntegerField()
 
     class Meta:
         managed = False
-        db_table = multimedia_review
+        db_table = 'multimedia_review'
 

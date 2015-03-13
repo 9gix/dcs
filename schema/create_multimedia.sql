@@ -40,35 +40,35 @@ CREATE TABLE IF NOT EXISTS album_music (
     FOREIGN KEY (music_id) REFERENCES music(id)
 );
 
-CREATE TABLE IF NOT EXIST category (
+CREATE TABLE IF NOT EXISTS category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
     parent_category_id INT NOT NULL,
-    FOREIGN KEY parent_category_id REFERENCES category(id)
+    FOREIGN KEY (parent_category_id) REFERENCES category(id)
 );
 
-CREATE TABLE IF NOT EXIST multimedia_category (
+CREATE TABLE IF NOT EXISTS multimedia_category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL,
     category_id INT NOT NULL,
-    FOREIGN KEY multimedia_id REFERENCES multimedia(id),
-    FOREIGN KEY category_id REFERENCES category(id)
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
+    FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE IF NOT EXIST multimedia_content (
+CREATE TABLE IF NOT EXISTS multimedia_content (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL,
     caption VARCHAR(128) NOT NULL,
     url VARCHAR(200) NOT NULL,
     created_at DATETIME NOT NULL,
     modified_at DATETIME NOT NULL,
-    FOREIGN KEY multimedia_id REFERENCES multimedia(id)
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
 );
 
-CREATE TABLE IF NOT EXIST multimedia_review (
+CREATE TABLE IF NOT EXISTS multimedia_review (
     id INT PRIMARY KEY AUTO_INCREMENT,
     comment TEXT NOT NULL,
     rating INT NOT NULL,
     multimedia_id INT NOT NULL,
-    FOREIGN KEY multimedia_id REFERENCES multimedia(id)
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
 );
