@@ -8,25 +8,67 @@ Digital Content Store Project (Semester 2, 2014/2015).
 
 ## Setup
 
+* Python 3
+* MySQL Server
+
 ```
+# Clone Project
+git clone git@github.com:exclusive-gix/cs2102-store.git dcs
+cd dcs
 
 # Install requirement
 pip install -r requirements.txt
 
-# Migrate Database
-python dcs/manage.py migrate
+# Configure Project
+cp dcs/__local_settings.py dcs/local_settings.py
 
-# Create Super USer
-python dcs/manage.py createsuperuser
+# Migrate Database
+python manage.py migrate
+
+# Create Super User
+python manage.py createsuperuser
 
 # Start Local Server
-python dcs/manage.py runserver
+python manage.py runserver
 ```
+
+## Database Guide
+
+1. Create a Schema in MySQL
+2. Configure database in `local_settings.py`
+
+```
+# Creating an empty migration:
+python manage.py makemigrations --empty <app_name> <revision:optional>
+
+# Executing migration script:
+python manage.py migrate <app_name:optional> <revision:optional>
+
+# Rollback all application database migration:
+python manage.py migrate <app_name> zero
+```
+
+# Migration Script Guide
+
+```
+# file: <app_name>/migrations/<rev>_<label>.py
+# Execute SQL use RunSQL:
+# https://docs.djangoproject.com/en/1.7/ref/migration-operations/#runsql
+
+# Note: every forward migration must have its backward migration
+# For example: a sql script for create table, 
+# must have its corresponding drop table
+
+# Create table sql script should be located in `schema` folder.
+# These sql scripts will be loaded by django migration script.
+```
+
 
 ## Resources
 
 * ER Modeling: [MySQL Workbench][mysql-workbench]
-* Web Framework: [Django][django]
+* Web Framework (Server): [Django][django]
+* Web Framework (Client): [Backbone.js][backbonejs]
 
 ## Core Developer
 
@@ -38,4 +80,5 @@ python dcs/manage.py runserver
 
 [mysql-workbench]: http://dev.mysql.com/downloads/workbench/
 [django]: https://www.djangoproject.com/
+[backbonejs]: http://backbonejs.org/
 [erd]: docs/erd.svg
