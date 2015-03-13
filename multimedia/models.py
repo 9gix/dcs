@@ -51,7 +51,7 @@ class Album(models.Model):
         managed = False
         db_table = 'album'
 
-    def __str__():
+    def __str__(self):
         return self.name
 
 
@@ -64,7 +64,7 @@ class AlbumMusic(models.Model):
         managed = False
         db_table = 'album_music'
 
-    def __str__():
+    def __str__(self):
         return self.name
 
 
@@ -89,15 +89,18 @@ class Movie(Multimedia):
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
-    parent_category = models.ForeignKey('self')
+    parent_category = models.ForeignKey('self', null=True, blank=True)
 
     class Meta:
         managed = False
         db_table = 'category'
         verbose_name_plural = "categories"
 
-    def __str__():
-        return "{} -> {}".format(self.parent_category, self.name)
+    def __str__(self):
+        if self.parent_category:
+            return "{} -> {}".format(self.parent_category, self.name)
+        else:
+            return self.name
 
 class MultimediaCategory(models.Model):
     id = models.AutoField(primary_key=True)
@@ -109,7 +112,7 @@ class MultimediaCategory(models.Model):
         db_table = 'multimedia_category'
         verbose_name_plural = "multimedia categories"
 
-    def __str__():
+    def __str__(self):
         return "{}{}".format(self.multimedia, self.category)
 
 
@@ -125,7 +128,7 @@ class MultimediaContent(models.Model):
         managed = False
         db_table = 'multimedia_content'
 
-    def __str__():
+    def __str__(self):
         return self.caption
 
 
@@ -140,5 +143,5 @@ class MultimediaReview(models.Model):
         db_table = 'multimedia_review'
 
 
-    def __str__():
+    def __str__(self):
         return "Review {}".format(self.id)

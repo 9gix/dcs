@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS album_music (
 CREATE TABLE IF NOT EXISTS category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
-    parent_category_id INT NOT NULL,
+    parent_category_id INT,
     FOREIGN KEY (parent_category_id) REFERENCES category(id)
 );
 
