@@ -13,7 +13,7 @@ class Crew(models.Model):
         db_table = 'crew'
 
     def __str__(self):
-        return "{} {} at {}".format(self.name, self.role, self.organisation)
+        return "{} {} at {}".format(self.person, self.role, self.organisation)
 
 
 class Role(models.Model):
