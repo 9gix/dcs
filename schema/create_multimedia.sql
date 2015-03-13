@@ -23,13 +23,13 @@ CREATE TABLE book (
 CREATE TABLE category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL,
-    parent_category_id INT REFERENCES category(id)
+    parent_category_id INT NOT NULL REFERENCES category(id)
 );
 
 CREATE TABLE multimedia_category (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    multimedia_id INT REFERENCES multimedia(id),
-    category_id INT REFERENCES category(id)
+    multimedia_id INT NOT NULL REFERENCES multimedia(id),
+    category_id INT NOT NULL REFERENCES category(id)
 );
 
 CREATE TABLE content (
@@ -42,13 +42,13 @@ CREATE TABLE content (
 
 CREATE TABLE multimedia_content (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    multimedia_id INT REFERENCES multimedia(id),
-    content_id INT REFERENCES content(id)
+    multimedia_id INT NOT NULL REFERENCES multimedia(id),
+    content_id INT NOT NULL REFERENCES content(id)
 );
 
 CREATE TABLE multimedia_review (
     id INT PRIMARY KEY AUTO_INCREMENT,
     comment TEXT,
     rating INT NOT NULL,
-    multimedia_id INT REFERENCES multimedia(id)
+    multimedia_id INT NOT NULL REFERENCES multimedia(id)
 );
