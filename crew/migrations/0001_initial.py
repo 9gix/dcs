@@ -12,6 +12,7 @@ with open('schema/drop_crew.sql') as f:
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('multimedia', '0001_initial'),
     ]
 
     operations = [
