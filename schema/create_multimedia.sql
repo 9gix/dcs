@@ -19,3 +19,18 @@ CREATE TABLE book (
         FOREIGN KEY (multimedia_id)
         REFERENCES multimedia (id)
 );
+
+CREATE TABLE category (
+);
+
+CREATE TABLE multimedia_category (
+);
+
+CREATE TABLE content (
+);
+
+CREATE TABLE multimedia_content (
+);
+
+CREATE TABLE multimedia_review (
+);
