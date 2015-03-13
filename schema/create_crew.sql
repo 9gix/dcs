@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS organisation (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS role (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS person (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS crew (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    multimedia_id INT REFERENCES multimedia(id),
+    person_id INT REFERENCES person(id),
+    role_id INT REFERENCES role(id),
+    organisation_id INT REFERENCES organisation(id)
+);
