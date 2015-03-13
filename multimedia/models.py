@@ -31,7 +31,7 @@ class Book(Multimedia):
 
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    duration = models.IntegerField()
+    duration = models.IntegerField(null=True);
 
     class Meta:
         managed = False
@@ -52,7 +52,7 @@ class AlbumMusic(models.Model):
     id = models.IntegerField(primary_key=True)
     album = models.ForeignKey('Album')
     music = models.ForeignKey('Music')
-    
+
     class Meta:
         managed = False
         db_table = 'album_music'

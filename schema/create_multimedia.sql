@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS album (
 CREATE TABLE IF NOT EXISTS music (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL REFERENCES multimedia(id),
-    duration INT
+    duration INT NULL
 )
 
 CREATE TABLE IF NOT EXISTS album_music (
