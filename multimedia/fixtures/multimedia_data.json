@@ -2,22 +2,121 @@
 {
     "model": "multimedia.multimedia",
     "fields": {
-        "created_at": "2015-03-13T11:04:17Z",
-        "modified_at": "2015-03-13T11:04:17Z",
-        "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
-        "price": "130",
-        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders"
+        "name": "asdf",
+        "modified_at": "2015-03-13T10:59:08Z",
+        "description": "asdf",
+        "created_at": "2015-03-13T10:59:08Z",
+        "price": "1234"
     },
     "pk": 1
 },
 {
+    "model": "multimedia.multimedia",
+    "fields": {
+        "name": "Happy",
+        "modified_at": "2015-03-13T11:02:15Z",
+        "description": "Some description about Happy",
+        "created_at": "2015-03-13T11:02:15Z",
+        "price": "5"
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.multimedia",
+    "fields": {
+        "name": "Thinking out Loud",
+        "modified_at": "2015-03-13T11:03:22Z",
+        "description": "Some description about Thinking out Loud",
+        "created_at": "2015-03-13T11:03:22Z",
+        "price": "4"
+    },
+    "pk": 3
+},
+{
+    "model": "multimedia.multimedia",
+    "fields": {
+        "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
+        "modified_at": "2015-03-13T11:04:17Z",
+        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders",
+        "created_at": "2015-03-13T11:04:17Z",
+        "price": "130"
+    },
+    "pk": 4
+},
+{
     "model": "multimedia.book",
     "fields": {
-        "published_on": "2013-03-13",
+        "isbn10": "0321773039",
         "isbn13": "9780321773036",
-        "isbn10": "0321773039"
+        "published_on": "2013-03-13"
+    },
+    "pk": 4
+},
+{
+    "model": "multimedia.music",
+    "fields": {
+        "duration": 123
     },
     "pk": 1
+},
+{
+    "model": "multimedia.music",
+    "fields": {
+        "duration": 240
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.music",
+    "fields": {
+        "duration": 248
+    },
+    "pk": 3
+},
+{
+    "model": "multimedia.album",
+    "fields": {
+        "name": "asdf"
+    },
+    "pk": 1
+},
+{
+    "model": "multimedia.album",
+    "fields": {
+        "name": "GIRL"
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.album",
+    "fields": {
+        "name": "X"
+    },
+    "pk": 3
+},
+{
+    "model": "multimedia.albummusic",
+    "fields": {
+        "album": 1,
+        "music": 1
+    },
+    "pk": 1
+},
+{
+    "model": "multimedia.albummusic",
+    "fields": {
+        "album": 2,
+        "music": 2
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.albummusic",
+    "fields": {
+        "album": 3,
+        "music": 3
+    },
+    "pk": 3
 },
 {
     "model": "multimedia.category",
@@ -30,25 +129,33 @@
 {
     "model": "multimedia.category",
     "fields": {
-        "name": "Computing",
-        "parent_category": 1
+        "name": "Popular",
+        "parent_category": null
     },
     "pk": 2
-},
-{
-    "model": "multimedia.category",
-    "fields": {
-        "name": "Graphics",
-        "parent_category": 2
-    },
-    "pk": 3
 },
 {
     "model": "multimedia.multimediacategory",
     "fields": {
         "multimedia": 1,
-        "category": 3
+        "category": 1
     },
     "pk": 1
+},
+{
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 2,
+        "category": 2
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 3,
+        "category": 1
+    },
+    "pk": 3
 }
 ]
