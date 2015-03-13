@@ -1,0 +1,54 @@
+[
+{
+    "model": "multimedia.multimedia",
+    "fields": {
+        "created_at": "2015-03-13T11:04:17Z",
+        "modified_at": "2015-03-13T11:04:17Z",
+        "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
+        "price": "130",
+        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders"
+    },
+    "pk": 1
+},
+{
+    "model": "multimedia.book",
+    "fields": {
+        "published_on": "2013-03-13",
+        "isbn13": "9780321773036",
+        "isbn10": "0321773039"
+    },
+    "pk": 1
+},
+{
+    "model": "multimedia.category",
+    "fields": {
+        "name": "Book",
+        "parent_category": null
+    },
+    "pk": 1
+},
+{
+    "model": "multimedia.category",
+    "fields": {
+        "name": "Computing",
+        "parent_category": 1
+    },
+    "pk": 2
+},
+{
+    "model": "multimedia.category",
+    "fields": {
+        "name": "Graphics",
+        "parent_category": 2
+    },
+    "pk": 3
+},
+{
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 1,
+        "category": 3
+    },
+    "pk": 1
+}
+]

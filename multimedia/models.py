@@ -67,23 +67,6 @@ class AlbumMusic(models.Model):
     def __str__(self):
         return "{} - {}".format(self.album, self.music)
 
-class Application(Multimedia):
-    multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    version = models.CharField(max_length=10)
-
-    class Meta:
-        managed = False
-        db_table = 'application'
-
-
-class Movie(Multimedia):
-    multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    duration = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'movie'
-
 
 class Category(models.Model):
     id = models.AutoField(primary_key=True)
