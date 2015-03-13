@@ -1,36 +1,15 @@
 from django.db import connection
 from django.db import models
-from django.core.urlresolvers import reverse_lazy
+from django.core.urlresolvers import reverse
 
-dummy_book = {
-    'isbn13': 9871234567890,
-    'isbn10': 1234567890,
-    'title': 'Hello World',
-    'url': reverse_lazy('multimedia:book_detail', kwargs={'isbn13': 9871234567890,}),
-    'description': '''
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Cras suscipit arcu sapien. Ut aliquet nisi est. 
-    Duis vulputate erat arcu.
+def dictfetchall(cursor):
+    desc = cursor.description
+    for row in cursor.fetchall():
+        yield dict(zip([col[0] for col in desc], row))
 
-    Etiam vel ipsum quis est iaculis vehicula. 
-    Fusce faucibus ipsum nec ligula tempor ultrices.
-    Vestibulum tristique vitae risus lobortis volutpat.
-    ''',
-    'authors': [
-        {
-            'name': 'Foo',
-            'url': '/book-authors/foo/',
-        },
-        {
-            'name': 'Bar',
-            'url': '/book-authors/bar/',
-        },
-    ],
-    'publisher': {
-        'name': 'Exclusive Gix',
-        'url': '/book-publisher/exclusive-gix',
-    },
-}
+def dictfetchone(cursor):
+    desc = cursor.description
+    return dict(zip([col[0] for col in desc], cursor.fetchone()))
 
 class Multimedia(models.Model):
     id = models.AutoField(primary_key=True)
@@ -52,10 +31,30 @@ class Multimedia(models.Model):
 
 class BookManager(models.Manager):
     def all(self):
-        return [dummy_book, dummy_book, dummy_book]
+        books = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT id, name, description, isbn13, isbn10
+                FROM book, multimedia
+                WHERE book.multimedia_id = multimedia.id
+            ''')
+
+            for book in dictfetchall(c):
+                books.append(book)
+
+        for book in books:
+            book['url'] = reverse('multimedia:book_detail', args=(book['isbn13'],))
+        return books
 
     def get(self, *args, **kwargs):
-        return dummy_book
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT id, name, description, isbn13, isbn10
+                FROM book, multimedia
+                WHERE book.multimedia_id = multimedia.id
+                  AND book.isbn13 = %s
+            ''', [kwargs['isbn13'], ])
+            return dictfetchone(c)
 
 class Book(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
