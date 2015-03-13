@@ -41,12 +41,12 @@ class Migration(migrations.Migration):
             create_album_script,
             drop_album_script,
         ),
-        migrations.RUNSQL(
+        migrations.RunSQL(
             create_music_script,
             drop_music_script,
         ),
-        migrations.RUNSQL(
+        migrations.RunSQL(
             create_album_music_script,
             drop_album_music_script,
-        )
+        ),
     ]
