@@ -33,7 +33,7 @@ dummy_book = {
 }
 
 class Multimedia(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -45,6 +45,9 @@ class Multimedia(models.Model):
     class Meta:
         managed = False
         db_table = 'multimedia'
+
+    def __str__(self):
+        return self.name
 
 
 class BookManager(models.Manager):
@@ -77,8 +80,9 @@ class Music(Multimedia):
         managed = False
         db_table = 'music'
 
+
 class Album(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
     musics = models.ManyToManyField('Music', 
         through='AlbumMusic')
@@ -87,9 +91,12 @@ class Album(models.Model):
         managed = False
         db_table = 'album'
 
+    def __str__(self):
+        return self.name
+
 
 class AlbumMusic(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     album = models.ForeignKey('Album')
     music = models.ForeignKey('Music')
 
@@ -97,45 +104,43 @@ class AlbumMusic(models.Model):
         managed = False
         db_table = 'album_music'
 
-
-class Application(Multimedia):
-    multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    version = models.CharField(max_length=10)
-
-    class Meta:
-        managed = False
-        db_table = 'application'
-
-class Movie(Multimedia):
-    multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    duration = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'movie'
+    def __str__(self):
+        return "{} - {}".format(self.album, self.music)
 
 
 class Category(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
-    parent = models.ForeignKey('self')
+    parent_category = models.ForeignKey('self', null=True, blank=True)
 
     class Meta:
         managed = False
         db_table = 'category'
+        verbose_name_plural = "categories"
+
+    def __str__(self):
+        if self.parent_category:
+            return "{} -> {}".format(self.parent_category, self.name)
+        else:
+            return self.name
 
 class MultimediaCategory(models.Model):
-    id = models.IntegerField(primary_key=True)
-    multimedia_id = models.ForeignKey('Multimedia')
-    category_id = models.ForeignKey('Category')
+    id = models.AutoField(primary_key=True)
+    multimedia = models.ForeignKey('Multimedia')
+    category = models.ForeignKey('Category')
 
     class Meta:
         managed = False
         db_table = 'multimedia_category'
+        verbose_name_plural = "multimedia categories"
+
+    def __str__(self):
+        return "{}{}".format(self.multimedia, self.category)
+
 
 class MultimediaContent(models.Model):
-    id = models.IntegerField(primary_key=True)
-    multimedia_id = models.ForeignKey('Multimedia')
+    id = models.AutoField(primary_key=True)
+    multimedia = models.ForeignKey('Multimedia')
     caption = models.CharField(max_length=128)
     url = models.URLField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -145,9 +150,13 @@ class MultimediaContent(models.Model):
         managed = False
         db_table = 'multimedia_content'
 
+    def __str__(self):
+        return self.caption
+
+
 class MultimediaReview(models.Model):
-    id = models.IntegerField(primary_key=True)
-    multimedia_id = models.ForeignKey('Multimedia')
+    id = models.AutoField(primary_key=True)
+    multimedia = models.ForeignKey('Multimedia')
     comment = models.TextField(blank=True)
     rating = models.IntegerField()
 
@@ -155,3 +164,6 @@ class MultimediaReview(models.Model):
         managed = False
         db_table = 'multimedia_review'
 
+
+    def __str__(self):
+        return "Review {}".format(self.id)

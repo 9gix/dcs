@@ -1,0 +1,50 @@
+[
+{
+    "pk": 2,
+    "model": "crew.crew",
+    "fields": {
+        "organisation": 1,
+        "role": 1,
+        "multimedia": 2,
+        "person": 1
+    }
+},
+{
+    "pk": 3,
+    "model": "crew.crew",
+    "fields": {
+        "organisation": 1,
+        "role": 1,
+        "multimedia": 3,
+        "person": 2
+    }
+},
+{
+    "pk": 1,
+    "model": "crew.role",
+    "fields": {
+        "name": "Singer"
+    }
+},
+{
+    "pk": 1,
+    "model": "crew.person",
+    "fields": {
+        "name": "Pharell Williams"
+    }
+},
+{
+    "pk": 2,
+    "model": "crew.person",
+    "fields": {
+        "name": "Ed Sheeran"
+    }
+},
+{
+    "pk": 1,
+    "model": "crew.organisation",
+    "fields": {
+        "name": "Music Industry"
+    }
+}
+]

@@ -9,6 +9,7 @@ with open('schema/create_multimedia.sql') as f:
 with open('schema/drop_multimedia.sql') as f:
     drop_multimedia_script = f.read()
 
+
 class Migration(migrations.Migration):
 
     dependencies = [
