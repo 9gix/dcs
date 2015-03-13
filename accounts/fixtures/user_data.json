@@ -1,0 +1,92 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$15000$oC0UUPtyfm38$cAsFgu/IoC+eThBOWLsXDDWxr0NwaW4VVv3WXF4zm3A=",
+        "is_active": true,
+        "first_name": "",
+        "last_login": "2015-03-10T18:23:23Z",
+        "last_name": "",
+        "groups": [],
+        "username": "eugene",
+        "is_superuser": true,
+        "user_permissions": [],
+        "email": "eugene@comp.nus.edu.sg",
+        "is_staff": true,
+        "date_joined": "2015-03-10T18:23:01Z"
+    },
+    "pk": 1
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$15000$Ra9e6kNcQeCm$0fNleoW28Zdalj5Af0oLSqfyR2zNinEaaA0Ks/dBjWs=",
+        "is_active": true,
+        "first_name": "",
+        "last_login": "2015-03-13T05:04:58Z",
+        "last_name": "",
+        "groups": [],
+        "username": "digawp",
+        "is_superuser": true,
+        "user_permissions": [],
+        "email": "digawp@gmail.com",
+        "is_staff": true,
+        "date_joined": "2015-03-13T05:04:58Z"
+    },
+    "pk": 2
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$15000$naP9qo8Gj0HR$VgnhOS0yEz5UP/3KUFiBBALKMhdgCf9YN0cVidGBDjs=",
+        "is_active": true,
+        "first_name": "",
+        "last_login": "2015-03-13T05:06:05Z",
+        "last_name": "",
+        "groups": [],
+        "username": "michael",
+        "is_superuser": true,
+        "user_permissions": [],
+        "email": "mike.bdg@gmail.com",
+        "is_staff": true,
+        "date_joined": "2015-03-13T05:06:05Z"
+    },
+    "pk": 3
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$15000$0Q3FymPuJSm8$hswQ6lrZlCQ5f0bOMcpWgMrn1JGmQJLmFj4ji3lWHVY=",
+        "is_active": true,
+        "first_name": "",
+        "last_login": "2015-03-13T05:06:27Z",
+        "last_name": "",
+        "groups": [],
+        "username": "nathanajah",
+        "is_superuser": true,
+        "user_permissions": [],
+        "email": "nathanajah@yahoo.com",
+        "is_staff": true,
+        "date_joined": "2015-03-13T05:06:27Z"
+    },
+    "pk": 4
+},
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$15000$GFahi9ZNZXMB$szO4u908Ca9WjFaZg+YAZjWCdZH+ndV0I2R3uwc2UuA=",
+        "is_active": true,
+        "first_name": "",
+        "last_login": "2015-03-13T05:07:00Z",
+        "last_name": "",
+        "groups": [],
+        "username": "jk001",
+        "is_superuser": true,
+        "user_permissions": [],
+        "email": "jk_john_kevin@hotmail.com",
+        "is_staff": true,
+        "date_joined": "2015-03-13T05:07:00Z"
+    },
+    "pk": 5
+}
+]
