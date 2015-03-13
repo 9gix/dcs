@@ -32,18 +32,13 @@ CREATE TABLE IF NOT EXIST multimedia_category (
     category_id INT NOT NULL REFERENCES category(id)
 );
 
-CREATE TABLE IF NOT EXIST content (
+CREATE TABLE IF NOT EXIST multimedia_content (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    multimedia_id INT NOT NULL REFERENCES multimedia(id),
     caption VARCHAR(128) NOT NULL,
     url VARCHAR(200) NOT NULL,
     created_at DATETIME NOT NULL,
     modified_at DATETIME NOT NULL
-);
-
-CREATE TABLE IF NOT EXIST multimedia_content (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    multimedia_id INT NOT NULL REFERENCES multimedia(id),
-    content_id INT NOT NULL REFERENCES content(id)
 );
 
 CREATE TABLE IF NOT EXIST multimedia_review (
