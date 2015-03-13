@@ -65,8 +65,7 @@ class AlbumMusic(models.Model):
         db_table = 'album_music'
 
     def __str__(self):
-        return self.name
-
+        return "{} - {}".format(self.album, self.music)
 
 class Application(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
