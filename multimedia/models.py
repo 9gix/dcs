@@ -1,15 +1,9 @@
-from django.db import connection
 from django.db import models
-from django.core.urlresolvers import reverse
 
-def dictfetchall(cursor):
-    desc = cursor.description
-    for row in cursor.fetchall():
-        yield dict(zip([col[0] for col in desc], row))
+from .managers import (
+    BookManager
+)
 
-def dictfetchone(cursor):
-    desc = cursor.description
-    return dict(zip([col[0] for col in desc], cursor.fetchone()))
 
 class Multimedia(models.Model):
     id = models.AutoField(primary_key=True)
@@ -28,33 +22,6 @@ class Multimedia(models.Model):
     def __str__(self):
         return self.name
 
-
-class BookManager(models.Manager):
-    def all(self):
-        books = []
-        with connection.cursor() as c:
-            c.execute('''
-                SELECT id, name, description, isbn13, isbn10
-                FROM book, multimedia
-                WHERE book.multimedia_id = multimedia.id
-            ''')
-
-            for book in dictfetchall(c):
-                books.append(book)
-
-        for book in books:
-            book['url'] = reverse('multimedia:book_detail', args=(book['isbn13'],))
-        return books
-
-    def get(self, *args, **kwargs):
-        with connection.cursor() as c:
-            c.execute('''
-                SELECT id, name, description, isbn13, isbn10
-                FROM book, multimedia
-                WHERE book.multimedia_id = multimedia.id
-                  AND book.isbn13 = %s
-            ''', [kwargs['isbn13'], ])
-            return dictfetchone(c)
 
 class Book(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
