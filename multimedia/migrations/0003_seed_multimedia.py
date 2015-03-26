@@ -27,7 +27,7 @@ def delete_multimedia(apps, schema_editor):
     Book.objects.all().delete()
     Music.objects.all().delete()
     Album.objects.all().delete()
-    Multimedia.objects.all()
+    Multimedia.objects.all().delete()
 
 
 class Migration(migrations.Migration):
