@@ -1,0 +1,21 @@
+{% extends multimedia/base.html %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <!-- preview consist of thumbnail and preview of the content, eg screenshot,
+      trailer, excerpt of a book/music etc -->
+    {% block preview %}{% endblock preview %}
+  </div>
+  <div class="col-md-9">
+    <!-- description consist of the description (duh), and other aux data
+      eg artis, author etc -->
+    {% block description %}{% endblock description %}
+  </div>
+</div>
+<div class="row">
+  <!-- most likely will change -->
+  {% block review %}{% endblock review %}
+</div>
+{% endblock content %}
