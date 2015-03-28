@@ -1,0 +1,27 @@
+{% extends "multimedia/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-3">
+    <!-- preview consist of thumbnail and preview of the content, eg screenshot,
+      trailer, excerpt of a book/music etc -->
+    {% block preview %}{% endblock preview %}
+  </div>
+  <div class="col-md-9">
+    <!-- description consist of the description (duh), and other aux data
+      eg artis, author etc -->
+    {% block description %}{% endblock description %}
+  </div>
+</div>
+<div class="row">
+  {% for review in reviews %}
+    <div class="container">
+      <p>Rating: {{ review.rating }}</p>
+      <blockquote>
+        {{ review.comment }}
+      </blockquote>
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}

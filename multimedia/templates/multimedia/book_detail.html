@@ -1,38 +1,40 @@
-{% extends "multimedia/book_base.html" %}
+{% extends "multimedia/base_detail.html" %}
 {% load staticfiles %}
 
-{% block content %}
+{% block title %}
+{{ book.name }}
+{% endblock title %}
 
+{% block css %}
 <link rel="stylesheet" href="{% static "css/book_detail.css" %}">
+{% endblock css %}
 
-<div class="sidebar">
-  <dl>
-    <dt>ISBN13:</dt>
-    <dd>{{ book.isbn13 }}</dd>
-    <dt>ISBN10:</dt>
-    <dd>{{ book.isbn10 }}</dd>
-  </dl>
+{% block preview %}
+<dl>
+  <dt>ISBN13:</dt>
+  <dd>{{ book.isbn13 }}</dd>
+  <dt>ISBN10:</dt>
+  <dd>{{ book.isbn10 }}</dd>
+</dl>
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ book.name }}</h3>
+<div class="authors">
+  <p>
+    {{ book.description }}
+  <p>
+  <p>Authors:</p>
+  <ul>
+    {% for author in book.authors %}
+    <li>
+      <a href="{{ author.url }}">{{ author.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
-
-<div class="main">
-  <h3>{{ book.name }}</h3>
-  <div class="authors">
-    <p>
-      {{ book.description }}
-    <p>
-    <p>Authors:</p>
-    <ul>
-      {% for author in book.authors %}
-      <li>
-        <a href="{{ author.url }}">{{ author.name }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <div class="publisher">
-    <p>Publisher:</p>
-    <a href="{{ book.publisher.url }}">{{ book.publisher.name }}</a>
-  </div>
+<div class="publisher">
+  <p>Publisher:</p>
+  <a href="{{ book.publisher.url }}">{{ book.publisher.name }}</a>
 </div>
-
-{% endblock content %}
+{% endblock description %}
