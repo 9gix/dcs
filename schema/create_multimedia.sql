@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS multimedia (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
-    price DECIMAL NULL,
+    price DECIMAL(10,2) NULL,
     created_at DATETIME NOT NULL,
     modified_at DATETIME NOT NULL,
     PRIMARY KEY (id)
