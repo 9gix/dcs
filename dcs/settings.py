@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'accounts',
     'crew',
     'multimedia',
+    'transaction',
 )
 
 MIDDLEWARE_CLASSES = (
