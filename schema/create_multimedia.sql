@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS movie (
 
 CREATE TABLE IF NOT EXISTS application (
     multimedia_id INT NOT NULL,
-    vershion CHAR(10),
+    version CHAR(10),
     PRIMARY KEY (multimedia_id),
     CONSTRAINT fk_application_multimedia
         FOREIGN KEY(multimedia_id) 
