@@ -31,6 +31,21 @@ class Book(Multimedia):
         managed = False
         db_table = 'book'
 
+class Movie(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
+    duration = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'movie'
+
+class Application(Multimedia):
+    multimedia = models.OneToOneField('Multimedia', parent_link=True)
+    version = models.CharField(max_length = 10)
+
+    class Meta:
+        managed = False
+        db_table = 'application'
 
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
