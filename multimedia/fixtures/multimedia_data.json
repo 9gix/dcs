@@ -1,161 +1,241 @@
 [
 {
     "model": "multimedia.multimedia",
+    "pk": 1,
     "fields": {
+        "price": "1234",
+        "created_at": "2015-03-13T10:59:08Z",
         "name": "asdf",
         "modified_at": "2015-03-13T10:59:08Z",
-        "description": "asdf",
-        "created_at": "2015-03-13T10:59:08Z",
-        "price": "1234"
-    },
-    "pk": 1
+        "description": "asdf"
+    }
 },
 {
     "model": "multimedia.multimedia",
+    "pk": 2,
     "fields": {
-        "name": "Happy",
-        "modified_at": "2015-03-13T11:02:15Z",
-        "description": "Some description about Happy",
+        "price": "5",
         "created_at": "2015-03-13T11:02:15Z",
-        "price": "5"
-    },
-    "pk": 2
+        "name": "Happy",
+        "modified_at": "2015-03-28T04:27:16Z",
+        "description": "Some description about Happy"
+    }
 },
 {
     "model": "multimedia.multimedia",
+    "pk": 3,
     "fields": {
+        "price": "4",
+        "created_at": "2015-03-13T11:03:22Z",
         "name": "Thinking out Loud",
         "modified_at": "2015-03-13T11:03:22Z",
-        "description": "Some description about Thinking out Loud",
-        "created_at": "2015-03-13T11:03:22Z",
-        "price": "4"
-    },
-    "pk": 3
+        "description": "Some description about Thinking out Loud"
+    }
 },
 {
     "model": "multimedia.multimedia",
+    "pk": 4,
     "fields": {
+        "price": "130",
+        "created_at": "2015-03-13T11:04:17Z",
         "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
         "modified_at": "2015-03-13T11:04:17Z",
-        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders",
-        "created_at": "2015-03-13T11:04:17Z",
-        "price": "130"
-    },
-    "pk": 4
+        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders"
+    }
+},
+{
+    "model": "multimedia.multimedia",
+    "pk": 6,
+    "fields": {
+        "price": "77",
+        "created_at": "2015-03-28T03:20:10Z",
+        "name": "Introduction to Algorithms, 3rd Edition",
+        "modified_at": "2015-03-28T03:20:15Z",
+        "description": "Some books on algorithms are rigorous but incomplete; others cover masses of material but lack rigor. Introduction to Algorithms uniquely combines rigor and comprehensiveness. The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers. Each chapter is relatively self-contained and can be used as a unit of study. The algorithms are described in English and in a pseudocode designed to be readable by anyone who has done a little programming. The explanations have been kept elementary without sacrificing depth of coverage or mathematical rigor.The first edition became a widely used text in universities worldwide as well as the standard reference for professionals. The second edition featured new chapters on the role of algorithms, probabilistic analysis and randomized algorithms, and linear programming. The third edition has been revised and updated throughout. It includes two completely new chapters, on van Emde Boas trees and multithreaded algorithms, substantial additions to the chapter on recurrence (now called \"Divide-and-Conquer\"), and an appendix on matrices. It features improved treatment of dynamic programming and greedy algorithms and a new notion of edge-based flow in the material on flow networks. Many new exercises and problems have been added for this edition. As of the third edition, this textbook is published exclusively by the MIT Press."
+    }
+},
+{
+    "model": "multimedia.multimedia",
+    "pk": 7,
+    "fields": {
+        "price": "122",
+        "created_at": "2015-03-28T03:27:00Z",
+        "name": "The Algorithm Design Manual",
+        "modified_at": "2015-03-28T03:27:00Z",
+        "description": "This volume helps take some of the \"mystery\" out of identifying and dealing with key algorithms. Drawing heavily on the author's own real-world experiences, the book stresses design and analysis. Coverage is divided into two parts, the first being a general guide to techniques for the design and analysis of computer algorithms. The second is a reference section, which includes a catalog of the 75 most important algorithmic problems. By browsing this catalog, readers can quickly identify what the problem they have encountered is called, what is known about it, and how they should proceed if they need to solve it. This book is ideal for the working professional who uses algorithms on a daily basis and has need for a handy reference. This work can also readily be used in an upper-division course or as a student reference guide. THE ALGORITHM DESIGN MANUAL comes with a CD-ROM that contains: * a complete hypertext version of the full printed book. * the source code and URLs for all cited implementations. * over 30 hours of audio lectures on the design and analysis of algorithms are provided, all keyed to on-line lecture notes."
+    }
+},
+{
+    "model": "multimedia.multimedia",
+    "pk": 8,
+    "fields": {
+        "price": "17",
+        "created_at": "2015-03-28T03:29:56Z",
+        "name": "Dead Wake: The Last Crossing of the Lusitania",
+        "modified_at": "2015-03-28T03:29:56Z",
+        "description": "#1 New York Times Bestseller\r\n\r\nFrom the #1 New York Times bestselling author and master of narrative nonfiction comes the enthralling story of the sinking of the Lusitania\r\n\r\nOn May 1, 1915, with WWI entering its tenth month, a luxury ocean liner as richly appointed as an English country house sailed out of New York, bound for Liverpool, carrying a record number of children and infants. The passengers were surprisingly at ease, even though Germany had declared the seas around Britain to be a war zone. For months, German U-boats had brought terror to the North Atlantic. But the Lusitania was one of the era\u2019s great transatlantic \u201cGreyhounds\u201d\u2014the fastest liner then in service\u2014and her captain, William Thomas Turner, placed tremendous faith in the gentlemanly strictures of warfare that for a century had kept civilian ships safe from attack. \r\n\r\nGermany, however, was determined to change the rules of the game, and Walther Schwieger, the captain of Unterseeboot-20, was happy to oblige. Meanwhile, an ultra-secret British intelligence unit tracked Schwieger\u2019s U-boat, but told no one. As U-20 and the Lusitania made their way toward Liverpool, an array of forces both grand and achingly small\u2014hubris, a chance fog, a closely guarded secret, and more\u2014all converged to produce one of the great disasters of history.\r\n\r\nIt is a story that many of us think we know but don\u2019t, and Erik Larson tells it thrillingly, switching between hunter and hunted while painting a larger portrait of America at the height of the Progressive Era. Full of glamour and suspense, Dead Wake brings to life a cast of evocative characters, from famed Boston bookseller Charles Lauriat to pioneering female architect Theodate Pope to President Woodrow Wilson, a man lost to grief, dreading the widening war but also captivated by the prospect of new love. \r\n\r\nGripping and important, Dead Wake captures the sheer drama and emotional power of a disaster whose intimate details and true meaning have long been obscured by history."
+    }
+},
+{
+    "model": "multimedia.multimedia",
+    "pk": 9,
+    "fields": {
+        "price": "21",
+        "created_at": "2015-03-28T03:31:48Z",
+        "name": "Finders Keepers: A Novel",
+        "modified_at": "2015-03-28T03:31:48Z",
+        "description": "A masterful, intensely suspenseful novel about a reader whose obsession with a reclusive writer goes far too far\u2014a book about the power of storytelling, starring the same trio of unlikely and winning heroes King introduced in Mr. Mercedes.\r\n\r\n\u201cWake up, genius.\u201d So begins King\u2019s instantly riveting story about a vengeful reader. The genius is John Rothstein, an iconic author who created a famous character, Jimmy Gold, but who hasn\u2019t published a book for decades. Morris Bellamy is livid, not just because Rothstein has stopped providing books, but because the nonconformist Jimmy Gold has sold out for a career in advertising. Morris kills Rothstein and empties his safe of cash, yes, but the real treasure is a trove of notebooks containing at least one more Gold novel.\r\n\r\nMorris hides the money and the notebooks, and then he is locked away for another crime. Decades later, a boy named Pete Saubers finds the treasure, and now it is Pete and his family that Bill Hodges, Holly Gibney, and Jerome Robinson must rescue from the ever-more deranged and vengeful Morris when he\u2019s released from prison after thirty-five years.\r\n\r\nNot since Misery has King played with the notion of a reader whose obsession with a writer gets dangerous. Finders Keepers is spectacular, heart-pounding suspense, but it is also King writing about how literature shapes a life\u2014for good, for bad, forever."
+    }
 },
 {
     "model": "multimedia.book",
+    "pk": 4,
     "fields": {
+        "published_on": "2013-03-13",
         "isbn10": "0321773039",
-        "isbn13": "9780321773036",
-        "published_on": "2013-03-13"
-    },
-    "pk": 4
+        "isbn13": "9780321773036"
+    }
+},
+{
+    "model": "multimedia.book",
+    "pk": 6,
+    "fields": {
+        "published_on": "2009-07-31",
+        "isbn10": "0262033844",
+        "isbn13": "9780262033848"
+    }
+},
+{
+    "model": "multimedia.book",
+    "pk": 7,
+    "fields": {
+        "published_on": "1997-11-14",
+        "isbn10": "0387948600",
+        "isbn13": "9780387948607"
+    }
+},
+{
+    "model": "multimedia.book",
+    "pk": 8,
+    "fields": {
+        "published_on": "2015-03-10",
+        "isbn10": "0307408868",
+        "isbn13": "9780307408860"
+    }
+},
+{
+    "model": "multimedia.book",
+    "pk": 9,
+    "fields": {
+        "published_on": "2015-06-02",
+        "isbn10": "1501100076",
+        "isbn13": "9781501100079"
+    }
 },
 {
     "model": "multimedia.music",
+    "pk": 1,
     "fields": {
         "duration": 123
-    },
-    "pk": 1
+    }
 },
 {
     "model": "multimedia.music",
+    "pk": 2,
     "fields": {
         "duration": 240
-    },
-    "pk": 2
+    }
 },
 {
     "model": "multimedia.music",
+    "pk": 3,
     "fields": {
         "duration": 248
-    },
-    "pk": 3
+    }
 },
 {
     "model": "multimedia.album",
+    "pk": 1,
     "fields": {
         "name": "asdf"
-    },
-    "pk": 1
+    }
 },
 {
     "model": "multimedia.album",
+    "pk": 2,
     "fields": {
         "name": "GIRL"
-    },
-    "pk": 2
+    }
 },
 {
     "model": "multimedia.album",
+    "pk": 3,
     "fields": {
         "name": "X"
-    },
-    "pk": 3
+    }
 },
 {
     "model": "multimedia.albummusic",
+    "pk": 1,
     "fields": {
         "album": 1,
         "music": 1
-    },
-    "pk": 1
+    }
 },
 {
     "model": "multimedia.albummusic",
+    "pk": 2,
     "fields": {
         "album": 2,
         "music": 2
-    },
-    "pk": 2
+    }
 },
 {
     "model": "multimedia.albummusic",
+    "pk": 3,
     "fields": {
         "album": 3,
         "music": 3
-    },
-    "pk": 3
+    }
 },
 {
     "model": "multimedia.category",
+    "pk": 1,
     "fields": {
         "name": "Book",
         "parent_category": null
-    },
-    "pk": 1
+    }
 },
 {
     "model": "multimedia.category",
+    "pk": 2,
     "fields": {
         "name": "Popular",
         "parent_category": null
-    },
-    "pk": 2
+    }
 },
 {
     "model": "multimedia.multimediacategory",
+    "pk": 1,
     "fields": {
         "multimedia": 1,
         "category": 1
-    },
-    "pk": 1
+    }
 },
 {
     "model": "multimedia.multimediacategory",
+    "pk": 2,
     "fields": {
         "multimedia": 2,
         "category": 2
-    },
-    "pk": 2
+    }
 },
 {
     "model": "multimedia.multimediacategory",
+    "pk": 3,
     "fields": {
         "multimedia": 3,
         "category": 1
-    },
-    "pk": 3
+    }
 }
 ]
