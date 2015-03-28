@@ -15,7 +15,13 @@
   </div>
 </div>
 <div class="row">
-  <!-- most likely will change -->
-  {% block review %}{% endblock review %}
+  {% for review in reviews %}
+    <div class="container">
+      <p>Rating: {{ review.rating }}</p>
+      <blockquote>
+        {{ review.comment }}
+      </blockquote>
+    </div>
+  {% endfor %}
 </div>
 {% endblock content %}
