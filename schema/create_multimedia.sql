@@ -19,6 +19,24 @@ CREATE TABLE IF NOT EXISTS book (
         REFERENCES multimedia (id)
 );
 
+CREATE TABLE IF NOT EXISTS movie (
+    multimedia_id INT NOT NULL,
+    duration INT NOT NULL,
+    PRIMARY KEY (multimedia_id),
+    CONSTRAINT fk_movie_multimedia
+        FOREIGN KEY (multimedia_id)
+        REFERENCES multimedia (id)
+);
+
+CREATE TABLE IF NOT EXISTS application (
+    multimedia_id INT NOT NULL,
+    vershion CHAR(10),
+    PRIMARY KEY (multimedia_id),
+    CONSTRAINT fk_application_multimedia
+        FOREIGN KEY(multimedia_id) 
+        REFERENCES multimedia (id)
+);
+
 CREATE TABLE IF NOT EXISTS album (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45) NOT NULL
