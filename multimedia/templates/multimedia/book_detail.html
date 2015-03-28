@@ -1,6 +1,10 @@
 {% extends "multimedia/base_detail.html" %}
 {% load staticfiles %}
 
+{% block title %}
+{{ book.name }}
+{% endblock title %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static "css/book_detail.css" %}">
 {% endblock css %}
