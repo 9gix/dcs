@@ -1,0 +1,13 @@
+.book_container {
+  width:169px;
+  height:350px;
+}
+
+.book_name {
+  width:169px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:block;
+  white-space:nowrap;
+}
+

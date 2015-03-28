@@ -1,0 +1,19 @@
+{% extends "multimedia/book_base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{{ block.super }}
+<h2>Book List</h2>
+<link href="{% static "css/book_list.css" %}" rel="stylesheet">
+
+<ul>
+  {% for book in books %}
+    <div class="book_container">
+      <div style="width:169px; height:255px; background-color:green">
+      </div>
+      <a class="book_name" href="{{ book.url }}">{{ book.name }}</a>
+    </div>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
