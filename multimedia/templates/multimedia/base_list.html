@@ -20,7 +20,8 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading"><a href="{{ item.url }}">{{ item.name }}</a></h4>
-              <p>Item info eg author, singer, isbn, version, price here</p>
+              <!-- Item info eg author, singer, isbn, version, price here -->
+              {% block info %}{% endblock info %}
             </div>
           </div>
         </div>
