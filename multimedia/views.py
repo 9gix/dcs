@@ -4,7 +4,7 @@ from .models import Book
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, 'multimedia/book_list.html', {'multimedia': books, 'type': 'Book'})
+    return render(request, 'multimedia/book_list.html', {'multimedia': books, 'multimedia_type': 'Book'})
 
 
 def book_detail(request, isbn13):
