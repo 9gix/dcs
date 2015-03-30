@@ -1,0 +1,26 @@
+{% extends "multimedia/base_detail.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ book.name }}
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/music.css" %}">
+{% endblock css %}
+
+{% block preview %}
+<dl>
+  <dt>Singer</dt>
+  <dd>{{ music.singer }}</dd>
+  <dt>Album</dt>
+  <dd>{{ music.album }}</dd>
+</dl>
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ music.name }}</h3>
+<p>
+  {{ music.description }}
+</p>
+{% endblock description %}
