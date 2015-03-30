@@ -41,14 +41,14 @@ class MusicManager(models.Manager):
         with connection.cursor() as c:
             c.execute('''
                 SELECT
-                  mul.id
+                  mul.id AS id,
                   mul.name AS name,
                   a.name AS album,
                   duration,
                   price
-                FROM mutimedia mul, music mus, album_music am, album a
-                WHERE mul.id = mus.id
-                  AND am.music_id = mus.id
+                FROM multimedia mul, music mus, album_music am, album a
+                WHERE mul.id = mus.multimedia_id
+                  AND am.music_id = mus.multimedia_id
                   AND am.album_id = a.id
             ''')
 
@@ -56,7 +56,7 @@ class MusicManager(models.Manager):
                 items.append(item)
 
         for item in items:
-            item['url'] = reverse('multimedia:music_detail', args=(item['mul.id']))
+            item['url'] = reverse('multimedia:music_detail', args=(item['id'],))
 
         return items
 
@@ -64,15 +64,14 @@ class MusicManager(models.Manager):
         with connection.cursor() as c:
             c.execute('''
                 SELECT
-                  mul.id
                   mul.name AS name,
                   a.name AS album,
                   description,
                   duration,
                   price
-                FROM mutimedia mul, music mus, album_music am, album a
-                WHERE mul.id = mus.id
-                  AND am.music_id = mus.id
+                FROM multimedia mul, music mus, album_music am, album a
+                WHERE mul.id = mus.multimedia_id
+                  AND am.music_id = mus.multimedia_id
                   AND am.album_id = a.id
                   AND mul.id = %s;
             ''', [kwargs['id'], ])
