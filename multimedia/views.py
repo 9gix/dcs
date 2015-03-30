@@ -14,3 +14,7 @@ def book_detail(request, isbn13):
 def music_list(request):
     musics = Music.objects.all()
     return render(request, 'multimedia/music_list.html', {'multimedia': musics, 'multimedia_type': 'Music'})
+
+def music_detail(request, music_id):
+    music = Music.objects.get(id=music_id)
+    return render(request, 'multimedia/music_detail.html', {'music': music})
