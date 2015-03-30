@@ -4,16 +4,23 @@
 {% block content %}
 <div class="row">
   <div class="col-md-3">
-    <!-- preview consist of thumbnail and preview of the content, eg screenshot,
-      trailer, excerpt of a book/music etc -->
-    {% block preview %}{% endblock preview %}
+    <!-- preview consist of thumbnail and a few aux data -->
+    <div class="panel">
+      <div class="panel-body">
+        {% block preview %}{% endblock preview %}
+      </div>
+    </div>
   </div>
   <div class="col-md-9">
-    <!-- description consist of the description (duh), and other aux data
-      eg artis, author etc -->
-    {% block description %}{% endblock description %}
+    <!-- description consist of the description (duh), and other aux data -->
+    <div class="panel">
+      <div class="panel-body">
+        {% block description %}{% endblock description %}
+      </div>
+    </div>
   </div>
 </div>
+<!-- Put form for review here -->
 <div class="row">
   {% for review in reviews %}
     <div class="container">
