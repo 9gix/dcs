@@ -5,19 +5,36 @@
 Books - Digital Content Store
 {% endblock title %}
 
+{% block css %}
+{{ block.super }}
+<link href="{% static "css/book_list.css" %}" rel="stylesheet">
+{% endblock css %}
+
 {% block content %}
 {{ block.super }}
 <h2>Book List</h2>
-<link href="{% static "css/book_list.css" %}" rel="stylesheet">
-
-<ul>
-  {% for book in books %}
-    <div class="book_container">
-      <div style="width:169px; height:255px; background-color:green">
+<div class="container">
+  <ul class="list-unstyled">
+    {% for book in books %}
+    <li>
+      <div class="panel">
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left media-middle">
+              <!-- Insert thumbnail here -->
+              <a href="{{ book.url }}">
+                <img class="media-object" src="#">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><a href="{{ book.url }}">{{ book.name }}</a></h4>
+              <p>Book info eg author, isbn etc here</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <a class="book_name" href="{{ book.url }}">{{ book.name }}</a>
-    </div>
-  {% endfor %}
-</ul>
-
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock content %}
