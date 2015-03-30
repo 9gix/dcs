@@ -9,3 +9,16 @@ Books - Digital Content Store
 {{ block.super }}
 <link href="{% static "css/book_list.css" %}" rel="stylesheet">
 {% endblock css %}
+
+{% block info %}
+<p>
+  <dl>
+    <dt>Author</dt>
+    <dd>{{ item.author }}</dd>
+    <dt>ISBN13</dt>
+    <dd>{{ item.isbn13 }}</dd>
+    <dt>Price</dt>
+    <dd>???</dd>
+  </dl>
+</p>
+{% endblock info %}
