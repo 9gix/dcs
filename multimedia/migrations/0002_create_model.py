@@ -129,4 +129,26 @@ class Migration(migrations.Migration):
             },
             bases=('multimedia.multimedia',),
         ),
+        migrations.CreateModel(
+            name='Movie',
+            fields=[
+                ('multimedia', models.OneToOneField(primary_key=True, to='multimedia.Multimedia', parent_link=True, serialize=False)),
+                ('duration', models.IntegerField(null=True)),
+            ],
+            options={
+                'db_table': 'movie',
+                'managed': False,
+            }
+        ),
+        migrations.CreateModel(
+            name='Application',
+            fields=[
+                ('multimedia', models.OneToOneField(primary_key=True, to='multimedia.Multimedia', parent_link=True, serialize=False)),
+                ('version', models.CharField(max_length = 10)),
+            ],
+            options={
+                'db_table': 'application',
+                'managed': False,
+            }
+        ),
     ]
