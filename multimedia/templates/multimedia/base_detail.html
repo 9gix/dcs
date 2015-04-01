@@ -4,16 +4,48 @@
 {% block content %}
 <div class="row">
   <div class="col-md-3">
-    <!-- preview consist of thumbnail and preview of the content, eg screenshot,
-      trailer, excerpt of a book/music etc -->
-    {% block preview %}{% endblock preview %}
+    <!-- preview consist of thumbnail and a few aux data -->
+    <div class="panel">
+      <div class="panel-body">
+        {% block preview %}{% endblock preview %}
+      </div>
+    </div>
   </div>
   <div class="col-md-9">
-    <!-- description consist of the description (duh), and other aux data
-      eg artis, author etc -->
-    {% block description %}{% endblock description %}
+    <!-- description consist of the description (duh), and other aux data -->
+    <div class="panel">
+      <div class="panel-body">
+        {% block description %}{% endblock description %}
+      </div>
+    </div>
   </div>
 </div>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-2 control-label">Name</label>
+    <div class="col-md-3">
+      <input type="text" class="form-control" placeholder="Ganteng">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Rating</label>
+    <div class="col-md-2">
+      <select class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option selected="selected">5</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-2 control-label">Review</label>
+    <div class="col-md-10">
+      <textarea class="form-control" placeholder="Why am I so ganteng?"></textarea>
+    </div>
+  </div>
+</form>
 <div class="row">
   {% for review in reviews %}
     <div class="container">
