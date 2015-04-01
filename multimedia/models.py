@@ -1,5 +1,8 @@
-from django.db import connection
 from django.db import models
+
+from .managers import (
+    BookManager
+)
 
 
 class Multimedia(models.Model):
@@ -27,6 +30,8 @@ class Book(Multimedia):
 
     published_on = models.DateField()
 
+    objects = BookManager()
+
     class Meta:
         managed = False
         db_table = 'book'
@@ -46,6 +51,7 @@ class Application(Multimedia):
     class Meta:
         managed = False
         db_table = 'application'
+
 
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
