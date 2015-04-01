@@ -32,7 +32,6 @@ def delete_multimedia(apps, schema_editor):
     Movie.objects.all().delete()
     Application.objects.all().delete()
     Multimedia.objects.all().delete()
-    Multimedia.objects.all().delete()
 
 
 class Migration(migrations.Migration):

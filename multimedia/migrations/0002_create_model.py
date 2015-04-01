@@ -138,7 +138,8 @@ class Migration(migrations.Migration):
             options={
                 'db_table': 'movie',
                 'managed': False,
-            }
+            },
+            bases=('multimedia.multimedia',),
         ),
         migrations.CreateModel(
             name='Application',
@@ -149,6 +150,7 @@ class Migration(migrations.Migration):
             options={
                 'db_table': 'application',
                 'managed': False,
-            }
+            },
+            bases=('multimedia.multimedia',),
         ),
     ]
