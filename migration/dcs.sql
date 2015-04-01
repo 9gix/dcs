@@ -79,6 +79,18 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `dcs`.`organisation`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `dcs`.`organisation` ;
+
+CREATE TABLE IF NOT EXISTS `dcs`.`organisation` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `dcs`.`multimedia`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `dcs`.`multimedia` ;
@@ -91,7 +103,13 @@ CREATE TABLE IF NOT EXISTS `dcs`.`multimedia` (
   `created_at` DATETIME NULL,
   `modified_at` DATETIME NULL,
   `image` VARCHAR(120) NULL,
+  `organisation_id` INT NOT NULL,
   PRIMARY KEY (`id`))
+  CONSTRAINT `fk_multimedia`
+    FOREIGN KEY(`organisation_id`)
+    REFERENCES `dcs`.`organisation` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -214,18 +232,6 @@ CREATE TABLE IF NOT EXISTS `dcs`.`role` (
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `dcs`.`organisation`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `dcs`.`organisation` ;
-
-CREATE TABLE IF NOT EXISTS `dcs`.`organisation` (
-  `id` INT NOT NULL,
-  `name` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 

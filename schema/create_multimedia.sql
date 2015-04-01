@@ -1,3 +1,8 @@
+CREATE TABLE IF NOT EXISTS organisation (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS multimedia (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -5,7 +10,11 @@ CREATE TABLE IF NOT EXISTS multimedia (
     price DECIMAL(10,2) NULL,
     created_at DATETIME NOT NULL,
     modified_at DATETIME NOT NULL,
-    PRIMARY KEY (id)
+    organisation_id INT NOT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT fk_multimedia
+        FOREIGN KEY (organisation_id)
+        REFERENCES organisation(id)
 );
 
 CREATE TABLE IF NOT EXISTS book (

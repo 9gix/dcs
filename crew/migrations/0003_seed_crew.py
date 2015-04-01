@@ -10,7 +10,6 @@ def seed_crew(apps, schema_editor):
 def delete_crew(apps, schema_editor):
     Crew = apps.get_model('crew', 'Crew')
     Person = apps.get_model('crew', 'Person')
-    Organisation = apps.get_model('crew', 'Organisation')
     Role = apps.get_model('crew', 'Role')
 
     Crew.objects.all().delete()
