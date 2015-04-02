@@ -99,6 +99,7 @@ TEMPLATE_DIRS = (
 # Authentication
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/'
 
 
 # Email Backend
