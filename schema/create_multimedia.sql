@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS multimedia (
     name VARCHAR(100) NOT NULL,
     description TEXT NOT NULL,
     price DECIMAL(10,2) NULL,
-    thumbnail VARCHAR(100) NOT NULL,
     created_at DATETIME NOT NULL,
     modified_at DATETIME NOT NULL,
     organisation_id INT NOT NULL,

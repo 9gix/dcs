@@ -1,5 +1,8 @@
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFit
+
 from .managers import (
     BookManager
 )
@@ -21,7 +24,6 @@ class Multimedia(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
-    thumbnail = models.ImageField(upload_to='thumbnail', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     organisation = models.ForeignKey('Organisation')
@@ -32,6 +34,16 @@ class Multimedia(models.Model):
 
     def __str__(self):
         return self.name
+
+class MultimediaImage(models.Model):
+    caption = models.CharField(max_length=100, blank=True)
+    original = models.ImageField(upload_to='original')
+    multimedia = models.ForeignKey('Multimedia')
+    thumbnail = ImageSpecField(source='original',
+            processors=[ResizeToFit(150, 150)], format='JPEG')
+
+    class Meta:
+        db_table = 'multimedia_image'
 
 
 class Book(Multimedia):

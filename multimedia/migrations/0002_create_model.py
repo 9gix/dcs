@@ -65,6 +65,19 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='MultimediaImage',
+            fields=[
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('caption', models.CharField(max_length=100, blank=True)),
+                ('original', models.ImageField(upload_to='original')),
+                ('multimedia', models.ForeignKey(to='multimedia.Multimedia')),
+            ],
+            options={
+                'db_table': 'multimedia_image',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Movie',
             fields=[
                 ('multimedia', models.OneToOneField(parent_link=True, serialize=False, primary_key=True, to='multimedia.Multimedia')),
