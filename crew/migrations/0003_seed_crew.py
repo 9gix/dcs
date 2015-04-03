@@ -14,7 +14,6 @@ def delete_crew(apps, schema_editor):
 
     Crew.objects.all().delete()
     Person.objects.all().delete()
-    Organisation.objects.all().delete()
     Role.objects.all().delete()
 
 class Migration(migrations.Migration):
