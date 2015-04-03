@@ -39,6 +39,7 @@ INSTALLED_APPS = (
 
     # External Application
     'django_extensions',
+    'registration',
 
 
     # Internal Application
@@ -93,6 +94,17 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
 )
+
+
+# Authentication
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/'
+
+
+# Email Backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Local Settings
 try:

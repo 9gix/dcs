@@ -1,0 +1,7 @@
+{% extends "registration/base.html" %}
+
+{% block title %}Activation Complete{% endblock title %}
+{% block content %}
+Your account has been activated.
+<a href="{% url 'auth_login' %}">Login Now</a>
+{% endblock content %}
