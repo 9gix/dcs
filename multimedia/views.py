@@ -23,6 +23,6 @@ def music_list(request):
 
 def music_detail(request, music_id):
     music = Music.objects.get(id=music_id)
-    crews = Crew.objects.get(multimedia_id=music_id)
+    crews = Crew.objects.all(multimedia_id=music_id)
     music['crews'] = crews
     return render(request, 'multimedia/music_detail.html', {'music': music})
