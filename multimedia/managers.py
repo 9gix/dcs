@@ -34,3 +34,49 @@ class BookManager(models.Manager):
             ''', [kwargs['isbn13'], ])
             return dictfetchone(c)
 
+
+class MusicManager(models.Manager):
+    def all(self):
+        items = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT
+                  mul.id AS id,
+                  mul.name AS name,
+                  a.name AS album,
+                  duration,
+                  price,
+                  o.name AS organisation
+                FROM multimedia mul, music mus, album_music am, album a, organisation o
+                WHERE mul.id = mus.multimedia_id
+                  AND am.music_id = mus.multimedia_id
+                  AND am.album_id = a.id
+                  AND mul.organisation_id = o.id
+            ''')
+
+            for item in dictfetchall(c):
+                items.append(item)
+
+        for item in items:
+            item['url'] = reverse('multimedia:music_detail', args=(item['id'],))
+
+        return items
+
+    def get(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT
+                  mul.name AS name,
+                  a.name AS album,
+                  description,
+                  duration,
+                  price,
+                  o.name AS organisation
+                FROM multimedia mul, music mus, album_music am, album a, organisation o
+                WHERE mul.id = mus.multimedia_id
+                  AND am.music_id = mus.multimedia_id
+                  AND am.album_id = a.id
+                  AND mul.organisation_id = o.id
+                  AND mul.id = %s;
+            ''', [kwargs['id'], ])
+            return dictfetchone(c)

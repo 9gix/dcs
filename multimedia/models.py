@@ -1,7 +1,8 @@
 from django.db import models
 
 from .managers import (
-    BookManager
+    BookManager,
+    MusicManager,
 )
 
 class Organisation(models.Model):
@@ -66,6 +67,8 @@ class Application(Multimedia):
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField(null=True);
+
+    objects = MusicManager()
 
     class Meta:
         managed = False
