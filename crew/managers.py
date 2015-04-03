@@ -7,7 +7,7 @@ from multimedia.utils import (
 )
 
 class CrewManager(models.Manager):
-    def all(self, *args, **kwargs):
+    def filter(self, *args, **kwargs):
         crews = []
         with connection.cursor() as c:
             c.execute('''

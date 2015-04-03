@@ -16,13 +16,13 @@ def music_list(request):
     musics = Music.objects.all()
 
     for music in musics:
-        crews = Crew.objects.all(multimedia_id=music['id'])
+        crews = Crew.objects.filter(multimedia_id=music['id'])
         music['crews'] = crews
 
     return render(request, 'multimedia/music_list.html', {'multimedia': musics, 'multimedia_type': 'Music'})
 
 def music_detail(request, music_id):
     music = Music.objects.get(id=music_id)
-    crews = Crew.objects.all(multimedia_id=music_id)
+    crews = Crew.objects.filter(multimedia_id=music_id)
     music['crews'] = crews
     return render(request, 'multimedia/music_detail.html', {'music': music})
