@@ -11,10 +11,6 @@
 
 {% block preview %}
 <!-- Thumbnail here -->
-<dl>
-  <dt>Price</dt>
-  <dd>{{ music.price }}</dd>
-</dl>
 {% endblock preview %}
 
 {% block description %}
@@ -32,6 +28,8 @@
     <dd>{{ music.duration }}</dd>
     <dt>Recording company</dt>
     <dd>{{ music.organisation }}</dd>
+    <dt>Price</dt>
+    <dd>{{ music.price }}</dd>
   </dl>
 </p>
 {% endblock description %}
