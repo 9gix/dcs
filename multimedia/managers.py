@@ -45,11 +45,13 @@ class MusicManager(models.Manager):
                   mul.name AS name,
                   a.name AS album,
                   duration,
-                  price
-                FROM multimedia mul, music mus, album_music am, album a
+                  price,
+                  o.name AS organisation
+                FROM multimedia mul, music mus, album_music am, album a, organisation o
                 WHERE mul.id = mus.multimedia_id
                   AND am.music_id = mus.multimedia_id
                   AND am.album_id = a.id
+                  AND mul.organisation_id = o.id
             ''')
 
             for item in dictfetchall(c):
@@ -68,11 +70,13 @@ class MusicManager(models.Manager):
                   a.name AS album,
                   description,
                   duration,
-                  price
-                FROM multimedia mul, music mus, album_music am, album a
+                  price,
+                  o.name AS organisation
+                FROM multimedia mul, music mus, album_music am, album a, organisation o
                 WHERE mul.id = mus.multimedia_id
                   AND am.music_id = mus.multimedia_id
                   AND am.album_id = a.id
+                  AND mul.organisation_id = o.id
                   AND mul.id = %s;
             ''', [kwargs['id'], ])
             return dictfetchone(c)
