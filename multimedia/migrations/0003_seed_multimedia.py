@@ -16,6 +16,7 @@ def delete_multimedia(apps, schema_editor):
     Movie = apps.get_model('multimedia', 'Movie')
     Application = apps.get_model('multimedia', 'Application')
     Multimedia = apps.get_model('multimedia', 'Multimedia')
+    Organisation = apps.get_model('multimedia', 'Organisation')
     Category = apps.get_model('multimedia', 'Category')
     MultimediaReview = apps.get_model('multimedia', 'MultimediaReview')
     MultimediaContent = apps.get_model('multimedia', 'MultimediaContent')
@@ -32,6 +33,7 @@ def delete_multimedia(apps, schema_editor):
     Movie.objects.all().delete()
     Application.objects.all().delete()
     Multimedia.objects.all().delete()
+    Organisation.objects.all().delete()
 
 
 class Migration(migrations.Migration):

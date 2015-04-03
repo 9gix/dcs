@@ -1,12 +1,12 @@
 from django.contrib import admin
 from .models import (
-        Multimedia, Book, Movie, Application,
+        Organisation, Multimedia, Book, Movie, Application,
         Album, Music, AlbumMusic,
         Category, MultimediaCategory,
         MultimediaContent, MultimediaReview
 )
 
-
+admin.site.register(Organisation)
 admin.site.register(Book)
 admin.site.register(Movie)
 admin.site.register(Application)

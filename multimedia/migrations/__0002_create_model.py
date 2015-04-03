@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Album',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=45)),
             ],
             options={
@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='AlbumMusic',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
             ],
             options={
                 'db_table': 'album_music',
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Category',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=45)),
             ],
             options={
@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Multimedia',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=100)),
                 ('description', models.TextField()),
                 ('price', models.DecimalField(decimal_places=2, max_digits=10)),
@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Movie',
             fields=[
-                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('multimedia', models.OneToOneField(serialize=False, parent_link=True, primary_key=True, to='multimedia.Multimedia')),
                 ('duration', models.IntegerField()),
             ],
             options={
@@ -78,7 +78,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Book',
             fields=[
-                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('multimedia', models.OneToOneField(serialize=False, parent_link=True, primary_key=True, to='multimedia.Multimedia')),
                 ('isbn13', models.CharField(max_length=13)),
                 ('isbn10', models.CharField(max_length=10)),
                 ('published_on', models.DateField()),
@@ -92,7 +92,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Application',
             fields=[
-                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('multimedia', models.OneToOneField(serialize=False, parent_link=True, primary_key=True, to='multimedia.Multimedia')),
                 ('version', models.CharField(max_length=10)),
             ],
             options={
@@ -104,7 +104,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MultimediaCategory',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
             ],
             options={
                 'verbose_name_plural': 'multimedia categories',
@@ -116,7 +116,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MultimediaContent',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('caption', models.CharField(max_length=128)),
                 ('url', models.URLField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
@@ -131,7 +131,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MultimediaReview',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('comment', models.TextField(blank=True)),
                 ('rating', models.IntegerField()),
             ],
@@ -144,7 +144,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Music',
             fields=[
-                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('multimedia', models.OneToOneField(serialize=False, parent_link=True, primary_key=True, to='multimedia.Multimedia')),
                 ('duration', models.IntegerField(null=True)),
             ],
             options={
@@ -156,7 +156,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Organisation',
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(serialize=False, primary_key=True)),
                 ('name', models.CharField(max_length=45)),
             ],
             options={

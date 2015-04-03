@@ -23,18 +23,6 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Organisation',
-            fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True)),
-                ('name', models.CharField(max_length=45)),
-            ],
-            options={
-                'db_table': 'organisation',
-                'managed': False,
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='Person',
             fields=[
                 ('id', models.AutoField(serialize=False, primary_key=True)),
