@@ -11,31 +11,23 @@
 {% endblock css %}
 
 {% block preview %}
-<dl>
-  <dt>ISBN13:</dt>
-  <dd>{{ book.isbn13 }}</dd>
-  <dt>ISBN10:</dt>
-  <dd>{{ book.isbn10 }}</dd>
-</dl>
+<!-- Thumbnail here -->
 {% endblock preview %}
 
 {% block description %}
 <h3>{{ book.name }}</h3>
-<div class="authors">
-  <p>
-    {{ book.description }}
-  <p>
-  <p>Authors:</p>
-  <ul>
-    {% for author in book.authors %}
-    <li>
-      <a href="{{ author.url }}">{{ author.name }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
-<div class="publisher">
-  <p>Publisher:</p>
-  <a href="{{ book.publisher.url }}">{{ book.publisher.name }}</a>
-</div>
+<p>
+  {{ book.description }}
+  <dl>
+    <!-- crew here -->
+    <dt>Publisher</dt>
+    <dd>{{ book.publisher }}</dd>
+    <dt>ISBN13</dt>
+    <dd>{{ book.isbn13 }}</dd>
+    <dt>ISBN10</dt>
+    <dd>{{ book.isbn10 }}</dd>
+    <dt>Price</dt>
+    <dd>${{ book.price }}</dd>
+  </dl>
+</p>
 {% endblock description %}
