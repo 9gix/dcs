@@ -1,606 +1,655 @@
 [
 {
-    "model": "multimedia.organisation",
-    "fields": {
-        "name": "Music Industry"
-    },
-    "pk": 1
-},
-{
+    "pk": 2,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Paramount Pictures"
-    },
-    "pk": 2
+    }
 },
 {
+    "pk": 3,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Walt Disney Animation"
-    },
-    "pk": 3
+    }
 },
 {
+    "pk": 4,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Fox Searchlight Pictures"
-    },
-    "pk": 4
+    }
 },
 {
+    "pk": 6,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Warner Bros"
-    },
-    "pk": 6
+    }
 },
 {
+    "pk": 7,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Google Inc."
-    },
-    "pk": 7
+    }
 },
 {
+    "pk": 8,
     "model": "multimedia.organisation",
     "fields": {
         "name": "3D4Medical.com, LLC "
-    },
-    "pk": 8
+    }
 },
 {
+    "pk": 9,
     "model": "multimedia.organisation",
     "fields": {
         "name": "ELECTRONIC ARTS"
-    },
-    "pk": 9
+    }
 },
 {
+    "pk": 10,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Gameloft"
-    },
-    "pk": 10
+    }
 },
 {
+    "pk": 11,
     "model": "multimedia.organisation",
     "fields": {
         "name": "Flightradar24 AB"
-    },
-    "pk": 11
+    }
 },
 {
+    "pk": 12,
     "model": "multimedia.organisation",
     "fields": {
         "name": "TeslaCoil Software "
-    },
-    "pk": 12
+    }
 },
 {
+    "pk": 13,
     "model": "multimedia.organisation",
     "fields": {
         "name": "CloudMosa Inc."
-    },
-    "pk": 13
+    }
 },
 {
+    "pk": 14,
     "model": "multimedia.organisation",
     "fields": {
         "name": "MarineTraffic"
-    },
-    "pk": 14
+    }
 },
 {
+    "pk": 15,
+    "model": "multimedia.organisation",
     "fields": {
-        "modified_at": "2015-03-13T10:59:08Z",
-        "description": "asdf",
-        "created_at": "2015-03-13T10:59:08Z",
-        "price": "1234.00",
-        "name": "asdf",
-        "organisation": 1
-    },
+        "name": "Walt Disney Records"
+    }
+},
+{
+    "pk": 16,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Asylum Records, UK"
+    }
+},
+{
+    "pk": 17,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Back Lot Music"
+    }
+},
+{
+    "pk": 18,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Scribner"
+    }
+},
+{
+    "pk": 19,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Crown"
+    }
+},
+{
+    "pk": 20,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Springer"
+    }
+},
+{
+    "pk": 21,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "MIT Press"
+    }
+},
+{
+    "pk": 22,
+    "model": "multimedia.organisation",
+    "fields": {
+        "name": "Addison-Wesley"
+    }
+},
+{
     "pk": 1,
-    "model": "multimedia.multimedia"
+    "model": "multimedia.multimedia",
+    "fields": {
+        "modified_at": "2015-04-03T10:36:25Z",
+        "organisation": 15,
+        "created_at": "2015-03-13T10:59:08Z",
+        "price": "1.29",
+        "name": "Let it Go",
+        "description": "Let it Go from Frozen"
+    }
 },
 {
-    "fields": {
-        "modified_at": "2015-03-28T04:27:16Z",
-        "description": "Some description about Happy",
-        "created_at": "2015-03-13T11:02:15Z",
-        "price": "5.00",
-        "name": "Happy",
-        "organisation": 1
-    },
     "pk": 2,
-    "model": "multimedia.multimedia"
+    "model": "multimedia.multimedia",
+    "fields": {
+        "modified_at": "2015-04-03T10:39:25Z",
+        "organisation": 17,
+        "created_at": "2015-03-13T11:02:15Z",
+        "price": "0.99",
+        "name": "Happy",
+        "description": "Happy, a single from the singer Pharrell Williams from the movie \"Despicable Me 2\""
+    }
 },
 {
-    "fields": {
-        "modified_at": "2015-03-13T11:03:22Z",
-        "description": "Some description about Thinking out Loud",
-        "created_at": "2015-03-13T11:03:22Z",
-        "price": "4.00",
-        "name": "Thinking out Loud",
-        "organisation": 1
-    },
     "pk": 3,
-    "model": "multimedia.multimedia"
+    "model": "multimedia.multimedia",
+    "fields": {
+        "modified_at": "2015-04-03T10:37:57Z",
+        "organisation": 16,
+        "created_at": "2015-03-13T11:03:22Z",
+        "price": "1.29",
+        "name": "Thinking Out Loud",
+        "description": "Ed Sheeran's single from his album - X (Multiply)"
+    }
 },
 {
+    "pk": 4,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-13T11:04:17Z",
-        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders",
+        "modified_at": "2015-04-03T10:45:45Z",
+        "organisation": 22,
         "created_at": "2015-03-13T11:04:17Z",
         "price": "130.00",
         "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
-        "organisation": 1
-    },
-    "pk": 4,
-    "model": "multimedia.multimedia"
+        "description": "Includes Complete Coverage of the OpenGL\u00ae Shading Language!\r\n \r\nToday\u2019s OpenGL software interface enables programmers to produce extraordinarily high-quality computer-generated images and interactive applications using 2D and 3D objects, color images, and programmable shaders"
+    }
 },
 {
+    "pk": 6,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-28T03:20:15Z",
-        "description": "Some books on algorithms are rigorous but incomplete; others cover masses of material but lack rigor. Introduction to Algorithms uniquely combines rigor and comprehensiveness. The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers. Each chapter is relatively self-contained and can be used as a unit of study. The algorithms are described in English and in a pseudocode designed to be readable by anyone who has done a little programming. The explanations have been kept elementary without sacrificing depth of coverage or mathematical rigor.The first edition became a widely used text in universities worldwide as well as the standard reference for professionals. The second edition featured new chapters on the role of algorithms, probabilistic analysis and randomized algorithms, and linear programming. The third edition has been revised and updated throughout. It includes two completely new chapters, on van Emde Boas trees and multithreaded algorithms, substantial additions to the chapter on recurrence (now called \"Divide-and-Conquer\"), and an appendix on matrices. It features improved treatment of dynamic programming and greedy algorithms and a new notion of edge-based flow in the material on flow networks. Many new exercises and problems have been added for this edition. As of the third edition, this textbook is published exclusively by the MIT Press.",
+        "modified_at": "2015-04-03T10:44:53Z",
+        "organisation": 21,
         "created_at": "2015-03-28T03:20:10Z",
         "price": "77.00",
         "name": "Introduction to Algorithms, 3rd Edition",
-        "organisation": 1
-    },
-    "pk": 6,
-    "model": "multimedia.multimedia"
+        "description": "Some books on algorithms are rigorous but incomplete; others cover masses of material but lack rigor. Introduction to Algorithms uniquely combines rigor and comprehensiveness. The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers. Each chapter is relatively self-contained and can be used as a unit of study. The algorithms are described in English and in a pseudocode designed to be readable by anyone who has done a little programming. The explanations have been kept elementary without sacrificing depth of coverage or mathematical rigor.The first edition became a widely used text in universities worldwide as well as the standard reference for professionals. The second edition featured new chapters on the role of algorithms, probabilistic analysis and randomized algorithms, and linear programming. The third edition has been revised and updated throughout. It includes two completely new chapters, on van Emde Boas trees and multithreaded algorithms, substantial additions to the chapter on recurrence (now called \"Divide-and-Conquer\"), and an appendix on matrices. It features improved treatment of dynamic programming and greedy algorithms and a new notion of edge-based flow in the material on flow networks. Many new exercises and problems have been added for this edition. As of the third edition, this textbook is published exclusively by the MIT Press."
+    }
 },
 {
+    "pk": 7,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-28T03:27:00Z",
-        "description": "This volume helps take some of the \"mystery\" out of identifying and dealing with key algorithms. Drawing heavily on the author's own real-world experiences, the book stresses design and analysis. Coverage is divided into two parts, the first being a general guide to techniques for the design and analysis of computer algorithms. The second is a reference section, which includes a catalog of the 75 most important algorithmic problems. By browsing this catalog, readers can quickly identify what the problem they have encountered is called, what is known about it, and how they should proceed if they need to solve it. This book is ideal for the working professional who uses algorithms on a daily basis and has need for a handy reference. This work can also readily be used in an upper-division course or as a student reference guide. THE ALGORITHM DESIGN MANUAL comes with a CD-ROM that contains: * a complete hypertext version of the full printed book. * the source code and URLs for all cited implementations. * over 30 hours of audio lectures on the design and analysis of algorithms are provided, all keyed to on-line lecture notes.",
+        "modified_at": "2015-04-03T10:43:37Z",
+        "organisation": 20,
         "created_at": "2015-03-28T03:27:00Z",
         "price": "122.00",
         "name": "The Algorithm Design Manual",
-        "organisation": 1
-    },
-    "pk": 7,
-    "model": "multimedia.multimedia"
+        "description": "This volume helps take some of the \"mystery\" out of identifying and dealing with key algorithms. Drawing heavily on the author's own real-world experiences, the book stresses design and analysis. Coverage is divided into two parts, the first being a general guide to techniques for the design and analysis of computer algorithms. The second is a reference section, which includes a catalog of the 75 most important algorithmic problems. By browsing this catalog, readers can quickly identify what the problem they have encountered is called, what is known about it, and how they should proceed if they need to solve it. This book is ideal for the working professional who uses algorithms on a daily basis and has need for a handy reference. This work can also readily be used in an upper-division course or as a student reference guide. THE ALGORITHM DESIGN MANUAL comes with a CD-ROM that contains: * a complete hypertext version of the full printed book. * the source code and URLs for all cited implementations. * over 30 hours of audio lectures on the design and analysis of algorithms are provided, all keyed to on-line lecture notes."
+    }
 },
 {
+    "pk": 8,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-28T03:29:56Z",
-        "description": "#1 New York Times Bestseller\r\n\r\nFrom the #1 New York Times bestselling author and master of narrative nonfiction comes the enthralling story of the sinking of the Lusitania\r\n\r\nOn May 1, 1915, with WWI entering its tenth month, a luxury ocean liner as richly appointed as an English country house sailed out of New York, bound for Liverpool, carrying a record number of children and infants. The passengers were surprisingly at ease, even though Germany had declared the seas around Britain to be a war zone. For months, German U-boats had brought terror to the North Atlantic. But the Lusitania was one of the era\u2019s great transatlantic \u201cGreyhounds\u201d\u2014the fastest liner then in service\u2014and her captain, William Thomas Turner, placed tremendous faith in the gentlemanly strictures of warfare that for a century had kept civilian ships safe from attack. \r\n\r\nGermany, however, was determined to change the rules of the game, and Walther Schwieger, the captain of Unterseeboot-20, was happy to oblige. Meanwhile, an ultra-secret British intelligence unit tracked Schwieger\u2019s U-boat, but told no one. As U-20 and the Lusitania made their way toward Liverpool, an array of forces both grand and achingly small\u2014hubris, a chance fog, a closely guarded secret, and more\u2014all converged to produce one of the great disasters of history.\r\n\r\nIt is a story that many of us think we know but don\u2019t, and Erik Larson tells it thrillingly, switching between hunter and hunted while painting a larger portrait of America at the height of the Progressive Era. Full of glamour and suspense, Dead Wake brings to life a cast of evocative characters, from famed Boston bookseller Charles Lauriat to pioneering female architect Theodate Pope to President Woodrow Wilson, a man lost to grief, dreading the widening war but also captivated by the prospect of new love. \r\n\r\nGripping and important, Dead Wake captures the sheer drama and emotional power of a disaster whose intimate details and true meaning have long been obscured by history.",
+        "modified_at": "2015-04-03T10:41:53Z",
+        "organisation": 19,
         "created_at": "2015-03-28T03:29:56Z",
         "price": "17.00",
         "name": "Dead Wake: The Last Crossing of the Lusitania",
-        "organisation": 1
-    },
-    "pk": 8,
-    "model": "multimedia.multimedia"
+        "description": "#1 New York Times Bestseller\r\n\r\nFrom the #1 New York Times bestselling author and master of narrative nonfiction comes the enthralling story of the sinking of the Lusitania\r\n\r\nOn May 1, 1915, with WWI entering its tenth month, a luxury ocean liner as richly appointed as an English country house sailed out of New York, bound for Liverpool, carrying a record number of children and infants. The passengers were surprisingly at ease, even though Germany had declared the seas around Britain to be a war zone. For months, German U-boats had brought terror to the North Atlantic. But the Lusitania was one of the era\u2019s great transatlantic \u201cGreyhounds\u201d\u2014the fastest liner then in service\u2014and her captain, William Thomas Turner, placed tremendous faith in the gentlemanly strictures of warfare that for a century had kept civilian ships safe from attack. \r\n\r\nGermany, however, was determined to change the rules of the game, and Walther Schwieger, the captain of Unterseeboot-20, was happy to oblige. Meanwhile, an ultra-secret British intelligence unit tracked Schwieger\u2019s U-boat, but told no one. As U-20 and the Lusitania made their way toward Liverpool, an array of forces both grand and achingly small\u2014hubris, a chance fog, a closely guarded secret, and more\u2014all converged to produce one of the great disasters of history.\r\n\r\nIt is a story that many of us think we know but don\u2019t, and Erik Larson tells it thrillingly, switching between hunter and hunted while painting a larger portrait of America at the height of the Progressive Era. Full of glamour and suspense, Dead Wake brings to life a cast of evocative characters, from famed Boston bookseller Charles Lauriat to pioneering female architect Theodate Pope to President Woodrow Wilson, a man lost to grief, dreading the widening war but also captivated by the prospect of new love. \r\n\r\nGripping and important, Dead Wake captures the sheer drama and emotional power of a disaster whose intimate details and true meaning have long been obscured by history."
+    }
 },
 {
+    "pk": 9,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-28T03:31:48Z",
-        "description": "A masterful, intensely suspenseful novel about a reader whose obsession with a reclusive writer goes far too far\u2014a book about the power of storytelling, starring the same trio of unlikely and winning heroes King introduced in Mr. Mercedes.\r\n\r\n\u201cWake up, genius.\u201d So begins King\u2019s instantly riveting story about a vengeful reader. The genius is John Rothstein, an iconic author who created a famous character, Jimmy Gold, but who hasn\u2019t published a book for decades. Morris Bellamy is livid, not just because Rothstein has stopped providing books, but because the nonconformist Jimmy Gold has sold out for a career in advertising. Morris kills Rothstein and empties his safe of cash, yes, but the real treasure is a trove of notebooks containing at least one more Gold novel.\r\n\r\nMorris hides the money and the notebooks, and then he is locked away for another crime. Decades later, a boy named Pete Saubers finds the treasure, and now it is Pete and his family that Bill Hodges, Holly Gibney, and Jerome Robinson must rescue from the ever-more deranged and vengeful Morris when he\u2019s released from prison after thirty-five years.\r\n\r\nNot since Misery has King played with the notion of a reader whose obsession with a writer gets dangerous. Finders Keepers is spectacular, heart-pounding suspense, but it is also King writing about how literature shapes a life\u2014for good, for bad, forever.",
+        "modified_at": "2015-04-03T10:41:13Z",
+        "organisation": 18,
         "created_at": "2015-03-28T03:31:48Z",
         "price": "21.00",
         "name": "Finders Keepers: A Novel",
-        "organisation": 1
-    },
-    "pk": 9,
-    "model": "multimedia.multimedia"
+        "description": "A masterful, intensely suspenseful novel about a reader whose obsession with a reclusive writer goes far too far\u2014a book about the power of storytelling, starring the same trio of unlikely and winning heroes King introduced in Mr. Mercedes.\r\n\r\n\u201cWake up, genius.\u201d So begins King\u2019s instantly riveting story about a vengeful reader. The genius is John Rothstein, an iconic author who created a famous character, Jimmy Gold, but who hasn\u2019t published a book for decades. Morris Bellamy is livid, not just because Rothstein has stopped providing books, but because the nonconformist Jimmy Gold has sold out for a career in advertising. Morris kills Rothstein and empties his safe of cash, yes, but the real treasure is a trove of notebooks containing at least one more Gold novel.\r\n\r\nMorris hides the money and the notebooks, and then he is locked away for another crime. Decades later, a boy named Pete Saubers finds the treasure, and now it is Pete and his family that Bill Hodges, Holly Gibney, and Jerome Robinson must rescue from the ever-more deranged and vengeful Morris when he\u2019s released from prison after thirty-five years.\r\n\r\nNot since Misery has King played with the notion of a reader whose obsession with a writer gets dangerous. Finders Keepers is spectacular, heart-pounding suspense, but it is also King writing about how literature shapes a life\u2014for good, for bad, forever."
+    }
 },
 {
+    "pk": 10,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T06:39:19Z",
-        "description": "Michael Keaton joins Emma Stone, Edward Norton, Zach Galifianakis, and Naomi Watts in this riveting film about fame, fantasy, and life's failures. When a former superhero film star (Keaton) sets out to make a comeback on Broadway, he grapples with self-doubt, harsh critics, and his estranged daughter (Stone) in this imaginative, thrilling, witty film from writer/director Alejandro Gonzalez Inarritu.",
+        "organisation": 4,
         "created_at": "2015-03-28T06:39:19Z",
         "price": "14.99",
         "name": "Birdman (or The Unexpected Virtue of Ignorance)",
-        "organisation": 4
-    },
-    "pk": 10,
-    "model": "multimedia.multimedia"
+        "description": "Michael Keaton joins Emma Stone, Edward Norton, Zach Galifianakis, and Naomi Watts in this riveting film about fame, fantasy, and life's failures. When a former superhero film star (Keaton) sets out to make a comeback on Broadway, he grapples with self-doubt, harsh critics, and his estranged daughter (Stone) in this imaginative, thrilling, witty film from writer/director Alejandro Gonzalez Inarritu."
+    }
 },
 {
+    "pk": 11,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T06:42:31Z",
-        "description": "From Walt Disney Animation Studios comes Big Hero 6, an action-comedy adventure about brilliant robotics prodigy Hiro Hamada, who finds himself in the grips of a criminal plot that threatens to destroy the fast-paced, high-tech city of San Fransokyo. With the help of his closest companion = a robot named Baymax - Hiro joins forces with a reluctant team of first-time crime fighters on a mission to save their city.",
+        "organisation": 3,
         "created_at": "2015-03-28T06:42:31Z",
         "price": "19.99",
         "name": "Big Hero 6",
-        "organisation": 3
-    },
-    "pk": 11,
-    "model": "multimedia.multimedia"
+        "description": "From Walt Disney Animation Studios comes Big Hero 6, an action-comedy adventure about brilliant robotics prodigy Hiro Hamada, who finds himself in the grips of a criminal plot that threatens to destroy the fast-paced, high-tech city of San Fransokyo. With the help of his closest companion = a robot named Baymax - Hiro joins forces with a reluctant team of first-time crime fighters on a mission to save their city."
+    }
 },
 {
+    "pk": 12,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T07:07:43Z",
-        "description": "From director Christopher Nolan (Inception, The Dark Knight trilogy) comes the story of a team of pioneers undertaking the most important mission in human history. Academy Award winner Matthew McConaughey (Dallas Buyer's Club) stars as ex-pilot-turned-farmer Cooper, who must leave his family and a foundering Earth behind to lead an expedition travelling beyond this galaxy to discover whether mankind has a future among the stars. Academy Award winner Anne Hathaway (Les Miserables) and Academy Award nominee Jessica Chastain (Zero Dark Thirty) also star in this landmark.",
+        "organisation": 2,
         "created_at": "2015-03-28T06:50:42Z",
         "price": "19.99",
         "name": "Interstellar",
-        "organisation": 2
-    },
-    "pk": 12,
-    "model": "multimedia.multimedia"
+        "description": "From director Christopher Nolan (Inception, The Dark Knight trilogy) comes the story of a team of pioneers undertaking the most important mission in human history. Academy Award winner Matthew McConaughey (Dallas Buyer's Club) stars as ex-pilot-turned-farmer Cooper, who must leave his family and a foundering Earth behind to lead an expedition travelling beyond this galaxy to discover whether mankind has a future among the stars. Academy Award winner Anne Hathaway (Les Miserables) and Academy Award nominee Jessica Chastain (Zero Dark Thirty) also star in this landmark."
+    }
 },
 {
+    "pk": 13,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T07:17:31Z",
-        "description": "Dom Cobb (Leonardo DiCaprio) is a skilled thief, the best in the dangerous art of extraction: stealing valuable secrets from deep within the subconscious during the dream state when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved. Now Cobb is being offered a chance at redemption. One last job could give him his life back but only if he can accomplish the impossible - inception. Instead of the perfect heist, Cobb and his team of specialists have to pull off the reverse; their taskis not to steal and idea but to plan one. If they succeed, it could be the perfect crime. But no amount of careful planning or expertise can prepare the team for the dangerous enemy that seems to predict their every moce. An enemy that only Cobb could have seen coming.",
+        "organisation": 6,
         "created_at": "2015-03-28T07:17:31Z",
         "price": "14.99",
         "name": "Inception",
-        "organisation": 6
-    },
-    "pk": 13,
-    "model": "multimedia.multimedia"
+        "description": "Dom Cobb (Leonardo DiCaprio) is a skilled thief, the best in the dangerous art of extraction: stealing valuable secrets from deep within the subconscious during the dream state when the mind is at its most vulnerable. Cobb's rare ability has made him a coveted player in this treacherous new world of corporate espionage, but it has also made him an international fugitive and cost him everything he has ever loved. Now Cobb is being offered a chance at redemption. One last job could give him his life back but only if he can accomplish the impossible - inception. Instead of the perfect heist, Cobb and his team of specialists have to pull off the reverse; their taskis not to steal and idea but to plan one. If they succeed, it could be the perfect crime. But no amount of careful planning or expertise can prepare the team for the dangerous enemy that seems to predict their every moce. An enemy that only Cobb could have seen coming."
+    }
 },
 {
+    "pk": 14,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:35:53Z",
-        "description": "Break through language barriers with Google Translate.\r\n\r\n\u2022 Translate between 90 languages\r\n\u2022 Converse naturally and let Google translate\r\n\u2022 Translate with your voice, camera, keyboard or handwriting\r\n\u2022 Translate offline while traveling. No internet connection needed.\r\n\u2022 Save your translations and access from any device\r\n\r\nTranslations between the following languages are supported:\r\nAfrikaans, Albanian, Arabic, Armenian, Azerbaijani, Basque, Belarusian, Bengali, Bosnian, Bulgarian, Catalan, Cebuano, Chichewa, Chinese (Simplified), Chinese (Traditional), Croatian, Czech, Danish, Dutch, English, Esperanto, Estonian, Filipino, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hebrew, Hindi, Hmong, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latin, Latvian, Lithuanian, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi, Mongolian, Myanmar (Burmese), Nepali, Norwegian, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Serbian, Sesotho, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tajik, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Yiddish, Yoruba, Zulu",
+        "organisation": 7,
         "created_at": "2015-03-28T08:28:01Z",
         "price": "0.00",
         "name": "Google Translate",
-        "organisation": 7
-    },
-    "pk": 14,
-    "model": "multimedia.multimedia"
+        "description": "Break through language barriers with Google Translate.\r\n\r\n\u2022 Translate between 90 languages\r\n\u2022 Converse naturally and let Google translate\r\n\u2022 Translate with your voice, camera, keyboard or handwriting\r\n\u2022 Translate offline while traveling. No internet connection needed.\r\n\u2022 Save your translations and access from any device\r\n\r\nTranslations between the following languages are supported:\r\nAfrikaans, Albanian, Arabic, Armenian, Azerbaijani, Basque, Belarusian, Bengali, Bosnian, Bulgarian, Catalan, Cebuano, Chichewa, Chinese (Simplified), Chinese (Traditional), Croatian, Czech, Danish, Dutch, English, Esperanto, Estonian, Filipino, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hebrew, Hindi, Hmong, Hungarian, Icelandic, Igbo, Indonesian, Irish, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latin, Latvian, Lithuanian, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi, Mongolian, Myanmar (Burmese), Nepali, Norwegian, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Serbian, Sesotho, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tajik, Tamil, Telugu, Thai, Turkish, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Yiddish, Yoruba, Zulu"
+    }
 },
 {
+    "pk": 15,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:35:41Z",
-        "description": " Description\r\nThe best selling human anatomy app ever is now available on Android.\r\n\r\nTo try out the technology please try out the free version for Essential Skeleton: Essential Skeleton which is also on Google Play\r\n\r\n***** Number 1 Medical mobile app in over 95 countries worldwide\r\n***** Groundbreaking 3D Technology - No competitor competes with graphics and medical accuracy\r\n***** Tuaw: \"Make no mistake about it: Essential Anatomy by 3D4Medical is the future of touch-based anatomy learning.\"Essential Anatomy is an app every doctor, physiotherapist, OT, nurse and medical student should own.\"\r\n***** Award Wining App - Hundreds of features that make learning and referencing easy\r\n\r\n\r\nVisit our www.3d4medical.com website and watch a video that highlights the functionality and quality of Essential Anatomy as well as our \"Coming Soon\" section that highlights new features currently in development.\r\nYou'll understand why it is the world's Number 1 Medical App!\r\nHere is the link: http://applications.3d4medical.com/help_essential_anatomy_android or press the link to our website\r\n\r\nESSENTIAL ANATOMY 3\r\nEssential Anatomy 3 represents the latest in groundbreaking 3D technology and innovative design. A cutting edge 3D graphics engine, custom built by 3D4Medical from the ground up, powers a highly-detailed anatomical model and delivers outstanding quality graphics that no other competitor can achieve.\r\n\r\nThe app represents a unique approach to learning general anatomy. The graphics are unparalleled and make learning, through the use of informative content and innovative features, a rich and engaging experience.\r\n\r\nThis app includes essential anatomy for 10 systems:\r\n\u2043Skeletal\r\n\u2043Muscles\r\n\u2043Connective Tissue\r\n\u2043Veins\r\n\u2043Arteries\r\n\u2043Nerves\r\n\u2043Respiratory\r\n\u2043Digestive\r\n\u2043Urinary\r\n\u2043Lymphatic\r\n\u2043also includes the Brain and Heart\r\n\r\nNEW 3D TECHNOLOGY\r\nEssential Anatomy 3 is responsive, visually stunning and effortless. The app is fully 3D, meaning that you can view any anatomic structure in isolation, as well as from any angle.\r\n\r\nEFFORTLESS NAVIGATION & FUNCTIONALITY\r\nClever functionality found within the app allows the user to strip away layers of muscle via the \u2018scalpel\u2019 tool. This app provides users with the ability to turn on/off systems without the need to deselect individual structures or muddle through a multitude of predefined regional tabs, like other apps.\r\n\r\nPREMIUM INTERFACE DESIGN\r\nEssential Anatomy 3 is designed with the user in mind - the body itself becomes the interface. Unlike other 3D apps, which rely on predefined anatomic arrangements and regional dissections to guide the user, 3D4Medical\u2019s Essential Anatomy 3 lets you find what you are looking for without complication.\r\n\r\n---- New 3D technology via 3D4Medical's latest graphics engine\r\n---- Over 4,000 highly detailed anatomical structures\r\n---- Multiple Selection Mode - Hide/Fade/Isolate individual or multiple structures\r\n---- Preset and customizable Bookmarks\r\n---- Correct audio pronunciation for every structure\r\n---- Latin nomenclature for each anatomical structure\r\n---- User friendly and intuitive interface\r\n---- Multiple search options\r\n---- Dynamic quiz function - Drag and Drop and Multi-choice\r\n---- Custom search modes\r\n---- Extensive social media tools and sharing capability\r\n\r\nPlease find our End User License Agreement here: http://applications.3d4medical.com/eula\r\n\r\nAny feedback? We thrive on engaging with customers and, unfortunately, can\u2019t respond directly to reviews. Contact our customer support at info@3d4medical.com. You will receive a response promptly!",
+        "organisation": 8,
         "created_at": "2015-03-28T08:35:41Z",
         "price": "16.17",
         "name": "Essential Anatomy 3",
-        "organisation": 8
-    },
-    "pk": 15,
-    "model": "multimedia.multimedia"
+        "description": " Description\r\nThe best selling human anatomy app ever is now available on Android.\r\n\r\nTo try out the technology please try out the free version for Essential Skeleton: Essential Skeleton which is also on Google Play\r\n\r\n***** Number 1 Medical mobile app in over 95 countries worldwide\r\n***** Groundbreaking 3D Technology - No competitor competes with graphics and medical accuracy\r\n***** Tuaw: \"Make no mistake about it: Essential Anatomy by 3D4Medical is the future of touch-based anatomy learning.\"Essential Anatomy is an app every doctor, physiotherapist, OT, nurse and medical student should own.\"\r\n***** Award Wining App - Hundreds of features that make learning and referencing easy\r\n\r\n\r\nVisit our www.3d4medical.com website and watch a video that highlights the functionality and quality of Essential Anatomy as well as our \"Coming Soon\" section that highlights new features currently in development.\r\nYou'll understand why it is the world's Number 1 Medical App!\r\nHere is the link: http://applications.3d4medical.com/help_essential_anatomy_android or press the link to our website\r\n\r\nESSENTIAL ANATOMY 3\r\nEssential Anatomy 3 represents the latest in groundbreaking 3D technology and innovative design. A cutting edge 3D graphics engine, custom built by 3D4Medical from the ground up, powers a highly-detailed anatomical model and delivers outstanding quality graphics that no other competitor can achieve.\r\n\r\nThe app represents a unique approach to learning general anatomy. The graphics are unparalleled and make learning, through the use of informative content and innovative features, a rich and engaging experience.\r\n\r\nThis app includes essential anatomy for 10 systems:\r\n\u2043Skeletal\r\n\u2043Muscles\r\n\u2043Connective Tissue\r\n\u2043Veins\r\n\u2043Arteries\r\n\u2043Nerves\r\n\u2043Respiratory\r\n\u2043Digestive\r\n\u2043Urinary\r\n\u2043Lymphatic\r\n\u2043also includes the Brain and Heart\r\n\r\nNEW 3D TECHNOLOGY\r\nEssential Anatomy 3 is responsive, visually stunning and effortless. The app is fully 3D, meaning that you can view any anatomic structure in isolation, as well as from any angle.\r\n\r\nEFFORTLESS NAVIGATION & FUNCTIONALITY\r\nClever functionality found within the app allows the user to strip away layers of muscle via the \u2018scalpel\u2019 tool. This app provides users with the ability to turn on/off systems without the need to deselect individual structures or muddle through a multitude of predefined regional tabs, like other apps.\r\n\r\nPREMIUM INTERFACE DESIGN\r\nEssential Anatomy 3 is designed with the user in mind - the body itself becomes the interface. Unlike other 3D apps, which rely on predefined anatomic arrangements and regional dissections to guide the user, 3D4Medical\u2019s Essential Anatomy 3 lets you find what you are looking for without complication.\r\n\r\n---- New 3D technology via 3D4Medical's latest graphics engine\r\n---- Over 4,000 highly detailed anatomical structures\r\n---- Multiple Selection Mode - Hide/Fade/Isolate individual or multiple structures\r\n---- Preset and customizable Bookmarks\r\n---- Correct audio pronunciation for every structure\r\n---- Latin nomenclature for each anatomical structure\r\n---- User friendly and intuitive interface\r\n---- Multiple search options\r\n---- Dynamic quiz function - Drag and Drop and Multi-choice\r\n---- Custom search modes\r\n---- Extensive social media tools and sharing capability\r\n\r\nPlease find our End User License Agreement here: http://applications.3d4medical.com/eula\r\n\r\nAny feedback? We thrive on engaging with customers and, unfortunately, can\u2019t respond directly to reviews. Contact our customer support at info@3d4medical.com. You will receive a response promptly!"
+    }
 },
 {
+    "pk": 16,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:39:04Z",
-        "description": " Description\r\nFIFA 15 Ultimate Team by EA SPORTS features over 10,000 players from over 500 licensed teams. Plus, over 30 real leagues and stadiums! Build a dream squad of footballers and put them to the test. From the English Premier League, La Liga, and MLS, to the German Bundesliga and beyond. Take the thrills with you wherever you are with the most authentic soccer game on Google Play.\r\nThis app offers in-app purchases. You may disable in-app purchasing using your device settings.\r\n** This game has superior graphics and is packed with tons of real football leagues, teams, and players. Please make sure you have at least 1.35GB of free space on your device. **\r\nBUILD YOUR ULTIMATE TEAM\r\nEarn, trade, and collect superstars like Lionel Messi and Eden Hazard to create your own fantasy team. Choose your play style, formation, kits, and more.\r\n\r\nPLAY IN QUICK SIMULATION MODE\r\nPut your management skills to the test with new Quick Simulations. Set up your squad, start the match, and watch it unfold. Make smart subs, tactical tweaks, and gauge team effort along the way. Your match results depend entirely on your ability to manage player skills and chemistry \u2013 taking authenticity to the next level.\r\nOR TAKE IT TO THE PITCH!\r\nIf you\u2019re new to FIFA on mobile, try out our \u201cCasual Controls\u201d, with elegantly simple buttons like \u201cshoot\u201d, \u201cpass\u201d, or \u201csprint\u201d. Once you\u2019re feeling comfortable, move on to \u201cClassic Controls\u201d, which let you add either \u201cthrough passes\u201d or \u201cskill moves\u201d to your gaming arsenal. Or, you can interact with your team directly, tapping on players to pass the ball and swiping towards the net to shoot. Plus, if you have an external controller \u2013 don\u2019t miss the chance to use it on the pitch for the first time\r\n\r\nREAL WORLD MATCH UPS\r\nPlay your favorite team\u2019s next fixture, plus 3 other major match-ups happening around the world \u2013 every week!\r\nJump into the action and feel the passion of your favorite sport with FIFA 15 Ultimate Team!\r\nNOTES:\r\n\r\nTerms of Service: http://www.ea.com/terms-of-service\r\nPrivacy & Cookie Policy: http://www.ea.com/privacy-policy\r\nGame EULA: http://tos.ea.com/legalapp/mobileeula/US/en/OTHER/\r\nVisit https://help.ea.com/ for assistance or inquiries.\r\n\r\nEA may retire online features and services after 30 days\u2019 notice posted on www.ea.com/1/service-updates\r\n\r\nImportant Consumer Information: This app: Requires acceptance of EA\u2019s Privacy & Cookie Policy, TOS and EULA; Includes in-game advertising; Collects data through third party ad serving and analytics technology (See Privacy & Cookie Policy for details); Contains direct links to the internet and social networking sites intended for an audience over 13.",
+        "organisation": 9,
         "created_at": "2015-03-28T08:39:04Z",
         "price": "0.00",
         "name": "FIFA 15 Ultimate Team",
-        "organisation": 9
-    },
-    "pk": 16,
-    "model": "multimedia.multimedia"
+        "description": " Description\r\nFIFA 15 Ultimate Team by EA SPORTS features over 10,000 players from over 500 licensed teams. Plus, over 30 real leagues and stadiums! Build a dream squad of footballers and put them to the test. From the English Premier League, La Liga, and MLS, to the German Bundesliga and beyond. Take the thrills with you wherever you are with the most authentic soccer game on Google Play.\r\nThis app offers in-app purchases. You may disable in-app purchasing using your device settings.\r\n** This game has superior graphics and is packed with tons of real football leagues, teams, and players. Please make sure you have at least 1.35GB of free space on your device. **\r\nBUILD YOUR ULTIMATE TEAM\r\nEarn, trade, and collect superstars like Lionel Messi and Eden Hazard to create your own fantasy team. Choose your play style, formation, kits, and more.\r\n\r\nPLAY IN QUICK SIMULATION MODE\r\nPut your management skills to the test with new Quick Simulations. Set up your squad, start the match, and watch it unfold. Make smart subs, tactical tweaks, and gauge team effort along the way. Your match results depend entirely on your ability to manage player skills and chemistry \u2013 taking authenticity to the next level.\r\nOR TAKE IT TO THE PITCH!\r\nIf you\u2019re new to FIFA on mobile, try out our \u201cCasual Controls\u201d, with elegantly simple buttons like \u201cshoot\u201d, \u201cpass\u201d, or \u201csprint\u201d. Once you\u2019re feeling comfortable, move on to \u201cClassic Controls\u201d, which let you add either \u201cthrough passes\u201d or \u201cskill moves\u201d to your gaming arsenal. Or, you can interact with your team directly, tapping on players to pass the ball and swiping towards the net to shoot. Plus, if you have an external controller \u2013 don\u2019t miss the chance to use it on the pitch for the first time\r\n\r\nREAL WORLD MATCH UPS\r\nPlay your favorite team\u2019s next fixture, plus 3 other major match-ups happening around the world \u2013 every week!\r\nJump into the action and feel the passion of your favorite sport with FIFA 15 Ultimate Team!\r\nNOTES:\r\n\r\nTerms of Service: http://www.ea.com/terms-of-service\r\nPrivacy & Cookie Policy: http://www.ea.com/privacy-policy\r\nGame EULA: http://tos.ea.com/legalapp/mobileeula/US/en/OTHER/\r\nVisit https://help.ea.com/ for assistance or inquiries.\r\n\r\nEA may retire online features and services after 30 days\u2019 notice posted on www.ea.com/1/service-updates\r\n\r\nImportant Consumer Information: This app: Requires acceptance of EA\u2019s Privacy & Cookie Policy, TOS and EULA; Includes in-game advertising; Collects data through third party ad serving and analytics technology (See Privacy & Cookie Policy for details); Contains direct links to the internet and social networking sites intended for an audience over 13."
+    }
 },
 {
+    "pk": 17,
+    "model": "multimedia.multimedia",
     "fields": {
-        "modified_at": "2015-03-28T08:43:50Z",
-        "description": "Play the #1 classic card game for fun with friends and family on your Android phone! The world-famous card game is faithfully reproduced for mobile and also features exciting new rules. Relive all the crazy fun of UNO\u2122: match colors or numbers with all your favorite cards or challenge yourself with increasingly difficult games in Tournament Mode. Compete against friends in thrilling games: with a multiplayer mode that can be accessed 24/7 via Wi-Fi connection, playing UNO\u2122 has never been so fun and easy, so be the first to get rid of all your cards!\r\n\r\n- The UNO\u2122 video game reproduces the classic game\u2019s identity. All your favorites cards are here: Skip, Reverse, and more!\r\n- Intuitive controls: simply drag & drop cards using your finger on the screen and be the first to get rid of all your cards.\r\n- Customize your game with varied rules including 7-0 and Jump-In.\r\n- Enjoy a unique multiplayer mode!* Play online 24/7 (Wi-Fi) or locally with your friends (Wi-Fi or Bluetooth connection).\r\n- Take on increasingly difficult challenges in Tournament Mode.",
+        "modified_at": "2015-04-03T07:16:18Z",
+        "organisation": 10,
         "created_at": "2015-03-28T08:43:50Z",
         "price": "5.98",
         "name": "UNO\u2122",
-        "organisation": 10
-    },
-    "pk": 17,
-    "model": "multimedia.multimedia"
+        "description": "Play the #1 classic card game for fun with friends and family on your Android phone! The world-famous card game is faithfully reproduced for mobile and also features exciting new rules. Relive all the crazy fun of UNO\u2122: match colors or numbers with all your favorite cards or challenge yourself with increasingly difficult games in Tournament Mode. Compete against friends in thrilling games: with a multiplayer mode that can be accessed 24/7 via Wi-Fi connection, playing UNO\u2122 has never been so fun and easy, so be the first to get rid of all your cards!\r\n\r\n- The UNO\u2122 video game reproduces the classic game\u2019s identity. All your favorites cards are here: Skip, Reverse, and more!\r\n- Intuitive controls: simply drag & drop cards using your finger on the screen and be the first to get rid of all your cards.\r\n- Customize your game with varied rules including 7-0 and Jump-In.\r\n- Enjoy a unique multiplayer mode!* Play online 24/7 (Wi-Fi) or locally with your friends (Wi-Fi or Bluetooth connection).\r\n- Take on increasingly difficult challenges in Tournament Mode."
+    }
 },
 {
+    "pk": 18,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:49:25Z",
-        "description": "Experience the brand-new Despicable Me: Minion Rush! Gru\u2019s loyal, yellow, mischievous Minions are ready for their tastiest challenge yet: Collecting exotic fruits to make yummy jelly! Jump, roll, dodge and scramble against others in fun, fast-paced missions.\r\n\r\nALL THE FUN AND ANTICS OF DESPICABLE ME\r\n\u2022 Enjoy unpredictably hilarious Minion moments\r\n\u2022 Perform despicable acts through hundreds of missions\r\n\u2022 Run through iconic locations that are full of surprises, secrets and tricky obstacles: Gru\u2019s Lab, Gru\u2019s Residential Area, El Macho\u2019s Lair, Minion Beach and Super Silly Fun Land from Despicable Me\r\n\u2022 Customize your Minion with unique costumes, weapons, and power-ups\r\n\u2022 Battle Vector, El Macho, the Villaintriloquist and all the new villains exclusively created for the game\r\n\r\nAN INNOVATIVE AND ORIGINAL GAME\r\n\u2022 Encounter secret areas, unique boss fights and amazing power-ups\r\n\u2022 Experience custom animation and voice-overs, and state-of-the-art 3D graphics\r\n\u2022 Enjoy multiple dynamic camera angles\r\n\u2022 Engage in various bonus gameplay modes:\r\n\u2192 Destroy things as Mega Minion\r\n\u2192 Collect bananas while riding the Fluffy Unicorn\r\n\u2192 Hang on to Gru\u2019s Rocket for the ride of your life\r\n\u2192 Unlock a new Power-Up and get ready for a Mission to the Moon!\r\n\u2022 Have fun with your friends! See their best scores during your run, send them funny Minion taunts and challenges to show them who\u2019s going to win Minion of the Year!",
+        "organisation": 10,
         "created_at": "2015-03-28T08:49:25Z",
         "price": "0.00",
         "name": "Despicable Me",
-        "organisation": 10
-    },
-    "pk": 18,
-    "model": "multimedia.multimedia"
+        "description": "Experience the brand-new Despicable Me: Minion Rush! Gru\u2019s loyal, yellow, mischievous Minions are ready for their tastiest challenge yet: Collecting exotic fruits to make yummy jelly! Jump, roll, dodge and scramble against others in fun, fast-paced missions.\r\n\r\nALL THE FUN AND ANTICS OF DESPICABLE ME\r\n\u2022 Enjoy unpredictably hilarious Minion moments\r\n\u2022 Perform despicable acts through hundreds of missions\r\n\u2022 Run through iconic locations that are full of surprises, secrets and tricky obstacles: Gru\u2019s Lab, Gru\u2019s Residential Area, El Macho\u2019s Lair, Minion Beach and Super Silly Fun Land from Despicable Me\r\n\u2022 Customize your Minion with unique costumes, weapons, and power-ups\r\n\u2022 Battle Vector, El Macho, the Villaintriloquist and all the new villains exclusively created for the game\r\n\r\nAN INNOVATIVE AND ORIGINAL GAME\r\n\u2022 Encounter secret areas, unique boss fights and amazing power-ups\r\n\u2022 Experience custom animation and voice-overs, and state-of-the-art 3D graphics\r\n\u2022 Enjoy multiple dynamic camera angles\r\n\u2022 Engage in various bonus gameplay modes:\r\n\u2192 Destroy things as Mega Minion\r\n\u2192 Collect bananas while riding the Fluffy Unicorn\r\n\u2192 Hang on to Gru\u2019s Rocket for the ride of your life\r\n\u2192 Unlock a new Power-Up and get ready for a Mission to the Moon!\r\n\u2022 Have fun with your friends! See their best scores during your run, send them funny Minion taunts and challenges to show them who\u2019s going to win Minion of the Year!"
+    }
 },
 {
+    "pk": 19,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:50:45Z",
-        "description": "THE FATE OF THE GALAXY LIES IN THE BALANCE!\r\n\r\nFrom the makers of the critically acclaimed Dead Space on Android comes an all-new, original Mass Effect storyline \u2013 made exclusively for mobile!\r\n\r\n** This game is MASSIVE (over 450MB)! We recommend connecting to WiFi to speed up your download. **\r\n\r\n** Now with a free MASS kicking wallpaper \u2013 exclusive to Google Play. **\r\n\r\nYOU\u2019RE A CERBERUS AGENT \u2013 GONE ROGUE!\r\nAs Commander Shepard battles Reapers across the galaxy, veteran Cerberus agent Randall Ezno procures aliens for illicit experiments at a secret facility. But when the Director of the facility goes too far - Randall fights back and vows to bring Cerberus down!\r\n\r\n\r\n*This app offers in-app purchases. You may disable in-app purchasing using your device settings.\r\n\r\n\r\nCan you fight your way off the hostile Cerberus base and deliver their secret research to the Alliance?\r\n\r\nENTER A NEW DIMENSION IN ANDROID GAMING\r\nMove freely through massive exteriors and a fully realized Cerberus base. Featuring groundbreaking graphics and intensified audio, enjoy a console-like experience that marks the next leap in Android gameplay.\r\n\r\nENGAGE ENEMIES WITH SWIPE & TAP COMBAT\r\nFeaturing both manual and assisted aiming, use intuitive tap controls and for fast-paced fighting. Fluidly dive and roll for cover with a simple swipe. Engage in epic boss battles against Cerberus Mechs and twisted experiment victims. Simply disable the \"tap-to-aim\" function in the Options section to try it.\r\n\r\nIT\u2019S YOU AGAINST AN ARMY!\r\nHarness the fury of high-tech armor and weapons. Unleash biotic powers, stealth cloak abilities and devastating melee attacks. Upgrade your gear and performance with credits \u2013 the quicker and more stylish your kills, the more credits you\u2019ll earn. Also, access the bonus Turian mission and escape the medical bay...alive!\r\n\r\nIMPACT YOUR MASS EFFECT 3 EXPERIENCE\r\nGather valuable intel and upload it to Galaxy at War to boost your Galactic Readiness Rating in Mass Effect 3. Complete the game to increase your War Assets. Improve your chances in the final Mass Effect 3 battle \u2013 on the go!\r\n\r\nCrush Cerberus and shape the future of the galaxy. The outcome depends on YOU in Mass Effect: Infiltrator!\r\n\r\nBe the first to know! Get inside EA info on great deals, plus the latest game updates, tips & more\u2026\r\nVISIT US: eamobile.com/android\r\nFOLLOW US: twitter.com/eamobile\r\nLIKE US: facebook.com/eamobile\r\nWATCH US: youtube.com/eamobilegames\r\n\r\nCheck out more exciting games from EA like The Sims FreePlay, Need for Speed Most Wanted and Theme Park.\r\n\r\nTerms of Service : http://www.ea.com/terms-of-service\r\nPrivacy and Cookie Policy: http://www.ea.com/privacy-policy\r\nGame EULA: http://tos.ea.com/legalapp/mobileeula/US/en/GM/\r\nVisit https://help.ea.com/ for assistance or inquiries.\r\n\r\nEA may retire online features and services after 30 days\u2019 notice posted on www.ea.com/1/service-updates.\r\n\r\nImportant Consumer Information. This app: Contains direct links to the Internet; Collects data through third party analytics technology (see Privacy & Cookie Policy for details)",
+        "organisation": 9,
         "created_at": "2015-03-28T08:50:45Z",
         "price": "8.98",
         "name": "MASS EFFECT\u2122 INFILTRATOR",
-        "organisation": 9
-    },
-    "pk": 19,
-    "model": "multimedia.multimedia"
+        "description": "THE FATE OF THE GALAXY LIES IN THE BALANCE!\r\n\r\nFrom the makers of the critically acclaimed Dead Space on Android comes an all-new, original Mass Effect storyline \u2013 made exclusively for mobile!\r\n\r\n** This game is MASSIVE (over 450MB)! We recommend connecting to WiFi to speed up your download. **\r\n\r\n** Now with a free MASS kicking wallpaper \u2013 exclusive to Google Play. **\r\n\r\nYOU\u2019RE A CERBERUS AGENT \u2013 GONE ROGUE!\r\nAs Commander Shepard battles Reapers across the galaxy, veteran Cerberus agent Randall Ezno procures aliens for illicit experiments at a secret facility. But when the Director of the facility goes too far - Randall fights back and vows to bring Cerberus down!\r\n\r\n\r\n*This app offers in-app purchases. You may disable in-app purchasing using your device settings.\r\n\r\n\r\nCan you fight your way off the hostile Cerberus base and deliver their secret research to the Alliance?\r\n\r\nENTER A NEW DIMENSION IN ANDROID GAMING\r\nMove freely through massive exteriors and a fully realized Cerberus base. Featuring groundbreaking graphics and intensified audio, enjoy a console-like experience that marks the next leap in Android gameplay.\r\n\r\nENGAGE ENEMIES WITH SWIPE & TAP COMBAT\r\nFeaturing both manual and assisted aiming, use intuitive tap controls and for fast-paced fighting. Fluidly dive and roll for cover with a simple swipe. Engage in epic boss battles against Cerberus Mechs and twisted experiment victims. Simply disable the \"tap-to-aim\" function in the Options section to try it.\r\n\r\nIT\u2019S YOU AGAINST AN ARMY!\r\nHarness the fury of high-tech armor and weapons. Unleash biotic powers, stealth cloak abilities and devastating melee attacks. Upgrade your gear and performance with credits \u2013 the quicker and more stylish your kills, the more credits you\u2019ll earn. Also, access the bonus Turian mission and escape the medical bay...alive!\r\n\r\nIMPACT YOUR MASS EFFECT 3 EXPERIENCE\r\nGather valuable intel and upload it to Galaxy at War to boost your Galactic Readiness Rating in Mass Effect 3. Complete the game to increase your War Assets. Improve your chances in the final Mass Effect 3 battle \u2013 on the go!\r\n\r\nCrush Cerberus and shape the future of the galaxy. The outcome depends on YOU in Mass Effect: Infiltrator!\r\n\r\nBe the first to know! Get inside EA info on great deals, plus the latest game updates, tips & more\u2026\r\nVISIT US: eamobile.com/android\r\nFOLLOW US: twitter.com/eamobile\r\nLIKE US: facebook.com/eamobile\r\nWATCH US: youtube.com/eamobilegames\r\n\r\nCheck out more exciting games from EA like The Sims FreePlay, Need for Speed Most Wanted and Theme Park.\r\n\r\nTerms of Service : http://www.ea.com/terms-of-service\r\nPrivacy and Cookie Policy: http://www.ea.com/privacy-policy\r\nGame EULA: http://tos.ea.com/legalapp/mobileeula/US/en/GM/\r\nVisit https://help.ea.com/ for assistance or inquiries.\r\n\r\nEA may retire online features and services after 30 days\u2019 notice posted on www.ea.com/1/service-updates.\r\n\r\nImportant Consumer Information. This app: Contains direct links to the Internet; Collects data through third party analytics technology (see Privacy & Cookie Policy for details)"
+    }
 },
 {
+    "pk": 20,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:53:14Z",
-        "description": "Turn your phone or tablet into an air traffic radar and see planes around the world move in real-time on a detailed map. Or point your Android device at a plane in the sky to find out where it\u2019s going and more. Discover today why millions are already using Flightradar24 - Flight Tracker.\r\n\r\nFeatures that have helped make Flightradar24 - Flight Tracker the #1 selling app in 100+ countries and the #1 Travel app in 140+ countries (United States, France, United Kingdom, Germany and more) include:\r\n* Watch planes move in real-time on detailed map\r\n* Identify planes flying overhead by simply pointing your device at the sky\r\n* Experience what the pilot of a an aircraft sees in real-time and in 3D\r\n* Tap on a plane for comprehensive flight and aircraft information such as route, estimated time of arrival, actual time of departure, aircraft type, speed, altitude, and high-resolution picture\r\n* Easy to search for individual flights using flight number, airport, or airline\r\n* Easy to filter by airline, aircraft, altitude, speed, and more\r\n* Easy to set bookmarks to enable quick navigation to areas of interest\r\n* Turn the device into the arrivals and departures board of any major airport and get real-time status updates for flights plus current airport weather conditions (in-app purchase)\r\n* Realistic aircraft symbols (in-app purchase)\r\n* Set up custom alerts based on airline, aircraft type, flight number or registration (in-app purchase)\r\n\r\nHOW IT WORKS\r\nMost aircraft are equipped with so called ADS-B transponders that transmit positional data. Flightradar24 has a rapidly growing network of several thousand ground stations around the world to receive this data that then shows up as aircraft moving on a map in the app. In an expanding number of regions Flightradar24, with the help of multilateration, is able to calculate the positions of aircraft that don\u2019t have ADS-B transponders.\r\n\r\nTraditional radar data is also used in the app thanks to a direct feed from the US Federal Aviation Administration (FAA).\r\n\r\nhttp://www.flightradar24.com/how-it-works\r\n\r\n***IMPORTANT NOTICES***\r\nMinimum required screen resolution is 320x480px.\r\n\r\nIf you are only interested in tracking air traffic in a specific region, we suggest that you check Flightradar24.com BEFORE purchasing the app. Flightradar24 provides unrivaled positional aircraft data coverage around the world but there are areas where we don\u2019t have coverage.\r\n\r\nOverview of coverage as of December 2014:\r\n* Europe: close to 100%\r\n* North America: 100% of US and Canada via slightly delayed radar data. Real-time coverage for most of US, Canada and Mexico for ADS-B equipped aircraft\r\n* South America: Substantial coverage in most countries including Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador and Venezuela.\r\n* Asia: Substantial coverage in most major Asian countries including Japan, India, Indonesia, South Korea, Thailand, UAE, Malaysia, Taiwan and many other countries. Rapidly expanding coverage in China\r\n* Oceania: Nearly complete coverage in Australia and New Zealand\r\n* Africa: Substantial coverage in South Africa. Limited but growing coverage in the rest of the region\r\n\r\nFind out how you can help:\r\nhttp://www.flightradar24.com/increase-coverage\r\n\r\nCoverage is subject to change at any time.\r\n\r\nCONNECT WITH FLIGHTRADAR24\r\nLike us on Facebook http://www.facebook.com/flightradar24 and follow us on Twitter http://twitter.com/flightradar24 for the latest on Flightradar24.\r\n\r\nHELP & SUPPORT\r\nforum.flightradar24.com/threads/89-Important-Read-this-before-you-ask-questions\r\nflightradar24.com/contact-us.\r\n\r\nDISCLAIMER\r\nThe use of this app is strictly limited to entertainment purposes. This specifically excludes activities that might endanger yourself or the lives of others. Under no circumstances will the developer of this app be held responsible for incidents resulting from the use of the data or its interpretation or its use contrary to this agreement. We reserve the right to anonymously track and report a user's activity inside of app.",
+        "organisation": 11,
         "created_at": "2015-03-28T08:53:14Z",
         "price": "4.98",
         "name": "Flightradar24 - Flight Tracker",
-        "organisation": 11
-    },
-    "pk": 20,
-    "model": "multimedia.multimedia"
+        "description": "Turn your phone or tablet into an air traffic radar and see planes around the world move in real-time on a detailed map. Or point your Android device at a plane in the sky to find out where it\u2019s going and more. Discover today why millions are already using Flightradar24 - Flight Tracker.\r\n\r\nFeatures that have helped make Flightradar24 - Flight Tracker the #1 selling app in 100+ countries and the #1 Travel app in 140+ countries (United States, France, United Kingdom, Germany and more) include:\r\n* Watch planes move in real-time on detailed map\r\n* Identify planes flying overhead by simply pointing your device at the sky\r\n* Experience what the pilot of a an aircraft sees in real-time and in 3D\r\n* Tap on a plane for comprehensive flight and aircraft information such as route, estimated time of arrival, actual time of departure, aircraft type, speed, altitude, and high-resolution picture\r\n* Easy to search for individual flights using flight number, airport, or airline\r\n* Easy to filter by airline, aircraft, altitude, speed, and more\r\n* Easy to set bookmarks to enable quick navigation to areas of interest\r\n* Turn the device into the arrivals and departures board of any major airport and get real-time status updates for flights plus current airport weather conditions (in-app purchase)\r\n* Realistic aircraft symbols (in-app purchase)\r\n* Set up custom alerts based on airline, aircraft type, flight number or registration (in-app purchase)\r\n\r\nHOW IT WORKS\r\nMost aircraft are equipped with so called ADS-B transponders that transmit positional data. Flightradar24 has a rapidly growing network of several thousand ground stations around the world to receive this data that then shows up as aircraft moving on a map in the app. In an expanding number of regions Flightradar24, with the help of multilateration, is able to calculate the positions of aircraft that don\u2019t have ADS-B transponders.\r\n\r\nTraditional radar data is also used in the app thanks to a direct feed from the US Federal Aviation Administration (FAA).\r\n\r\nhttp://www.flightradar24.com/how-it-works\r\n\r\n***IMPORTANT NOTICES***\r\nMinimum required screen resolution is 320x480px.\r\n\r\nIf you are only interested in tracking air traffic in a specific region, we suggest that you check Flightradar24.com BEFORE purchasing the app. Flightradar24 provides unrivaled positional aircraft data coverage around the world but there are areas where we don\u2019t have coverage.\r\n\r\nOverview of coverage as of December 2014:\r\n* Europe: close to 100%\r\n* North America: 100% of US and Canada via slightly delayed radar data. Real-time coverage for most of US, Canada and Mexico for ADS-B equipped aircraft\r\n* South America: Substantial coverage in most countries including Argentina, Bolivia, Brazil, Chile, Colombia, Ecuador and Venezuela.\r\n* Asia: Substantial coverage in most major Asian countries including Japan, India, Indonesia, South Korea, Thailand, UAE, Malaysia, Taiwan and many other countries. Rapidly expanding coverage in China\r\n* Oceania: Nearly complete coverage in Australia and New Zealand\r\n* Africa: Substantial coverage in South Africa. Limited but growing coverage in the rest of the region\r\n\r\nFind out how you can help:\r\nhttp://www.flightradar24.com/increase-coverage\r\n\r\nCoverage is subject to change at any time.\r\n\r\nCONNECT WITH FLIGHTRADAR24\r\nLike us on Facebook http://www.facebook.com/flightradar24 and follow us on Twitter http://twitter.com/flightradar24 for the latest on Flightradar24.\r\n\r\nHELP & SUPPORT\r\nforum.flightradar24.com/threads/89-Important-Read-this-before-you-ask-questions\r\nflightradar24.com/contact-us.\r\n\r\nDISCLAIMER\r\nThe use of this app is strictly limited to entertainment purposes. This specifically excludes activities that might endanger yourself or the lives of others. Under no circumstances will the developer of this app be held responsible for incidents resulting from the use of the data or its interpretation or its use contrary to this agreement. We reserve the right to anonymously track and report a user's activity inside of app."
+    }
 },
 {
+    "pk": 21,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:55:42Z",
-        "description": "Accept no substitues! Nova Launcher is the original and most polished customizable launcher for modern Android\r\n\r\nNova Launcher Prime\r\nUnlock the following extras by purchasing Nova Launcher Prime\r\n\u2022\u2003Gestures - Swipe, pinch, double tap and more on the home screen to open your favorite apps\r\n\u2022\u2003Unread Counts - Never miss a message. Unread count badges for Hangouts, SMS, Gmail and more using the TeslaUnread plugin\r\n\u2022\u2003Custom Drawer Groups - Create new tabs or folders in the app drawer\r\n\u2022\u2003Hide Apps - Keep a clean app drawer by hiding never used apps\r\n\u2022\u2003Icon Swipes - Set custom actions for swiping on app shortcuts or folders\r\n\u2022\u2003More scroll effects - Such as Wipe, Accordion, and Throw\r\n\r\nNova Launcher Prime acts as a license to unlock these features in the free Nova Launcher App. You will need to install Nova Launcher first.",
+        "organisation": 12,
         "created_at": "2015-03-28T08:55:42Z",
         "price": "5.00",
         "name": "Nova Launcher Prime",
-        "organisation": 12
-    },
-    "pk": 21,
-    "model": "multimedia.multimedia"
+        "description": "Accept no substitues! Nova Launcher is the original and most polished customizable launcher for modern Android\r\n\r\nNova Launcher Prime\r\nUnlock the following extras by purchasing Nova Launcher Prime\r\n\u2022\u2003Gestures - Swipe, pinch, double tap and more on the home screen to open your favorite apps\r\n\u2022\u2003Unread Counts - Never miss a message. Unread count badges for Hangouts, SMS, Gmail and more using the TeslaUnread plugin\r\n\u2022\u2003Custom Drawer Groups - Create new tabs or folders in the app drawer\r\n\u2022\u2003Hide Apps - Keep a clean app drawer by hiding never used apps\r\n\u2022\u2003Icon Swipes - Set custom actions for swiping on app shortcuts or folders\r\n\u2022\u2003More scroll effects - Such as Wipe, Accordion, and Throw\r\n\r\nNova Launcher Prime acts as a license to unlock these features in the free Nova Launcher App. You will need to install Nova Launcher first."
+    }
 },
 {
+    "pk": 22,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T08:57:13Z",
-        "description": "Puffin Web Browser is a wicked fast Mobile Flash Browser. Once users experience the thrill of using Puffin, regular Mobile Internet just feels like torture.\r\n\r\nWicked Fast: Puffin speeds up mobile browsing by shifting the workload from the resource-limited devices to the cloud servers, and resource-demanding webpages can run super-fast on your phones or tablets.\r\n\r\nCloud Protection: All traffic from Puffin app to Puffin server are encrypted, a protection from nearby hackers. It\u2019s safe to use public non-secure WiFi through Puffin, but not safe at all for most browsers.\r\n\r\nThe Latest Flash: We keep improving our cloud servers, and provide the latest version (16.0) of the Flash player over the cloud.\r\n\r\nSave your bandwidth: Puffin uses proprietary compression algorithm to transmit web data to your device, and it can save up to 90% of your bandwidth on regular web browsing. (Please be noted that streaming Flash content or videos requires more bandwidth than the normal usage.)\r\n\r\nFeatures:\r\n\u2606 Incredible page load and rendering speed\r\n\u2606 Adobe Flash support (also works on Android 4.4+)\r\n\u2606 Download to cloud (up to 1G per file)\r\n\u2606 Theater mode for Flash videos and games\r\n\u2606 Virtual trackpad and gamepad\r\n\u2606 Add-on functions (Pocket, Evernote, Facebook, translator and more)\r\n\u2606 Color theme for toolbar and sidebar\r\n\u2606 Fastest JavaScript engine\r\n\u2606 Full web experience (desktop and mobile view\uff09\r\n\u2606 Incognito tab: Auto-clean your browsing activities in the app\r\n\r\n==== Limitations ====\r\n* The data centers of Puffin Web Browser are in the US and the cloud servers can only access public web sites from US geolocations.\r\n* For users outside the US, local contents, especially videos of local interest, may not be accessible from the US due to geo-restrictions in their home countries.\r\n* Puffin is blocked in some countries (e.g., China, Saudi Arabia, United Arab Emirates) and by some schools (e.g., in United States).\r\n\r\nFor more information, please check our FAQ: http://www.puffinbrowser.com/faq/",
+        "organisation": 13,
         "created_at": "2015-03-28T08:57:13Z",
         "price": "5.07",
         "name": "Puffin Web Browser",
-        "organisation": 13
-    },
-    "pk": 22,
-    "model": "multimedia.multimedia"
+        "description": "Puffin Web Browser is a wicked fast Mobile Flash Browser. Once users experience the thrill of using Puffin, regular Mobile Internet just feels like torture.\r\n\r\nWicked Fast: Puffin speeds up mobile browsing by shifting the workload from the resource-limited devices to the cloud servers, and resource-demanding webpages can run super-fast on your phones or tablets.\r\n\r\nCloud Protection: All traffic from Puffin app to Puffin server are encrypted, a protection from nearby hackers. It\u2019s safe to use public non-secure WiFi through Puffin, but not safe at all for most browsers.\r\n\r\nThe Latest Flash: We keep improving our cloud servers, and provide the latest version (16.0) of the Flash player over the cloud.\r\n\r\nSave your bandwidth: Puffin uses proprietary compression algorithm to transmit web data to your device, and it can save up to 90% of your bandwidth on regular web browsing. (Please be noted that streaming Flash content or videos requires more bandwidth than the normal usage.)\r\n\r\nFeatures:\r\n\u2606 Incredible page load and rendering speed\r\n\u2606 Adobe Flash support (also works on Android 4.4+)\r\n\u2606 Download to cloud (up to 1G per file)\r\n\u2606 Theater mode for Flash videos and games\r\n\u2606 Virtual trackpad and gamepad\r\n\u2606 Add-on functions (Pocket, Evernote, Facebook, translator and more)\r\n\u2606 Color theme for toolbar and sidebar\r\n\u2606 Fastest JavaScript engine\r\n\u2606 Full web experience (desktop and mobile view\uff09\r\n\u2606 Incognito tab: Auto-clean your browsing activities in the app\r\n\r\n==== Limitations ====\r\n* The data centers of Puffin Web Browser are in the US and the cloud servers can only access public web sites from US geolocations.\r\n* For users outside the US, local contents, especially videos of local interest, may not be accessible from the US due to geo-restrictions in their home countries.\r\n* Puffin is blocked in some countries (e.g., China, Saudi Arabia, United Arab Emirates) and by some schools (e.g., in United States).\r\n\r\nFor more information, please check our FAQ: http://www.puffinbrowser.com/faq/"
+    }
 },
 {
+    "pk": 23,
+    "model": "multimedia.multimedia",
     "fields": {
         "modified_at": "2015-03-28T09:02:19Z",
-        "description": "Marine Traffic displays near real-time positions of ships and yachts worldwide.\r\nConnected to the largest network of AIS receivers, the app covers most major ports and shipping routes.\r\n\r\n\r\n\u2022 View VESSELS ON THE LIVE MAP, search for ships, boats and seaports and see what's near you!\r\n\u2022 More than 100,000 VESSELS PER DAY report their positions via MarineTraffic AIS\r\n\u2022 View live wind and 48-hour WIND FORECASTS on the map\r\n\u2022 ANIMATED PLAYBACK of vessel's track\r\n\u2022 PORT ARRIVALS & DEPARTURES live for over 4,000 ports and marinas, current conditions in ports and estimated time of arrival for the boats & ships.\r\n\u2022 Manage your list of vessels (\"MY FLEET\"), shared with all your devices and MarineTraffic.com\r\n\u2022 Browse 1,5 MILLION PHOTOS of ships, harbors and lighthouses\r\nand much more!\r\n\r\n\u279c NEW! Identify vessels around you at a glance with the Augmented Reality tool (in-app purchase)\r\nJust point your device's camera to the horizon and get all the information you need about the vessels in your area: name, flag, speed, distance from you and a lot more.\r\n\r\nAlso, for MarineTraffic paying subscribers:\r\n\u2022 NAUTICAL CHARTS\r\n\u2022 SAT-AIS DATA\r\n\r\nJoin the great MarineTraffic community!\r\n\r\n\r\n** If you're only interested in a specific area, please confirm coverage on www.marinetraffic.com before purchasing the app **",
+        "organisation": 14,
         "created_at": "2015-03-28T09:02:19Z",
         "price": "5.99",
         "name": "MarineTraffic ship positions",
-        "organisation": 14
-    },
-    "pk": 23,
-    "model": "multimedia.multimedia"
+        "description": "Marine Traffic displays near real-time positions of ships and yachts worldwide.\r\nConnected to the largest network of AIS receivers, the app covers most major ports and shipping routes.\r\n\r\n\r\n\u2022 View VESSELS ON THE LIVE MAP, search for ships, boats and seaports and see what's near you!\r\n\u2022 More than 100,000 VESSELS PER DAY report their positions via MarineTraffic AIS\r\n\u2022 View live wind and 48-hour WIND FORECASTS on the map\r\n\u2022 ANIMATED PLAYBACK of vessel's track\r\n\u2022 PORT ARRIVALS & DEPARTURES live for over 4,000 ports and marinas, current conditions in ports and estimated time of arrival for the boats & ships.\r\n\u2022 Manage your list of vessels (\"MY FLEET\"), shared with all your devices and MarineTraffic.com\r\n\u2022 Browse 1,5 MILLION PHOTOS of ships, harbors and lighthouses\r\nand much more!\r\n\r\n\u279c NEW! Identify vessels around you at a glance with the Augmented Reality tool (in-app purchase)\r\nJust point your device's camera to the horizon and get all the information you need about the vessels in your area: name, flag, speed, distance from you and a lot more.\r\n\r\nAlso, for MarineTraffic paying subscribers:\r\n\u2022 NAUTICAL CHARTS\r\n\u2022 SAT-AIS DATA\r\n\r\nJoin the great MarineTraffic community!\r\n\r\n\r\n** If you're only interested in a specific area, please confirm coverage on www.marinetraffic.com before purchasing the app **"
+    }
 },
 {
-    "fields": {
-        "isbn10": "0321773039",
-        "isbn13": "9780321773036",
-        "published_on": "2013-03-13"
-    },
     "pk": 4,
-    "model": "multimedia.book"
+    "model": "multimedia.book",
+    "fields": {
+        "published_on": "2013-03-13",
+        "isbn13": "9780321773036",
+        "isbn10": "0321773039"
+    }
 },
 {
-    "fields": {
-        "isbn10": "0262033844",
-        "isbn13": "9780262033848",
-        "published_on": "2009-07-31"
-    },
     "pk": 6,
-    "model": "multimedia.book"
+    "model": "multimedia.book",
+    "fields": {
+        "published_on": "2009-07-31",
+        "isbn13": "9780262033848",
+        "isbn10": "0262033844"
+    }
 },
 {
-    "fields": {
-        "isbn10": "0387948600",
-        "isbn13": "9780387948607",
-        "published_on": "1997-11-14"
-    },
     "pk": 7,
-    "model": "multimedia.book"
+    "model": "multimedia.book",
+    "fields": {
+        "published_on": "1997-11-14",
+        "isbn13": "9780387948607",
+        "isbn10": "0387948600"
+    }
 },
 {
-    "fields": {
-        "isbn10": "0307408868",
-        "isbn13": "9780307408860",
-        "published_on": "2015-03-10"
-    },
     "pk": 8,
-    "model": "multimedia.book"
-},
-{
+    "model": "multimedia.book",
     "fields": {
-        "isbn10": "1501100076",
-        "isbn13": "9781501100079",
-        "published_on": "2015-06-02"
-    },
-    "pk": 9,
-    "model": "multimedia.book"
+        "published_on": "2015-03-10",
+        "isbn13": "9780307408860",
+        "isbn10": "0307408868"
+    }
 },
 {
+    "pk": 9,
+    "model": "multimedia.book",
+    "fields": {
+        "published_on": "2015-06-02",
+        "isbn13": "9781501100079",
+        "isbn10": "1501100076"
+    }
+},
+{
+    "pk": 10,
+    "model": "multimedia.movie",
     "fields": {
         "duration": 7140
-    },
-    "pk": 10,
-    "model": "multimedia.movie"
+    }
 },
 {
+    "pk": 11,
+    "model": "multimedia.movie",
     "fields": {
         "duration": 6120
-    },
-    "pk": 11,
-    "model": "multimedia.movie"
+    }
 },
 {
+    "pk": 12,
+    "model": "multimedia.movie",
     "fields": {
         "duration": 10140
-    },
-    "pk": 12,
-    "model": "multimedia.movie"
+    }
 },
 {
+    "pk": 13,
+    "model": "multimedia.movie",
     "fields": {
         "duration": 8880
-    },
-    "pk": 13,
-    "model": "multimedia.movie"
+    }
 },
 {
+    "pk": 14,
+    "model": "multimedia.application",
     "fields": {
         "version": "feb1215"
-    },
-    "pk": 14,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 15,
+    "model": "multimedia.application",
     "fields": {
         "version": "1.1.3"
-    },
-    "pk": 15,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 16,
+    "model": "multimedia.application",
     "fields": {
         "version": "1.3.2"
-    },
-    "pk": 16,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 17,
+    "model": "multimedia.application",
     "fields": {
         "version": "Nov0414"
-    },
-    "pk": 17,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 18,
+    "model": "multimedia.application",
     "fields": {
         "version": "Mar2715"
-    },
-    "pk": 18,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 19,
+    "model": "multimedia.application",
     "fields": {
         "version": "1.0.39"
-    },
-    "pk": 19,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 20,
+    "model": "multimedia.application",
     "fields": {
         "version": "6.1.2"
-    },
-    "pk": 20,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 21,
+    "model": "multimedia.application",
     "fields": {
         "version": "C"
-    },
-    "pk": 21,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 22,
+    "model": "multimedia.application",
     "fields": {
         "version": "4.1.2.1212"
-    },
-    "pk": 22,
-    "model": "multimedia.application"
+    }
 },
 {
+    "pk": 23,
+    "model": "multimedia.application",
     "fields": {
         "version": "3.3.5"
-    },
-    "pk": 23,
-    "model": "multimedia.application"
+    }
 },
 {
-    "fields": {
-        "duration": 123
-    },
     "pk": 1,
-    "model": "multimedia.music"
+    "model": "multimedia.music",
+    "fields": {
+        "duration": 224
+    }
 },
 {
-    "fields": {
-        "duration": 240
-    },
     "pk": 2,
-    "model": "multimedia.music"
-},
-{
+    "model": "multimedia.music",
     "fields": {
-        "duration": 248
-    },
-    "pk": 3,
-    "model": "multimedia.music"
+        "duration": 233
+    }
 },
 {
+    "pk": 3,
+    "model": "multimedia.music",
+    "fields": {
+        "duration": 281
+    }
+},
+{
+    "pk": 1,
+    "model": "multimedia.album",
     "fields": {
         "name": "asdf"
-    },
-    "pk": 1,
-    "model": "multimedia.album"
+    }
 },
 {
+    "pk": 2,
+    "model": "multimedia.album",
     "fields": {
         "name": "GIRL"
-    },
-    "pk": 2,
-    "model": "multimedia.album"
+    }
 },
 {
+    "pk": 3,
+    "model": "multimedia.album",
     "fields": {
         "name": "X"
-    },
-    "pk": 3,
-    "model": "multimedia.album"
+    }
 },
 {
+    "pk": 1,
+    "model": "multimedia.albummusic",
     "fields": {
         "album": 1,
         "music": 1
-    },
-    "pk": 1,
-    "model": "multimedia.albummusic"
+    }
 },
 {
+    "pk": 2,
+    "model": "multimedia.albummusic",
     "fields": {
         "album": 2,
         "music": 2
-    },
-    "pk": 2,
-    "model": "multimedia.albummusic"
+    }
 },
 {
+    "pk": 3,
+    "model": "multimedia.albummusic",
     "fields": {
         "album": 3,
         "music": 3
-    },
-    "pk": 3,
-    "model": "multimedia.albummusic"
+    }
 },
 {
-    "fields": {
-        "parent_category": null,
-        "name": "Book"
-    },
     "pk": 1,
-    "model": "multimedia.category"
+    "model": "multimedia.category",
+    "fields": {
+        "name": "Book",
+        "parent_category": null
+    }
 },
 {
-    "fields": {
-        "parent_category": null,
-        "name": "Popular"
-    },
     "pk": 2,
-    "model": "multimedia.category"
+    "model": "multimedia.category",
+    "fields": {
+        "name": "Popular",
+        "parent_category": null
+    }
 },
 {
-    "fields": {
-        "category": 1,
-        "multimedia": 1
-    },
     "pk": 1,
-    "model": "multimedia.multimediacategory"
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 1,
+        "category": 1
+    }
 },
 {
-    "fields": {
-        "category": 2,
-        "multimedia": 2
-    },
     "pk": 2,
-    "model": "multimedia.multimediacategory"
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 2,
+        "category": 2
+    }
 },
 {
-    "fields": {
-        "category": 1,
-        "multimedia": 3
-    },
     "pk": 3,
-    "model": "multimedia.multimediacategory"
+    "model": "multimedia.multimediacategory",
+    "fields": {
+        "multimedia": 3,
+        "category": 1
+    }
 }
 ]
