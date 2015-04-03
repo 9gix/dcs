@@ -1,5 +1,5 @@
 from django.db import models
-
+from .managers import CrewManager
 
 class Crew(models.Model):
     id = models.AutoField(primary_key=True)
@@ -7,6 +7,8 @@ class Crew(models.Model):
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
     organisation = models.ForeignKey('Organisation')
+
+    objects = CrewManager()
 
     class Meta:
         managed = False
