@@ -13,8 +13,10 @@ Music - Digital Content Store
 {% block info %}
 <p>
   <dl>
-    <dt>Singer</dt>
-    <dd>{{ item.singer }}</dd>
+    {% for pair in item.crews %}
+    <dt>{{ pair.role }}</dt>
+    <dd>{{ pair.person }}</dd>
+    {% endfor %}
     <dt>Album</dt>
     <dd>{{ item.album }}</dd>
     <dt>Duration</dt>

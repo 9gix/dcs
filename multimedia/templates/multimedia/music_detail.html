@@ -10,17 +10,20 @@
 {% endblock css %}
 
 {% block preview %}
-<dl>
-  <dt>Singer</dt>
-  <dd>{{ music.singer }}</dd>
-  <dt>Album</dt>
-  <dd>{{ music.album }}</dd>
-</dl>
+<!-- Thumbnail here -->
 {% endblock preview %}
 
 {% block description %}
 <h3>{{ music.name }}</h3>
 <p>
   {{ music.description }}
+  <dl>
+    {% for crew in music.crews %}
+    <dt>{{ crew.role }}</dt>
+    <dd>{{ crew.person }}</dd>
+    {% endfor %}
+    <dt>Album</dt>
+    <dd>{{ music.album }}</dd>
+  </dl>
 </p>
 {% endblock description %}
