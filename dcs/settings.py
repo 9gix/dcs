@@ -88,6 +88,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'statics'),
 )
 
+
+# Media File (Thumbnail, User Uploaded Content)
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(PUBLIC_DIR, 'media')
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
