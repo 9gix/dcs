@@ -1,11 +1,13 @@
 from django.db import models
-
+from .managers import CrewManager
 
 class Crew(models.Model):
     id = models.AutoField(primary_key=True)
     multimedia = models.ForeignKey('multimedia.Multimedia')
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
+
+    objects = CrewManager()
 
     class Meta:
         managed = False
