@@ -6,7 +6,8 @@
 {% endblock title %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static "css/book_detail.css" %}">
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/book.css" %}">
 {% endblock css %}
 
 {% block preview %}
