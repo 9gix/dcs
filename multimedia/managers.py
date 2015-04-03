@@ -12,9 +12,10 @@ class BookManager(models.Manager):
         books = []
         with connection.cursor() as c:
             c.execute('''
-                SELECT id, name, description, isbn13, isbn10
-                FROM book, multimedia
-                WHERE book.multimedia_id = multimedia.id
+                SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+                FROM book, multimedia m, organisation o
+                WHERE book.multimedia_id = m.id
+                  AND m.organisation_id = o.id
             ''')
 
             for book in dictfetchall(c):
@@ -27,9 +28,10 @@ class BookManager(models.Manager):
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
-                SELECT id, name, description, isbn13, isbn10
-                FROM book, multimedia
-                WHERE book.multimedia_id = multimedia.id
+                SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+                FROM book, multimedia m, organisation o
+                WHERE book.multimedia_id = m.id
+                  AND m.organisation_id = o.id
                   AND book.isbn13 = %s
             ''', [kwargs['isbn13'], ])
             return dictfetchone(c)
