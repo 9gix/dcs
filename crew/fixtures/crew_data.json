@@ -209,7 +209,6 @@
 {
     "model": "crew.crew",
     "fields": {
-        "organisation": 13,
         "person": 15,
         "multimedia": 22,
         "role": 4
@@ -219,7 +218,6 @@
 {
     "model": "crew.crew",
     "fields": {
-        "organisation": 14,
         "person": 15,
         "multimedia": 23,
         "role": 4
@@ -358,5 +356,5 @@
         "name": "-"
     },
     "pk": 15
-},
+}
 ]

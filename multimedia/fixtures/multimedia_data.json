@@ -97,7 +97,7 @@
         "created_at": "2015-03-13T10:59:08Z",
         "price": "1234.00",
         "name": "asdf",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 1,
     "model": "multimedia.multimedia"
@@ -109,7 +109,7 @@
         "created_at": "2015-03-13T11:02:15Z",
         "price": "5.00",
         "name": "Happy",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 2,
     "model": "multimedia.multimedia"
@@ -121,7 +121,7 @@
         "created_at": "2015-03-13T11:03:22Z",
         "price": "4.00",
         "name": "Thinking out Loud",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 3,
     "model": "multimedia.multimedia"
@@ -133,7 +133,7 @@
         "created_at": "2015-03-13T11:04:17Z",
         "price": "130.00",
         "name": "OpenGL Programming Guide: The Official Guide to Learning OpenGL, Version 4.3 (8th Edition)",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 4,
     "model": "multimedia.multimedia"
@@ -145,7 +145,7 @@
         "created_at": "2015-03-28T03:20:10Z",
         "price": "77.00",
         "name": "Introduction to Algorithms, 3rd Edition",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 6,
     "model": "multimedia.multimedia"
@@ -157,7 +157,7 @@
         "created_at": "2015-03-28T03:27:00Z",
         "price": "122.00",
         "name": "The Algorithm Design Manual",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 7,
     "model": "multimedia.multimedia"
@@ -169,7 +169,7 @@
         "created_at": "2015-03-28T03:29:56Z",
         "price": "17.00",
         "name": "Dead Wake: The Last Crossing of the Lusitania",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 8,
     "model": "multimedia.multimedia"
@@ -181,7 +181,7 @@
         "created_at": "2015-03-28T03:31:48Z",
         "price": "21.00",
         "name": "Finders Keepers: A Novel",
-        "organisation_id": 1
+        "organisation": 1
     },
     "pk": 9,
     "model": "multimedia.multimedia"
@@ -193,7 +193,7 @@
         "created_at": "2015-03-28T06:39:19Z",
         "price": "14.99",
         "name": "Birdman (or The Unexpected Virtue of Ignorance)",
-        "organisation_id": 4
+        "organisation": 4
     },
     "pk": 10,
     "model": "multimedia.multimedia"
@@ -205,7 +205,7 @@
         "created_at": "2015-03-28T06:42:31Z",
         "price": "19.99",
         "name": "Big Hero 6",
-        "organisation_id": 3
+        "organisation": 3
     },
     "pk": 11,
     "model": "multimedia.multimedia"
@@ -217,7 +217,7 @@
         "created_at": "2015-03-28T06:50:42Z",
         "price": "19.99",
         "name": "Interstellar",
-        "organisation_id": 2
+        "organisation": 2
     },
     "pk": 12,
     "model": "multimedia.multimedia"
@@ -229,7 +229,7 @@
         "created_at": "2015-03-28T07:17:31Z",
         "price": "14.99",
         "name": "Inception",
-        "organisation_id": 6
+        "organisation": 6
     },
     "pk": 13,
     "model": "multimedia.multimedia"
@@ -241,7 +241,7 @@
         "created_at": "2015-03-28T08:28:01Z",
         "price": "0.00",
         "name": "Google Translate",
-        "organisation_id": 7
+        "organisation": 7
     },
     "pk": 14,
     "model": "multimedia.multimedia"
@@ -253,7 +253,7 @@
         "created_at": "2015-03-28T08:35:41Z",
         "price": "16.17",
         "name": "Essential Anatomy 3",
-        "organisation_id": 8
+        "organisation": 8
     },
     "pk": 15,
     "model": "multimedia.multimedia"
@@ -265,7 +265,7 @@
         "created_at": "2015-03-28T08:39:04Z",
         "price": "0.00",
         "name": "FIFA 15 Ultimate Team",
-        "organisation_id": 9
+        "organisation": 9
     },
     "pk": 16,
     "model": "multimedia.multimedia"
@@ -277,7 +277,7 @@
         "created_at": "2015-03-28T08:43:50Z",
         "price": "5.98",
         "name": "UNO\u2122",
-        "organisation_id": 10
+        "organisation": 10
     },
     "pk": 17,
     "model": "multimedia.multimedia"
@@ -289,7 +289,7 @@
         "created_at": "2015-03-28T08:49:25Z",
         "price": "0.00",
         "name": "Despicable Me",
-        "organisation_id": 10
+        "organisation": 10
     },
     "pk": 18,
     "model": "multimedia.multimedia"
@@ -301,7 +301,7 @@
         "created_at": "2015-03-28T08:50:45Z",
         "price": "8.98",
         "name": "MASS EFFECT\u2122 INFILTRATOR",
-        "organisation_id": 9
+        "organisation": 9
     },
     "pk": 19,
     "model": "multimedia.multimedia"
@@ -313,7 +313,7 @@
         "created_at": "2015-03-28T08:53:14Z",
         "price": "4.98",
         "name": "Flightradar24 - Flight Tracker",
-        "organisation_id": 11
+        "organisation": 11
     },
     "pk": 20,
     "model": "multimedia.multimedia"
@@ -325,7 +325,7 @@
         "created_at": "2015-03-28T08:55:42Z",
         "price": "5.00",
         "name": "Nova Launcher Prime",
-        "organisation_id": 12
+        "organisation": 12
     },
     "pk": 21,
     "model": "multimedia.multimedia"
@@ -337,7 +337,7 @@
         "created_at": "2015-03-28T08:57:13Z",
         "price": "5.07",
         "name": "Puffin Web Browser",
-        "organisation_id": 13
+        "organisation": 13
     },
     "pk": 22,
     "model": "multimedia.multimedia"
@@ -349,7 +349,7 @@
         "created_at": "2015-03-28T09:02:19Z",
         "price": "5.99",
         "name": "MarineTraffic ship positions",
-        "organisation_id": 14
+        "organisation": 14
     },
     "pk": 23,
     "model": "multimedia.multimedia"

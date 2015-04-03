@@ -15,5 +15,5 @@ CREATE TABLE IF NOT EXISTS crew (
     role_id INT NOT NULL,
     FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
     FOREIGN KEY (person_id) REFERENCES person(id),
-    FOREIGN KEY (role_id) REFERENCES role(id),
+    FOREIGN KEY (role_id) REFERENCES role(id)
 );

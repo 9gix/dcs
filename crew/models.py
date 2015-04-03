@@ -12,7 +12,7 @@ class Crew(models.Model):
         db_table = 'crew'
 
     def __str__(self):
-        return "{} {} at {}".format(self.person, self.role, self.organisation)
+        return "{} as {} in {}".format(self.person, self.role, self.multimedia)
 
 
 class Role(models.Model):

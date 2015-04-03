@@ -23,7 +23,7 @@ class Multimedia(models.Model):
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
-    organisation = models.OneToOneField('Organisation')
+    organisation = models.ForeignKey('Organisation')
 
     class Meta:
         managed = False
