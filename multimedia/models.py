@@ -21,9 +21,9 @@ class Multimedia(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
-
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    organisation = models.OneToOneField('Organisation')
 
     class Meta:
         managed = False
