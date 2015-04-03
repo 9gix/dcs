@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=100)),
                 ('description', models.TextField()),
-                ('price', models.DecimalField(max_digits=10, decimal_places=2)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
             ],
@@ -64,15 +64,39 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
+            name='Movie',
+            fields=[
+                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('duration', models.IntegerField()),
+            ],
+            options={
+                'db_table': 'movie',
+                'managed': False,
+            },
+            bases=('multimedia.multimedia',),
+        ),
+        migrations.CreateModel(
             name='Book',
             fields=[
-                ('multimedia', models.OneToOneField(primary_key=True, to='multimedia.Multimedia', parent_link=True, serialize=False)),
+                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
                 ('isbn13', models.CharField(max_length=13)),
                 ('isbn10', models.CharField(max_length=10)),
                 ('published_on', models.DateField()),
             ],
             options={
                 'db_table': 'book',
+                'managed': False,
+            },
+            bases=('multimedia.multimedia',),
+        ),
+        migrations.CreateModel(
+            name='Application',
+            fields=[
+                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
+                ('version', models.CharField(max_length=10)),
+            ],
+            options={
+                'db_table': 'application',
                 'managed': False,
             },
             bases=('multimedia.multimedia',),
@@ -120,7 +144,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Music',
             fields=[
-                ('multimedia', models.OneToOneField(primary_key=True, to='multimedia.Multimedia', parent_link=True, serialize=False)),
+                ('multimedia', models.OneToOneField(to='multimedia.Multimedia', parent_link=True, primary_key=True, serialize=False)),
                 ('duration', models.IntegerField(null=True)),
             ],
             options={
@@ -128,5 +152,17 @@ class Migration(migrations.Migration):
                 'managed': False,
             },
             bases=('multimedia.multimedia',),
+        ),
+        migrations.CreateModel(
+            name='Organisation',
+            fields=[
+                ('id', models.AutoField(primary_key=True, serialize=False)),
+                ('name', models.CharField(max_length=45)),
+            ],
+            options={
+                'db_table': 'organisation',
+                'managed': False,
+            },
+            bases=(models.Model,),
         ),
     ]

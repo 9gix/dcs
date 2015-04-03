@@ -6,7 +6,6 @@ class Crew(models.Model):
     multimedia = models.ForeignKey('multimedia.Multimedia')
     person = models.ForeignKey('Person')
     role = models.ForeignKey('Role')
-    organisation = models.ForeignKey('Organisation')
 
     objects = CrewManager()
 
@@ -15,7 +14,7 @@ class Crew(models.Model):
         db_table = 'crew'
 
     def __str__(self):
-        return "{} {} at {}".format(self.person, self.role, self.organisation)
+        return "{} as {} in {}".format(self.person, self.role, self.multimedia)
 
 
 class Role(models.Model):
@@ -43,13 +42,3 @@ class Person(models.Model):
         return self.name
 
 
-class Organisation(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=45)
-
-    class Meta:
-        managed = False
-        db_table = 'organisation'
-
-    def __str__(self):
-        return self.name

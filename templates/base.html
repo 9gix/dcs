@@ -46,8 +46,22 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Cart</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Sign Up</a></li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="#">
+                Hi,
+                {% if user.first_name %}
+                {{ user.first_name }}
+                {% else %}
+                {{ user.username }}
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'auth_login' %}">Login</a></li>
+            <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>

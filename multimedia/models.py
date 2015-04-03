@@ -5,6 +5,16 @@ from .managers import (
     MusicManager,
 )
 
+class Organisation(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'organisation'
+
+    def __str__(self):
+        return self.name
 
 class Multimedia(models.Model):
     id = models.AutoField(primary_key=True)
@@ -12,9 +22,9 @@ class Multimedia(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
-
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    organisation = models.ForeignKey('Organisation')
 
     class Meta:
         managed = False
