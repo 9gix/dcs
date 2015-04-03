@@ -8,7 +8,6 @@ from crew.models import Crew
 def book_list(request):
     books = Book.objects.all()
     book_ids = list(map(lambda book: book['id'], books))
-    #import ipdb; ipdb.set_trace()
     multimedia_images = MultimediaImage.objects.filter(multimedia_id__in=book_ids)
     for book in books:
         multimedia_image = multimedia_images.filter(multimedia_id=book['id']).first()
@@ -29,6 +28,12 @@ def music_list(request):
     for music in musics:
         crews = Crew.objects.filter(multimedia_id=music['id'])
         music['crews'] = crews
+
+        multimedia_image = MultimediaImage.objects.filter(multimedia_id=music['id']).first()
+        if multimedia_image:
+            music['thumbnail'] = multimedia_image.thumbnail.url
+        else:
+            music['thumbnail'] = ''
 
     return render(request, 'multimedia/music_list.html', {'multimedia': musics, 'multimedia_type': 'Music'})
 
