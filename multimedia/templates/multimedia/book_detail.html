@@ -1,0 +1,34 @@
+{% extends "multimedia/base_detail.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ book.name }}
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/book.css" %}">
+{% endblock css %}
+
+{% block preview %}
+<!-- Thumbnail here -->
+<img src="{{ book.thumbnail }}" />
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ book.name }}</h3>
+<p>
+  {{ book.description }}
+  <dl>
+    <!-- crew here -->
+    <dt>Publisher</dt>
+    <dd>{{ book.publisher }}</dd>
+    <dt>ISBN13</dt>
+    <dd>{{ book.isbn13 }}</dd>
+    <dt>ISBN10</dt>
+    <dd>{{ book.isbn10 }}</dd>
+    <dt>Price</dt>
+    <dd>${{ book.price }}</dd>
+  </dl>
+</p>
+{% endblock description %}

@@ -1,19 +1,30 @@
 from django.contrib import admin
 from .models import (
-        Multimedia, Book, Movie, Application,
+        Organisation, Multimedia, Book, Movie, Application,
         Album, Music, AlbumMusic,
         Category, MultimediaCategory,
-        MultimediaContent, MultimediaReview
+        MultimediaContent, MultimediaReview, MultimediaImage
 )
 
+class MultimediaImageInline(admin.TabularInline):
+    model = MultimediaImage
+    extra = 1
 
-admin.site.register(Book)
-admin.site.register(Movie)
-admin.site.register(Application)
+class MultimediaAdmin(admin.ModelAdmin):
+    inlines = [
+        MultimediaImageInline,
+    ]
+
+
+admin.site.register(Organisation)
+admin.site.register(Book, MultimediaAdmin)
+admin.site.register(Movie, MultimediaAdmin)
+admin.site.register(Application, MultimediaAdmin)
+admin.site.register(Music, MultimediaAdmin)
 admin.site.register(Album)
-admin.site.register(Music)
 admin.site.register(AlbumMusic)
 admin.site.register(Category)
 admin.site.register(MultimediaCategory)
 admin.site.register(MultimediaContent)
 admin.site.register(MultimediaReview)
+admin.site.register(MultimediaImage)

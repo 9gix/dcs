@@ -39,6 +39,7 @@ INSTALLED_APPS = (
 
     # External Application
     'django_extensions',
+    'registration',
 
 
     # Internal Application
@@ -88,12 +89,31 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'statics'),
 )
 
+
+# Media File (Thumbnail, User Uploaded Content)
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(PUBLIC_DIR, 'media')
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, 'templates'),
 )
+
+
+# Authentication
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/'
+
+
+# Email Backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Local Settings
 try:

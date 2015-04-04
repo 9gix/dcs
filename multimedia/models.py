@@ -1,6 +1,23 @@
-from django.db import connection
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from pilkit import processors
+
+from .managers import (
+    BookManager,
+    MusicManager,
+)
+
+class Organisation(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'organisation'
+
+    def __str__(self):
+        return self.name
 
 class Multimedia(models.Model):
     id = models.AutoField(primary_key=True)
@@ -8,9 +25,9 @@ class Multimedia(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     categories = models.ManyToManyField('Category', through='MultimediaCategory')
-
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    organisation = models.ForeignKey('Organisation')
 
     class Meta:
         managed = False
@@ -19,6 +36,18 @@ class Multimedia(models.Model):
     def __str__(self):
         return self.name
 
+class MultimediaImage(models.Model):
+    caption = models.CharField(max_length=100, blank=True)
+    original = models.ImageField(upload_to='original')
+    multimedia = models.ForeignKey('Multimedia')
+    thumb150x150 = ImageSpecField(source='original',
+            processors=[processors.Thumbnail(150, 150)], format='JPEG')
+    thumb250x250 = ImageSpecField(source='original',
+            processors=[processors.ResizeToFit(250, 250)], format='JPEG')
+
+    class Meta:
+        db_table = 'multimedia_image'
+
 
 class Book(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
@@ -26,6 +55,8 @@ class Book(Multimedia):
     isbn10 = models.CharField(max_length=10)
 
     published_on = models.DateField()
+
+    objects = BookManager()
 
     class Meta:
         managed = False
@@ -47,9 +78,12 @@ class Application(Multimedia):
         managed = False
         db_table = 'application'
 
+
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField(null=True);
+
+    objects = MusicManager()
 
     class Meta:
         managed = False

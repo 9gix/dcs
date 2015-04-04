@@ -1,0 +1,36 @@
+{% extends "multimedia/base_detail.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ book.name }}
+{% endblock title %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "css/music.css" %}">
+{% endblock css %}
+
+{% block preview %}
+<!-- Thumbnail here -->
+<img src="{{ music.thumbnail }}" />
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ music.name }}</h3>
+<p>
+  {{ music.description }}
+  <dl>
+    {% for crew in music.crews %}
+    <dt>{{ crew.role }}</dt>
+    <dd>{{ crew.person }}</dd>
+    {% endfor %}
+    <dt>Album</dt>
+    <dd>{{ music.album }}</dd>
+    <dt>Duration</dt>
+    <dd>{{ music.duration }}</dd>
+    <dt>Recording company</dt>
+    <dd>{{ music.organisation }}</dd>
+    <dt>Price</dt>
+    <dd>${{ music.price }}</dd>
+  </dl>
+</p>
+{% endblock description %}

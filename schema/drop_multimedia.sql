@@ -9,3 +9,4 @@ DROP TABLE IF EXISTS music;
 DROP TABLE IF EXISTS movie;
 DROP TABLE IF EXISTS application;
 DROP TABLE IF EXISTS multimedia;
+DROP TABLE IF EXISTS organisation;
