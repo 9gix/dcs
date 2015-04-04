@@ -22,7 +22,8 @@ def book_detail(request, isbn13):
     book = Book.objects.get(isbn13=isbn13)
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=book['id'])
-    book['thumbnail'] = multimedia_images.first().thumb250x250.url
+    image = multimedia_images.first()
+    book['thumbnail'] = image.thumb250x250.url if image else None
 
     return render(request, 'multimedia/book_detail.html', {'book': book})
 
@@ -47,7 +48,8 @@ def music_detail(request, music_id):
     music['crews'] = crews
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=music['id'])
-    music['thumbnail'] = multimedia_images.first().thumb250x250.url
+    image = multimedia_images.first()
+    music['thumbnail'] = image.thumb250x250.url if image else None
 
     return render(request, 'multimedia/music_detail.html', {'music': music})
 
