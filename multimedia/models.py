@@ -1,7 +1,11 @@
 from django.db import models
 
+from imagekit.models import ImageSpecField
+from pilkit import processors
+
 from .managers import (
-    BookManager
+    BookManager,
+    MusicManager,
 )
 
 class Organisation(models.Model):
@@ -31,6 +35,18 @@ class Multimedia(models.Model):
 
     def __str__(self):
         return self.name
+
+class MultimediaImage(models.Model):
+    caption = models.CharField(max_length=100, blank=True)
+    original = models.ImageField(upload_to='original')
+    multimedia = models.ForeignKey('Multimedia')
+    thumb150x150 = ImageSpecField(source='original',
+            processors=[processors.Thumbnail(150, 150)], format='JPEG')
+    thumb250x250 = ImageSpecField(source='original',
+            processors=[processors.ResizeToFit(250, 250)], format='JPEG')
+
+    class Meta:
+        db_table = 'multimedia_image'
 
 
 class Book(Multimedia):
@@ -66,6 +82,8 @@ class Application(Multimedia):
 class Music(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField(null=True);
+
+    objects = MusicManager()
 
     class Meta:
         managed = False

@@ -7,7 +7,7 @@ Books - Digital Content Store
 
 {% block css %}
 {{ block.super }}
-<link href="{% static "css/book_list.css" %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/book.css" %}">
 {% endblock css %}
 
 {% block info %}
@@ -18,7 +18,7 @@ Books - Digital Content Store
     <dt>ISBN13</dt>
     <dd>{{ item.isbn13 }}</dd>
     <dt>Price</dt>
-    <dd>???</dd>
+    <dd>${{ item.price }}</dd>
   </dl>
 </p>
 {% endblock info %}
