@@ -20,8 +20,8 @@ class ApplicationManager(models.Manager):
             for application in dictfetchall(c):
                 applications.append(application)
 
-        for application in applictions:
-            application['url'] = reverse('multimedia:appliction_detail', args=(application['multimedia_id'],))
+        for application in applications:
+            application['url'] = reverse('multimedia:application_detail', args=(application['id'],))
         return applications
 
     def get(self, *args, **kwargs):
