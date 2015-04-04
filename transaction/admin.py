@@ -18,5 +18,4 @@ class CartModelAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Cart, CartModelAdmin)
-admin.site.register(CartItem)
 admin.site.register(Transaction)
