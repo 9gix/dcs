@@ -73,6 +73,7 @@ def application_detail(request, application_id):
     application['crews'] = application
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=application['id'])
-    application['thumbnail'] = multimedia_images.first().thumb250x250.url
+    image = multimedia_images.first()
+    application['thumbnail'] = image.thumb250x250.url if image else None
 
     return render(request, 'multimedia/application_detail.html', {'application': application})
