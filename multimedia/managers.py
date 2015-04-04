@@ -6,6 +6,34 @@ from .utils import (
     dictfetchall, dictfetchone
 )
 
+class ApplicationManager(models.Manager):
+    def all(self):
+        applications = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT m.id, m.name, description, version, price, o.name AS developer
+                FROM application a, multimedia m, organisation o
+                WHERE a.multimedia_id = m.id
+                  AND m.organisation_id = o.id
+            ''')
+
+            for application in dictfetchall(c):
+                applications.append(application)
+
+        for application in applictions:
+            application['url'] = reverse('multimedia:appliction_detail', args=(application['multimedia_id'],))
+        return applications
+
+    def get(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT m.id, m.name, description, version, price, o.name AS developer
+                FROM application a, multimedia m, organisation o
+                WHERE a.multimedia_id = m.id
+                  AND m.organisation_id = o.id
+                  AND a.multimedia_id = %s
+            ''', [kwargs['multimedia_id'], ])
+            return dictfetchone(c)
 
 class BookManager(models.Manager):
     def all(self):
