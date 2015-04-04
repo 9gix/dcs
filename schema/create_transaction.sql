@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS cart (
 CREATE TABLE IF NOT EXISTS cart_item (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	cart_id INT NOT NULL,
-	object_id INT NOT NULL,
+	multimedia_id INT NOT NULL,
 	object_type VARCHAR(45) NOT NULL,
 	quantity INT NOT NULL,
 	FOREIGN KEY (cart_id) REFERENCES cart(id),
-	FOREIGN KEY (object_id) REFERENCES multimedia(id)
+	FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
 );
 
 CREATE TABLE IF NOT EXISTS transaction (

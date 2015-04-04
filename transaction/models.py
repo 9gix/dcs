@@ -17,7 +17,7 @@ class Cart(models.Model):
 class CartItem(models.Model):
     id = models.AutoField(primary_key=True)
     cart = models.ForeignKey('Cart')
-    object = models.ForeignKey(multimedia.models.Multimedia)
+    multimedia = models.ForeignKey(multimedia.models.Multimedia)
     object_type = models.CharField(max_length=45)
     quantity = models.IntegerField()
 
