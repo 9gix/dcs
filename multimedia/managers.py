@@ -27,12 +27,21 @@ class ApplicationManager(models.Manager):
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
-                SELECT m.id, m.name, description, version, price, o.name AS developer
-                FROM application a, multimedia m, organisation o
+                SELECT 
+                  m.id, 
+                  m.name, 
+                  description, 
+                  version, 
+                  price, 
+                  o.name AS developer
+                FROM 
+                  application a, 
+                  multimedia m, 
+                  organisation o
                 WHERE a.multimedia_id = m.id
                   AND m.organisation_id = o.id
-                  AND a.multimedia_id = %s
-            ''', [kwargs['multimedia_id'], ])
+                  AND m.id = %s
+            ''', [kwargs['id'], ])
             return dictfetchone(c)
 
 class BookManager(models.Manager):
