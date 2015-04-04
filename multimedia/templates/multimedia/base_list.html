@@ -15,7 +15,11 @@
             <div class="media-left media-middle">
               <!-- Insert thumbnail here -->
               <a href="{{ item.url }}">
-                <img class="media-object" src="#">
+                {% if item.thumbnail %}
+                <img class="media-object" src="{{ item.thumbnail }}">
+                {% else %}
+                <img class="media-object" src="/statics/no-preview.jpg">
+                {% endif %}
               </a>
             </div>
             <div class="media-body">

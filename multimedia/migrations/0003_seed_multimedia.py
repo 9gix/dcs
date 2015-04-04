@@ -7,6 +7,7 @@ from django.core.management import call_command
 
 def seed_multimedia(apps, schema_editor):
     call_command('loaddata', 'multimedia_data', app_label='multimedia')
+    call_command('loaddata', 'multimediaimage_data', app_label='multimedia')
 
 def delete_multimedia(apps, schema_editor):
     Book = apps.get_model('multimedia', 'Book')
