@@ -3,7 +3,6 @@ from .models import (
         Cart, CartItem, Transaction
 )
 
-
 class CartItemInline(admin.TabularInline):
     model = CartItem
     extra = 1

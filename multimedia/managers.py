@@ -68,6 +68,7 @@ class MusicManager(models.Manager):
         with connection.cursor() as c:
             c.execute('''
                 SELECT
+                  mul.id AS id,
                   mul.name AS name,
                   a.name AS album,
                   description,

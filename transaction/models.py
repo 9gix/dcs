@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
-import multimedia
 
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
@@ -41,6 +40,7 @@ class CartItem(models.Model):
     def __str__(self):
         return str(self.content_object)
 
+
 class Transaction(models.Model):
     id = models.AutoField(primary_key=True)
     cart = models.ForeignKey('Cart')
@@ -53,6 +53,3 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.cart
-
-
-
