@@ -1,14 +1,21 @@
 from django.contrib import admin
-from django.contrib.contenttypes import admin as ct_admin
 from .models import (
         Cart, CartItem, Transaction
 )
 
-class CartItemModelAdmin(ct_admin.GenericTabularInline):
-	model = CartItem
+
+class CartItemInline(admin.TabularInline):
+    model = CartItem
+    extra = 1
+
+    related_lookup_fields = {
+        'generic': [['content_type', 'object_id'], ],
+    }
 
 class CartModelAdmin(admin.ModelAdmin):
-	inlines = [CartItemModelAdmin]
+    inlines = [CartItemInline]
+
+
 
 admin.site.register(Cart, CartModelAdmin)
 admin.site.register(CartItem)
