@@ -1,0 +1,24 @@
+{% extends "multimedia/base_list.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Applications - Digital Content Store
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/application.css" %}">
+{% endblock css %}
+
+{% block info %}
+<p>
+  <dl>
+    <dt>Developer</dt>
+    <dd>{{ item.developer }}</dd>
+    <dt>Version</dt>
+    <dd>{{ item.version }}</dd>
+    <dt>Price</dt>
+    <dd>${{ item.price }}</dd>
+  </dl>
+</p>
+{% endblock info %}
