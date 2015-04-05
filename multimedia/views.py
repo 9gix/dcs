@@ -57,8 +57,6 @@ def application_list(request):
     applications = Application.objects.all()
 
     for application in applications:
-        crews = Crew.objects.filter(multimedia_id=application['id'])
-        application['crews'] = crews
 
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=application['id']).first()
         if multimedia_image:
@@ -71,8 +69,6 @@ def application_list(request):
 
 def application_detail(request, application_id):
     application = Application.objects.get(id=application_id)
-    crews = Crew.objects.filter(multimedia_id=application_id)
-    application['crews'] = application
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=application['id'])
     image = multimedia_images.first()
