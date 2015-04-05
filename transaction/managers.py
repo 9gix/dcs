@@ -2,12 +2,12 @@ from django.db import connection
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from .utils import (
+from multimedia.utils import (
     dictfetchall, dictfetchone
 )
 
 
-class CartManager(models.Model):
+class CartManager(models.Manager):
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
@@ -16,6 +16,19 @@ class CartManager(models.Model):
                 WHERE c.id = %s
             ''', [kwargs['id'], ])
         return dictfetchone(c)
+
+
+class MultimediaManager(models.Manager):
+    def get(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT m.name, m.price
+                FROM multimedia m
+                WHERE m.id = %s
+            ''', [kwargs['id'], ])
+            return dictfetchone(c) 
+
+
 """
 class CartItemManager(models.Model):
     def all(self, *args, **kwargs):

@@ -1,71 +1,65 @@
 {% extends "transaction/base.html" %}
+{% load staticfiles %}
 
 {% block title %}
 Checkout
 {% endblock %}
 
-{% block content %}
-<h1> Shopping Cart
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Item</th>
-			<th>Qty</th>
-			<th>Price</th>
-			<th>Total</th>
-		</tr>
-	</thead>
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/checkout.css" %}">
+{% endblock css %}
 
-	<tbody>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-		<tr>
-			<td>a</td>
-			<td>1</td>
-			<td>$1.00</td>
-			<td>$1.00</td>
-		</tr>
-	</tbody>
+{% block js %}
 
-</table>
 {% endblock %}
+
+{% block content %}
+<h1> Shopping Cart </h1>
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Total</th>
+				<th></th>
+			</tr>
+		</thead>
+		{% if cart_items %}
+		<tbody>
+			{% for item in cart_items %}
+			<tr>
+				<td>{{ item.name }}</td>
+				<td>{{ item.quantity }}</td>
+				<td>${{ item.price }}</td>
+				<td>${{ item.total }}</td>
+				<td>
+					<button type="button" class="btn btn-default">Delete
+					</button>
+				</td>
+			</tr>	
+			{% endfor %}		
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2"></td>
+				<td><b>Total Price:</b></td>
+				<td>${{ total_price }}</td> 
+			</tr>
+		</tfoot>
+		{% else %}
+		<tbody>
+			<tr>
+				<td colspan="4" id="empty">There are no items added to the cart</td>
+			</tr>	
+		</tbody>
+		{% endif %}
+	</table>
+	
+	<button type="button" class="btn btn-success" id="purchase">Purchase</button>
+</div>
+{% endblock %}
+
+
