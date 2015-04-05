@@ -1,6 +1,11 @@
 {% extends "multimedia/base.html" %}
 {% load staticfiles %}
 
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "css/detail.css" %}">
+{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-md-3">
@@ -24,7 +29,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">Name</label>
     <div class="col-md-3">
-      <input type="text" class="form-control" placeholder="Ganteng">
+      <input type="text" class="form-control" placeholder="Your name here">
     </div>
   </div>
   <div class="form-group">
@@ -42,7 +47,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">Review</label>
     <div class="col-md-10">
-      <textarea class="form-control" placeholder="Why am I so ganteng?"></textarea>
+      <textarea class="form-control" placeholder="Your review here"></textarea>
     </div>
   </div>
 </form>

@@ -25,6 +25,10 @@ cp dcs/__local_settings.py dcs/local_settings.py
 # Migrate Database
 python manage.py migrate
 
+# Media folder
+1. Download public media folder [here][media]
+2. Unzip file on the project-level directory
+
 # Create Super User
 python manage.py createsuperuser
 
@@ -85,3 +89,4 @@ python manage.py reset_db
 [django]: https://www.djangoproject.com/
 [backbonejs]: http://backbonejs.org/
 [erd]: docs/erd.svg
+[media]: https://dl.dropboxusercontent.com/u/10757226/public.zip
