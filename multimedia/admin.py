@@ -3,7 +3,7 @@ from .models import (
         Organisation, Multimedia, Book, Movie, Application,
         Album, Music, AlbumMusic,
         Category, MultimediaCategory,
-        MultimediaContent, MultimediaReview, MultimediaImage
+        MultimediaContent, MultimediaImage
 )
 
 class MultimediaImageInline(admin.TabularInline):
@@ -26,5 +26,4 @@ admin.site.register(AlbumMusic)
 admin.site.register(Category)
 admin.site.register(MultimediaCategory)
 admin.site.register(MultimediaContent)
-admin.site.register(MultimediaReview)
 admin.site.register(MultimediaImage)

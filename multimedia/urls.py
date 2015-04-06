@@ -9,3 +9,5 @@ urlpatterns = patterns('multimedia.views',
     url(r'^application/$', 'application_list', name='application_list'),
     url(r'^application/(?P<application_id>\d+)/', 'application_detail', name='application_detail'),
 )
+
+urlpatterns.append(url(r'^review/(?P<multimedia_id>\d+)/$', 'review.views.review', name='multimedia_review'))
