@@ -7,11 +7,6 @@ class MultimediaReview(models.Model):
     comment = models.TextField(blank=True)
     rating = models.IntegerField()
 
-    def __init__(self, multimedia_id, comment, rating):
-        self.multimedia = multimedia_id
-        self.comment = comment
-        self.rating = rating
-
     class Meta:
         managed = False
         db_table = 'multimedia_review'
