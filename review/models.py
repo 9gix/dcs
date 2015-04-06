@@ -1,11 +1,14 @@
 from django.db import models
 from django.db import connection
+from .managers import MultimediaReviewManager
 
 class MultimediaReview(models.Model):
     id = models.AutoField(primary_key=True)
     multimedia = models.ForeignKey('multimedia.Multimedia')
     comment = models.TextField(blank=True)
     rating = models.IntegerField()
+
+    objects = MultimediaReviewManager()
 
     class Meta:
         managed = False
