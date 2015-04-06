@@ -1,6 +1,11 @@
 {% extends "multimedia/base.html" %}
 {% load staticfiles %}
 
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static "css/detail.css" %}">
+{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-md-3">
@@ -37,7 +42,7 @@
   <div class="form-group">
     <label class="col-md-2 control-label">Review</label>
     <div class="col-md-10">
-      <textarea class="form-control" name="comment" placeholder="Why am I so ganteng?"></textarea>
+      <textarea class="form-control" name="comment" placeholder="Your review here"></textarea>
     </div>
   </div>
   <div class="form-group">
