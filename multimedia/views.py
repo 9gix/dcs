@@ -3,6 +3,7 @@ from .models import (
         Application, Book, Music, MultimediaImage
 )
 from crew.models import Crew
+from review.models import MultimediaReview
 
 
 def book_list(request):
@@ -25,7 +26,10 @@ def book_detail(request, isbn13):
     image = multimedia_images.first()
     book['thumbnail'] = image.thumb250x250.url if image else None
 
-    return render(request, 'multimedia/book_detail.html', {'book': book, 'multimedia_id':book['id']})
+    reviews = MultimediaReview.objects.filter(multimedia_id=book['id'])
+
+    return render(request, 'multimedia/book_detail.html',
+        {'book': book, 'multimedia_id':book['id'], 'reviews':reviews})
 
 def music_list(request):
     musics = Music.objects.all()
@@ -51,7 +55,10 @@ def music_detail(request, music_id):
     image = multimedia_images.first()
     music['thumbnail'] = image.thumb250x250.url if image else None
 
-    return render(request, 'multimedia/music_detail.html', {'music': music, 'multimedia_id': music_id})
+    reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
+
+    return render(request, 'multimedia/music_detail.html',
+        {'music': music, 'multimedia_id': music_id, 'reviews': reviews})
 
 def application_list(request):
     applications = Application.objects.all()
@@ -74,4 +81,7 @@ def application_detail(request, application_id):
     image = multimedia_images.first()
     application['thumbnail'] = image.thumb250x250.url if image else None
 
-    return render(request, 'multimedia/application_detail.html', {'application': application, 'multimedia_id': application_id})
+    reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
+
+    return render(request, 'multimedia/application_detail.html',
+        {'application': application, 'multimedia_id': application_id, 'reviews': reviews})
