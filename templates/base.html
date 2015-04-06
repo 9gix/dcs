@@ -44,6 +44,12 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
+          <form class="nav navbar-form navbar-left" action="/search/" method="GET">
+            <div class="input-group">
+              <input class="form-control" placeholder="Search for items.." name="keyword">
+              </input>
+            </div>
+          </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Cart</a></li>
             {% if user.is_authenticated %}

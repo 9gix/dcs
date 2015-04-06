@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import (
-        Application, Book, Music, MultimediaImage
+        Application, Book, Music, MultimediaImage, Multimedia
 )
 from crew.models import Crew
 
@@ -75,3 +75,15 @@ def application_detail(request, application_id):
     application['thumbnail'] = image.thumb250x250.url if image else None
 
     return render(request, 'multimedia/application_detail.html', {'application': application})
+
+def search_result(request):
+    keywords = request.GET.get('keyword')
+    multimedia = Multimedia.objects.find_keywords(keywords)
+
+    for item in multimedia:
+        multimedia_image = MultimediaImage.objects.filter(multimedia_id=item['id']).first()
+        if multimedia_image:
+            item['thumbnail'] = multimedia_image.thumb150x150.url
+        else:
+            item['thumbnail'] = ''
+    return render(request, 'multimedia/search_result.html', {'multimedia': multimedia, 'multimedia_type': 'Result'})

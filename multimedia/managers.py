@@ -120,3 +120,20 @@ class MusicManager(models.Manager):
                   AND mul.id = %s;
             ''', [kwargs['id'], ])
             return dictfetchone(c)
+
+class MultimediaManager(models.Manager):
+    def find_keywords(self, keyword):
+        items = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT
+                  id,
+                  name,
+                  description,
+                  price
+                FROM multimedia
+                WHERE name LIKE %s;
+                ''', ['%' + keyword + '%'])
+            for item in  dictfetchall(c):
+                items.append(item)
+        return items
