@@ -3,9 +3,10 @@ from .models import (
         Application, Book, Music, MultimediaImage
 )
 from crew.models import Crew
+from django.contrib.staticfiles.templatetags.staticfiles import static
 
-no_preview_150 = '/statics/images/no-preview-150.png'
-no_preview = '/statics/images/no-preview.png'
+no_preview = static('images/no-preview.png')
+no_preview_150 = static('images/no-preview-150.png')
 
 def book_list(request):
     books = Book.objects.all()
