@@ -4,10 +4,6 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
-from .managers import (
-    MultimediaManager,
-)
-
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
     buyer = models.ForeignKey(User)
