@@ -22,7 +22,7 @@ class MultimediaManager(models.Manager):
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
-                SELECT m.name, m.price
+                SELECT m.name, m.price, sum(m.price) AS total_price
                 FROM multimedia m
                 WHERE m.id = %s
             ''', [kwargs['id'], ])

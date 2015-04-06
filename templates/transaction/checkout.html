@@ -21,9 +21,8 @@ Checkout
 		<thead>
 			<tr>
 				<th>Item</th>
-				<th>Quantity</th>
+				<th></th>
 				<th>Price</th>
-				<th>Total</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -32,11 +31,10 @@ Checkout
 			{% for item in cart_items %}
 			<tr>
 				<td>{{ item.name }}</td>
-				<td>{{ item.quantity }}</td>
+				<td></td>
 				<td>${{ item.price }}</td>
-				<td>${{ item.total }}</td>
 				<td>
-					<button type="button" class="btn btn-default">Delete
+					<button type="button" class="btn btn-default" id="{{item.id}}">Delete
 					</button>
 				</td>
 			</tr>	
@@ -44,9 +42,18 @@ Checkout
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="2"></td>
-				<td><b>Total Price:</b></td>
+				<td></td>
+				<td><b>Total Price:</b></td>	
 				<td>${{ total_price }}</td> 
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>
+					<button type="button" class="btn btn-success" id="purchase">Purchase</button>
+				</td>
 			</tr>
 		</tfoot>
 		{% else %}
@@ -58,7 +65,7 @@ Checkout
 		{% endif %}
 	</table>
 	
-	<button type="button" class="btn btn-success" id="purchase">Purchase</button>
+	
 </div>
 {% endblock %}
 
