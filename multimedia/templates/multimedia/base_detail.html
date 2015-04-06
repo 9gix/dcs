@@ -27,7 +27,7 @@
 </div>
 <div class="panel">
   <div class="panel-body">
-    <form class="form-horizontal" action="{% url "multimedia:multimedia_review" multimedia_id %}" method="post">
+    <form class="form-horizontal" action="{% url "review:multimedia_review" multimedia_id %}" method="post">
       {% csrf_token %}
       <div class="form-group">
         <label class="col-md-2 control-label">Rating</label>
