@@ -122,18 +122,26 @@ class MusicManager(models.Manager):
             return dictfetchone(c)
 
 class MultimediaManager(models.Manager):
-    def find_keywords(self, keyword):
+    def find_keywords(self, keywords):
+        keywords = keywords.split(' ')
         items = []
+        query = '''
+            SELECT
+              id,
+              name,
+              description,
+              price
+            FROM multimedia
+            WHERE name LIKE %s
+            '''
+        for i in range(1, len(keywords)):
+            query += ' AND name LIKE %s '
+        query += ';'
+
+        modified_keywords = map(lambda x:'%' + x + '%', keywords)
+
         with connection.cursor() as c:
-            c.execute('''
-                SELECT
-                  id,
-                  name,
-                  description,
-                  price
-                FROM multimedia
-                WHERE name LIKE %s;
-                ''', ['%' + keyword + '%'])
+            c.execute(query, modified_keywords)
             for item in  dictfetchall(c):
                 items.append(item)
         return items
