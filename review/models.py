@@ -16,13 +16,13 @@ class MultimediaReview(models.Model):
         managed = False
         db_table = 'multimedia_review'
 
-    def save():
+    def save(self):
         with connection.cursor() as c:
             c.execute('''
                 INSERT INTO multimedia_review
                   (multimedia_id, comment, rating)
                 VALUES (%s, %s, %s)
-            ''', [self.id, self.multimedia_id, self.comment, self.rating])
+            ''', [self.multimedia_id, self.comment, self.rating])
 
     def __str__(self):
         return "Review {}".format(self.id)

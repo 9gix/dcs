@@ -20,7 +20,8 @@
     </div>
   </div>
 </div>
-<form class="form-horizontal" action="#" method="post">
+<form class="form-horizontal" action="{% url "multimedia:multimedia_review" multimedia_id %}" method="post">
+  {% csrf_token %}
   <div class="form-group">
     <label class="col-md-2 control-label">Rating</label>
     <div class="col-md-2">
