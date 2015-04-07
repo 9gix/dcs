@@ -6,7 +6,8 @@ from pilkit import processors
 from .managers import (
     BookManager,
     MusicManager,
-    ApplicationManager
+    ApplicationManager,
+    MovieManager
 )
 
 class Organisation(models.Model):
@@ -66,6 +67,8 @@ class Book(Multimedia):
 class Movie(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
     duration = models.IntegerField()
+
+    objects = MovieManager()
 
     class Meta:
         managed = False
