@@ -50,8 +50,8 @@ def movie_list(request):
 
 def movie_detail(request, movie_id):
     movie = Movie.objects.get(id=movie_id)
-    actors = Crew.objects.filter(multimedia_id=movie['id'], role = 'Actor')
-    directors = Crew.objects.filter(multimedia_id=movie['id'], role = 'Director')
+    actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
+    directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
     movie['actors'] = actors
     movie['directors'] = directors
 
