@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     url(r'^$', 'dcs.views.home', name='home'), # mock, CHANGE later!
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^review/', include('review.urls', namespace='review')),
     url(r'^', include('multimedia.urls', namespace='multimedia')),
 )
 

@@ -164,18 +164,3 @@ class MultimediaContent(models.Model):
 
     def __str__(self):
         return self.caption
-
-
-class MultimediaReview(models.Model):
-    id = models.AutoField(primary_key=True)
-    multimedia = models.ForeignKey('Multimedia')
-    comment = models.TextField(blank=True)
-    rating = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'multimedia_review'
-
-
-    def __str__(self):
-        return "Review {}".format(self.id)
