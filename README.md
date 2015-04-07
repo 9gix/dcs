@@ -32,6 +32,10 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
+## Media folder
+1. Download public media folder [here][media]
+2. Unzip file on the project-level directory
+
 ## Database Guide
 
 1. Create a Schema in MySQL
@@ -85,3 +89,4 @@ python manage.py reset_db
 [django]: https://www.djangoproject.com/
 [backbonejs]: http://backbonejs.org/
 [erd]: docs/erd.svg
+[media]: https://dl.dropboxusercontent.com/u/10757226/public.zip

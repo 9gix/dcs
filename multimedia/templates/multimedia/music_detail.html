@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-{{ book.name }}
+{{ music.name }}
 {% endblock title %}
 
 {% block css %}
@@ -16,7 +16,7 @@
 
 {% block description %}
 <h3>{{ music.name }}</h3>
-<p>
+<p class="description">
   {{ music.description }}
   <dl>
     {% for crew in music.crews %}
@@ -26,8 +26,8 @@
     <dt>Album</dt>
     <dd>{{ music.album }}</dd>
     <dt>Duration</dt>
-    <dd>{{ music.duration }}</dd>
-    <dt>Recording company</dt>
+    <dd>{{ music.duration_min }}m{{ music.duration_sec }}s</dd>
+    <dt>Recording Company</dt>
     <dd>{{ music.organisation }}</dd>
     <dt>Price</dt>
     <dd>${{ music.price }}</dd>

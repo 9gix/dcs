@@ -6,6 +6,7 @@ from pilkit import processors
 from .managers import (
     BookManager,
     MusicManager,
+    ApplicationManager
 )
 
 class Organisation(models.Model):
@@ -73,6 +74,8 @@ class Movie(Multimedia):
 class Application(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
     version = models.CharField(max_length = 10)
+
+    objects = ApplicationManager()
 
     class Meta:
         managed = False
@@ -161,18 +164,3 @@ class MultimediaContent(models.Model):
 
     def __str__(self):
         return self.caption
-
-
-class MultimediaReview(models.Model):
-    id = models.AutoField(primary_key=True)
-    multimedia = models.ForeignKey('Multimedia')
-    comment = models.TextField(blank=True)
-    rating = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'multimedia_review'
-
-
-    def __str__(self):
-        return "Review {}".format(self.id)

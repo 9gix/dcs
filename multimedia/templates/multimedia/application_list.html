@@ -2,23 +2,21 @@
 {% load staticfiles %}
 
 {% block title %}
-Books - Digital Content Store
+Applications - Digital Content Store
 {% endblock title %}
 
 {% block css %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static "css/book.css" %}">
+<link rel="stylesheet" href="{% static "css/application.css" %}">
 {% endblock css %}
 
 {% block info %}
 <p>
   <dl>
-    <dt>Author</dt>
-    {% for author in item.authors %}
-    <dd>{{ author.person }}</dd>
-    {% endfor %}
-    <dt>ISBN13</dt>
-    <dd>{{ item.isbn13 }}</dd>
+    <dt>Developer</dt>
+    <dd>{{ item.developer }}</dd>
+    <dt>Version</dt>
+    <dd>{{ item.version }}</dd>
     <dt>Price</dt>
     <dd>${{ item.price }}</dd>
   </dl>

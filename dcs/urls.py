@@ -4,19 +4,17 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'dcs.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from .views import home
 
-    url(r'^$', 'dcs.views.home', name='home'), # mock, CHANGE later!
+urlpatterns = [
+    url(r'^$', home, name='home'),
     url(r'^nimda/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^carts/', include('transaction.urls', namespace='carts')),
+    url(r'^review/', include('review.urls', namespace='review')),
     url(r'^', include('multimedia.urls', namespace='multimedia')),
-    
-)
+]
 
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

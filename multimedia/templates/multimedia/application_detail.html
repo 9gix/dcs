@@ -1,0 +1,32 @@
+{% extends "multimedia/base_detail.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ application.name }}
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/application.css" %}">
+{% endblock css %}
+
+{% block preview %}
+<!-- Thumbnail here -->
+<img src="{{ application.thumbnail }}" />
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ application.name }}</h3>
+<p class="description">
+  {{ application.description }}
+  <dl>
+    <!-- crew here -->
+    <dt>Developer</dt>
+    <dd>{{ application.developer }}</dd>
+    <dt>Version</dt>
+    <dd>{{ application.version }}</dd>
+    <dt>Price</dt>
+    <dd>${{ application.price }}</dd>
+  </dl>
+</p>
+{% endblock description %}
