@@ -122,26 +122,110 @@ class MusicManager(models.Manager):
             return dictfetchone(c)
 
 class MultimediaManager(models.Manager):
-    def find_keywords(self, keywords):
-        keywords = keywords.split(' ')
+
+    BOOK_QUERY = '''
+        SELECT
+            m.id AS id,
+            m.name AS name,
+            m.description AS description,
+            m.price AS price,
+            'books' AS url_prefix,
+            b.isbn13 AS url_suffix
+        FROM multimedia m, book b
+        WHERE m.id = b.multimedia_id
+    '''
+
+    MUSIC_QUERY = '''
+        SELECT
+            m.id AS id,
+            m.name AS name,
+            m.description AS description,
+            m.price AS price,
+            'music' AS url_prefix,
+            m.id AS url_suffix
+        FROM multimedia m, music mus
+        WHERE m.id = mus.multimedia_id
+    '''
+
+    APPLICATION_QUERY = '''
+        SELECT
+            m.id AS id,
+            m.name AS name,
+            m.description AS description,
+            m.price AS price,
+            'application' AS url_prefix,
+            m.id AS url_suffix
+        FROM multimedia m, application a
+        WHERE m.id = a.multimedia_id
+    '''
+
+    MOVIE_QUERY = '''
+        SELECT
+            m.id AS id,
+            m.name AS name,
+            m.description AS description,
+            m.price AS price,
+            'movie' AS url_prefix,
+            m.id AS url_suffix
+        FROM multimedia m, movie mov
+        WHERE m.id = mov.multimedia_id
+    '''
+
+    def __get_whole_query(self, multimedia_type, **kwargs):
+        query = ""
+        substitutes = {}
+        if (multimedia_type == "application"):
+            query = self.APPLICATION_QUERY
+        elif (multimedia_type == "book"):
+            query = self.BOOK_QUERY
+        elif (multimedia_type == "movie"):
+            query = self.MOVIE_QUERY
+        elif (multimedia_type == "music"):
+            query = self.MUSIC_QUERY
+
+        if ('keywords' in kwargs):
+            clause = self.__generate_title_clause(kwargs['keywords'])
+            query += " AND " + clause[0]
+            substitutes = self.__merge_dicts(substitutes, clause[1])
+        return (query, substitutes)
+
+    def __generate_title_clause(self, keywords):
+        if len(keywords) == 0:
+            return ""
+        else:
+            split_keywords = keywords.split(" ")
+            clauses = []
+            for i in range(0, len(split_keywords)):
+                clauses.append("m.name LIKE %(keyword" + str(i) + ")s")
+            connector = " AND "
+            substitutes = {}
+
+            for i in range(0, len(split_keywords)):
+                substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+
+            return (connector.join(clauses), substitutes)
+    def __merge_dicts(self, x, y):
+        z = x.copy()
+        z.update(y)
+        return z
+
+
+    def search(self, multimedia_types=['application', 'movie', 'book', 'music'], **kwargs):
+        clauses = []
+        for mul_type in multimedia_types:
+            clauses.append(self.__get_whole_query(mul_type, **kwargs))
+        queries = []
+        for clause in clauses:
+            queries.append(clause[0])
+        substitutes = {}
+        for clause in clauses:
+            substitutes = self.__merge_dicts(substitutes, clause[1])
+
+        query = " UNION ".join(queries)
+
         items = []
-        query = '''
-            SELECT
-              id,
-              name,
-              description,
-              price
-            FROM multimedia
-            WHERE name LIKE %s
-            '''
-        for i in range(1, len(keywords)):
-            query += ' AND name LIKE %s '
-        query += ';'
-
-        modified_keywords = map(lambda x:'%' + x + '%', keywords)
-
         with connection.cursor() as c:
-            c.execute(query, modified_keywords)
+            c.execute(query, substitutes)
             for item in  dictfetchall(c):
                 items.append(item)
         return items

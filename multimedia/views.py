@@ -77,10 +77,11 @@ def application_detail(request, application_id):
     return render(request, 'multimedia/application_detail.html', {'application': application})
 
 def search_result(request):
-    keywords = request.GET.get('keyword')
-    multimedia = Multimedia.objects.find_keywords(keywords)
+    kws = request.GET.get('keyword')
+    multimedia = Multimedia.objects.search(keywords=kws)
 
     for item in multimedia:
+        item['url'] = '../' + item['url_prefix'] + '/' + item['url_suffix']
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=item['id']).first()
         if multimedia_image:
             item['thumbnail'] = multimedia_image.thumb150x150.url
