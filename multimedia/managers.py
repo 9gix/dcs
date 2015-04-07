@@ -185,25 +185,40 @@ class MultimediaManager(models.Manager):
 
         if ('keywords' in kwargs):
             clause = self.__generate_title_clause(kwargs['keywords'])
-            query += " AND " + clause[0]
+            query += " AND (" + clause[0]
             substitutes = self.__merge_dicts(substitutes, clause[1])
+            clause = self.__generate_description_clause(kwargs['keywords'])
+            query += " OR " + clause[0] + ")"
+            substitutes = self.__merge_dicts(substitutes, clause[1])
+
         return (query, substitutes)
 
     def __generate_title_clause(self, keywords):
-        if len(keywords) == 0:
-            return ""
-        else:
-            split_keywords = keywords.split(" ")
-            clauses = []
-            for i in range(0, len(split_keywords)):
-                clauses.append("m.name LIKE %(keyword" + str(i) + ")s")
-            connector = " AND "
-            substitutes = {}
+        split_keywords = keywords.split(" ")
+        clauses = []
+        for i in range(0, len(split_keywords)):
+            clauses.append("m.name LIKE %(keyword" + str(i) + ")s")
+        connector = " AND "
+        substitutes = {}
 
-            for i in range(0, len(split_keywords)):
-                substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+        for i in range(0, len(split_keywords)):
+            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
 
-            return (connector.join(clauses), substitutes)
+        return (connector.join(clauses), substitutes)
+
+    def __generate_description_clause(self, keywords):
+        split_keywords = keywords.split(" ")
+        clauses = []
+        for i in range(0, len(split_keywords)):
+            clauses.append("m.description LIKE %(keyword" + str(i) + ")s")
+        connector = " AND "
+        substitutes = {}
+
+        for i in range(0, len(split_keywords)):
+            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+
+        return (connector.join(clauses), substitutes)
+
     def __merge_dicts(self, x, y):
         z = x.copy()
         z.update(y)
