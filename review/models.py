@@ -1,12 +1,15 @@
 from django.db import models
 from django.db import connection
+from django.contrib.auth.models import User
 from .managers import MultimediaReviewManager
 
 class MultimediaReview(models.Model):
     id = models.AutoField(primary_key=True)
-    multimedia = models.ForeignKey('multimedia.Multimedia')
     comment = models.TextField(blank=True)
     rating = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    multimedia = models.ForeignKey('multimedia.Multimedia')
+    user = models.ForeignKey(User)
 
     objects = MultimediaReviewManager()
 
