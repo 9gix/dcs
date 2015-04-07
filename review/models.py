@@ -21,9 +21,9 @@ class MultimediaReview(models.Model):
         with connection.cursor() as c:
             c.execute('''
                 INSERT INTO multimedia_review
-                  (multimedia_id, comment, rating)
-                VALUES (%s, %s, %s)
-            ''', [self.multimedia_id, self.comment, self.rating])
+                  (multimedia_id, user_id, comment, rating)
+                VALUES (%s, %s, %s, %s)
+            ''', [self.multimedia_id, self.user_id, self.comment, self.rating])
 
     def __str__(self):
         return "Review {}".format(self.id)

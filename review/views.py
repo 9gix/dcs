@@ -6,6 +6,7 @@ from .models import MultimediaReview
 def review(request, multimedia_id):
     comment = request.POST['comment']
     rating = request.POST['rating']
-    newReview = MultimediaReview(multimedia_id=multimedia_id, comment=comment, rating=rating)
+    newReview = MultimediaReview(
+        user=request.user, multimedia_id=multimedia_id, comment=comment, rating=rating)
     newReview.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
