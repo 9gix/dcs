@@ -56,7 +56,7 @@ def music_detail(request, music_id):
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=music['id'])
     image = multimedia_images.first()
-    music['thumbnail'] = image.thumb250x250.url if image else no_preview_150
+    music['thumbnail'] = image.thumb250x250.url if image else no_preview
 
     reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
 
