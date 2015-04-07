@@ -4,7 +4,7 @@ from multimedia.utils import (
     dictfetchall, dictfetchone
 )
 
-class MultimediaReviewManager(models.Model):
+class MultimediaReviewManager(models.Manager):
     def filter(self, *args, **kwargs):
         reviews = []
         with connection.cursor() as c:
