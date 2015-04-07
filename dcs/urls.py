@@ -7,11 +7,13 @@ from django.conf.urls.static import static
 from .views import home
 
 urlpatterns = [
+    url(r'^$', home, name='home'),
+    url(r'^nimda/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^carts/', include('transaction.urls', namespace='carts')),
     url(r'^review/', include('review.urls', namespace='review')),
     url(r'^', include('multimedia.urls', namespace='multimedia')),
-    url(r'^$', home, name='home'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
