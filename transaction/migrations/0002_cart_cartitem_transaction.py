@@ -42,7 +42,6 @@ class Migration(migrations.Migration):
             name='CartItem',
             fields=[
                 ('id', models.AutoField(serialize=False, auto_created=True, verbose_name='ID', primary_key=True)),
-                ('quantity', models.IntegerField()),
                 ('object_id', models.PositiveIntegerField()),
                 ('cart', models.ForeignKey(to='transaction.Cart')),
                 ('content_type', models.ForeignKey(to='contenttypes.ContentType')),

@@ -1,5 +1,5 @@
 from django.db import models, connection
-from django.db.models import Sum
+from django.db.models import Count
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
@@ -20,7 +20,7 @@ class Cart(models.Model):
         db_table = 'cart'
 
     def __str__(self):
-        shopping_list = "Total Quantity: {}".format(self.cartitem_set.aggregate(Sum('quantity'))['quantity__sum'])
+        shopping_list = "Total Quantity: {}".format(self.cartitem_set.aggregate(Count('id'))['id__count'])
         return "{} - ({})".format(self.buyer.username, shopping_list)
 
     def insert(self):
@@ -40,7 +40,6 @@ class CartItem(models.Model):
         models.Q(app_label='multimedia', model = 'Album'))
 
     cart = models.ForeignKey('Cart')
-    quantity = models.IntegerField()
     content_type = models.ForeignKey(ContentType, limit_choices_to=multimedia)
     object_id = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey()
