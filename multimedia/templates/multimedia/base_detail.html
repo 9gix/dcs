@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+{% if reviews or user.is_authenticated %}
 <div class="panel">
   {% if user.is_authenticated %}
   <div class="panel-body">
@@ -77,4 +78,5 @@
   {% endfor %}
   </ul>
 </div>
+{% endif %}
 {% endblock content %}
