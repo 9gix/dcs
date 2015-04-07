@@ -1,14 +1,19 @@
-from django.db import models
+from django.db import models, connection
 from django.db.models import Sum
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+
+from .managers import CartManager
 
 class Cart(models.Model):
     id = models.AutoField(primary_key=True)
     buyer = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+    is_completed = models.BooleanField(default=False)
+
+    objects = CartManager()
 
     class Meta:
         managed = False
@@ -17,6 +22,13 @@ class Cart(models.Model):
     def __str__(self):
         shopping_list = "Total Quantity: {}".format(self.cartitem_set.aggregate(Sum('quantity'))['quantity__sum'])
         return "{} - ({})".format(self.buyer.username, shopping_list)
+
+    def insert(self):
+        with connection.cursor() as c:
+            c.execute('''
+                INSERT INTO cart(buyer_id)
+                VALUES (%s)
+            ''', [self.buyer_id])
 
 class CartItem(models.Model):
 

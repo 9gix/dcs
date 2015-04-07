@@ -13,8 +13,9 @@ urlpatterns = patterns('',
     url(r'^nimda/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^carts/', include('transaction.urls', namespace='carts')),
     url(r'^', include('multimedia.urls', namespace='multimedia')),
-    url(r'^carts/', include('transaction.urls')),
+    
 )
 
 urlpatterns += staticfiles_urlpatterns()
