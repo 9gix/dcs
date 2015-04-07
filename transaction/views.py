@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.db import connection
 
-import ipdb
-
 from .models import (
     CartItem, 
     Cart,
@@ -45,7 +43,7 @@ def cart_item_list(request):
         item['price'] = cart_item.price
         cart_items.append(item)
 
-    return render(request, '../templates/transaction/checkout.html', {'cart_id': cart_id, 'cart_items': cart_items, 'total_price': total_price})
+    return render(request, 'transaction/checkout.html', {'cart_id': cart_id, 'cart_items': cart_items, 'total_price': total_price})
 
 def cart_purchase(request):
     cart_id = request.POST['cart_id']

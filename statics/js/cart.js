@@ -50,7 +50,6 @@ $(function(){
         $.post("/carts/delete/", 
             { 'cart_id': cart_id, 'cart_item_id': cart_item_id },
             function(data){
-                // console.log(data);
                 window.location.reload();
             }
         );
