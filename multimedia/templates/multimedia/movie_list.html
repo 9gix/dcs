@@ -1,0 +1,28 @@
+{% extends "multimedia/base_list.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Movies - Digital Content Store
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/movie.css" %}">
+{% endblock css %}
+
+{% block info %}
+<p>
+  <dl>
+  	<dt>Director</dt>
+    {% for director in item.directors %}
+    <dd>{{ director.person }}</dd>
+    {% endfor %}
+    <dt>Studio</dt>
+    <dd>{{ item.studio }}</dd>
+    <dt>Duration</dt>
+    <dd>{{ item.duration }}</dd>
+    <dt>Price</dt>
+    <dd>${{ item.price }}</dd>
+  </dl>
+</p>
+{% endblock info %}
