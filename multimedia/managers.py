@@ -83,7 +83,6 @@ class MusicManager(models.Manager):
                   mul.id AS id,
                   mul.name AS name,
                   a.name AS album,
-                  duration,
                   price,
                   o.name AS organisation
                 FROM multimedia mul, music mus, album_music am, album a, organisation o
