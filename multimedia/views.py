@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import (
         Application, Book, Music, MultimediaImage
 )
 from crew.models import Crew
 from review.models import MultimediaReview
 
+no_preview = static('images/no-preview.png')
+no_preview_150 = static('images/no-preview-150.png')
 
 def book_list(request):
     books = Book.objects.all()
@@ -15,7 +18,7 @@ def book_list(request):
         if multimedia_image:
             book['thumbnail'] = multimedia_image.thumb150x150.url
         else:
-            book['thumbnail'] = ''
+            book['thumbnail'] = no_preview_150
     return render(request, 'multimedia/book_list.html', {'multimedia': books, 'multimedia_type': 'Book'})
 
 
@@ -24,7 +27,7 @@ def book_detail(request, isbn13):
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=book['id'])
     image = multimedia_images.first()
-    book['thumbnail'] = image.thumb250x250.url if image else None
+    book['thumbnail'] = image.thumb250x250.url if image else no_preview
 
     reviews = MultimediaReview.objects.filter(multimedia_id=book['id'])
 
@@ -42,7 +45,7 @@ def music_list(request):
         if multimedia_image:
             music['thumbnail'] = multimedia_image.thumb150x150.url
         else:
-            music['thumbnail'] = ''
+            music['thumbnail'] = no_preview_150
 
     return render(request, 'multimedia/music_list.html', {'multimedia': musics, 'multimedia_type': 'Music'})
 
@@ -53,7 +56,7 @@ def music_detail(request, music_id):
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=music['id'])
     image = multimedia_images.first()
-    music['thumbnail'] = image.thumb250x250.url if image else None
+    music['thumbnail'] = image.thumb250x250.url if image else no_preview_150
 
     reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
 
@@ -69,7 +72,7 @@ def application_list(request):
         if multimedia_image:
             application['thumbnail'] = multimedia_image.thumb150x150.url
         else:
-            application['thumbnail'] = ''
+            application['thumbnail'] = no_preview_150
 
     return render(request, 'multimedia/application_list.html', {'multimedia': applications, 'multimedia_type': 'Application'})
 
@@ -79,7 +82,7 @@ def application_detail(request, application_id):
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=application['id'])
     image = multimedia_images.first()
-    application['thumbnail'] = image.thumb250x250.url if image else None
+    application['thumbnail'] = image.thumb250x250.url if image else no_preview
 
     reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
 
