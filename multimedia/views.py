@@ -13,17 +13,25 @@ def book_list(request):
     books = Book.objects.all()
     book_ids = list(map(lambda book: book['id'], books))
     multimedia_images = MultimediaImage.objects.filter(multimedia_id__in=book_ids)
+
     for book in books:
         multimedia_image = multimedia_images.filter(multimedia_id=book['id']).first()
         if multimedia_image:
             book['thumbnail'] = multimedia_image.thumb150x150.url
         else:
             book['thumbnail'] = no_preview_150
+
+        authors = Crew.objects.filterRole(multimedia_id=book['id'], role='Author')
+        book['authors'] = authors
+
     return render(request, 'multimedia/book_list.html', {'multimedia': books, 'multimedia_type': 'Book'})
 
 
 def book_detail(request, isbn13):
     book = Book.objects.get(isbn13=isbn13)
+
+    authors = Crew.objects.filterRole(multimedia_id=book['id'], role='Author')
+    book['authors'] = authors
 
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=book['id'])
     image = multimedia_images.first()
