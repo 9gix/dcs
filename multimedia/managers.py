@@ -188,6 +188,9 @@ class MultimediaManager(models.Manager):
             query += " AND (" + clause[0]
             substitutes = self.__merge_dicts(substitutes, clause[1])
             clause = self.__generate_description_clause(kwargs['keywords'])
+            query += " OR " + clause[0]
+            substitutes = self.__merge_dicts(substitutes, clause[1])
+            clause = self.__generate_crew_clause(kwargs['keywords'])
             query += " OR " + clause[0] + ")"
             substitutes = self.__merge_dicts(substitutes, clause[1])
 
@@ -219,6 +222,22 @@ class MultimediaManager(models.Manager):
 
         return (connector.join(clauses), substitutes)
 
+    def __generate_crew_clause(self, keywords):
+        split_keywords = keywords.split(" ")
+        clauses = []
+        clause = '''
+            m.id IN (SELECT c.multimedia_id FROM
+            crew c, person p
+            WHERE c.person_id = p.id
+        '''
+        for i in range(0, len(split_keywords)):
+            clause += "AND p.name LIKE %(keyword" + str(i) + ")s"
+        clause += ")"
+        substitutes = {}
+        for i in range(0, len(split_keywords)):
+            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+
+        return (clause, substitutes)
     def __merge_dicts(self, x, y):
         z = x.copy()
         z.update(y)
