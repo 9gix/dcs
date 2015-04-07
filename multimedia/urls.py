@@ -8,4 +8,6 @@ urlpatterns = patterns('multimedia.views',
     url(r'^music/(?P<music_id>\d+)/', 'music_detail', name='music_detail'),
     url(r'^application/$', 'application_list', name='application_list'),
     url(r'^application/(?P<application_id>\d+)/', 'application_detail', name='application_detail'),
+    url(r'^movie/$', 'movie_list', name='movie_list'),
+    url(r'^movie/(?P<movie_id>\d+)/', 'movie_detail', name='movie_detail'),
 )
