@@ -34,8 +34,8 @@ def movie_list(request):
     movies = Movie.objects.all()
 
     for movie in movies:
-        actors = Crew.objects.filter(multimedia_id=movie['id'], role = 'Actor')
-        directors = Crew.objects.filter(multimedia_id=movie['id'], role = 'Director')
+        actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
+        directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
         movie['actors'] = actors
         movie['directors'] = directors
         print(directors)
