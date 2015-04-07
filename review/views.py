@@ -8,5 +8,5 @@ def addReview(request, multimedia_id):
     rating = request.POST['rating']
     newReview = MultimediaReview(
         user=request.user, multimedia_id=multimedia_id, comment=comment, rating=rating)
-    newReview.save()
+    newReview.insert()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

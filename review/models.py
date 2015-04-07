@@ -17,7 +17,7 @@ class MultimediaReview(models.Model):
         managed = False
         db_table = 'multimedia_review'
 
-    def save(self):
+    def insert(self):
         with connection.cursor() as c:
             c.execute('''
                 INSERT INTO multimedia_review
