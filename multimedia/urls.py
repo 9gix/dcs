@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
+
 from . import views
 
 urlpatterns = [
@@ -18,4 +19,10 @@ urlpatterns = [
         name='application_list'),
     url(r'^app/(?P<application_id>\d+)/', views.application_detail,
         name='application_detail'),
+
+    url(r'^movie/$', views.movie_list,
+        name='movie_list'),
+    url(r'^movie/(?P<movie_id>\d+)/', views.movie_detail,
+        name='movie_detail'),
 ]
+

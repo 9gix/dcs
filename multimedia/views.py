@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import (
-        Application, Book, Music, MultimediaImage
+        Movie, Application, Book, Music, MultimediaImage
 )
 from crew.models import Crew
 from review.models import MultimediaReview
@@ -41,6 +41,37 @@ def book_detail(request, isbn13):
 
     return render(request, 'multimedia/book_detail.html',
         {'book': book, 'multimedia_id':book['id'], 'reviews':reviews})
+
+def movie_list(request):
+    movies = Movie.objects.all()
+
+    for movie in movies:
+        actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
+        directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
+        movie['actors'] = actors
+        movie['directors'] = directors
+        print(directors)
+
+        multimedia_image = MultimediaImage.objects.filter(multimedia_id=movie['id']).first()
+        if multimedia_image:
+            movie['thumbnail'] = multimedia_image.thumb150x150.url
+        else:
+            movie['thumbnail'] = no_preview_150
+
+    return render(request, 'multimedia/movie_list.html', {'multimedia': movies, 'multimedia_type': 'Movie'})
+
+def movie_detail(request, movie_id):
+    movie = Movie.objects.get(id=movie_id)
+    actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
+    directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
+    movie['actors'] = actors
+    movie['directors'] = directors
+
+    multimedia_images = MultimediaImage.objects.filter(multimedia_id=movie['id'])
+    image = multimedia_images.first()
+    movie['thumbnail'] = image.thumb250x250.url if image else no_preview_150
+
+    return render(request, 'multimedia/movie_detail.html', {'movie': movie})
 
 def music_list(request):
     musics = Music.objects.all()
