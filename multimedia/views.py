@@ -59,6 +59,12 @@ def music_list(request):
 
 def music_detail(request, music_id):
     music = Music.objects.get(id=music_id)
+
+    minute = music['duration']//60
+    second = music['duration']%60
+    music['duration_min'] = minute
+    music['duration_sec'] = second
+
     crews = Crew.objects.filter(multimedia_id=music_id)
     music['crews'] = crews
 
