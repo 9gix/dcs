@@ -15,7 +15,7 @@ class CrewManager(models.Manager):
                 FROM crew, role, person
                 WHERE crew.person_id = person.id
                   AND crew.role_id = role.id
-                  AND crew.multimedia_id = %s
+                  AND crew.multimedia_id = %s;
             ''', [kwargs['multimedia_id'],])
 
             for crew in dictfetchall(c):

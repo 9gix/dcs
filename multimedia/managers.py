@@ -49,7 +49,7 @@ class ApplicationManager(models.Manager):
         applications = []
         with connection.cursor() as c:
             c.execute('''
-                SELECT m.id, m.name, description, price, o.name AS developer
+                SELECT m.id, m.name, description, version, price, o.name AS developer
                 FROM application a, multimedia m, organisation o
                 WHERE a.multimedia_id = m.id
                   AND m.organisation_id = o.id
