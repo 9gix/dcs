@@ -45,7 +45,11 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
             <li><a href="{% url "carts:cart_item_list" %}">Cart</a></li>
+            {% else %}
+            <li><a href="{% url 'auth_login' %}">Cart</a></li>
+            {% endif %}
             {% if user.is_authenticated %}
             <li>
               <a href="#">
