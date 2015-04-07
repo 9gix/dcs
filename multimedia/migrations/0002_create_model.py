@@ -129,19 +129,6 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='MultimediaReview',
-            fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True)),
-                ('comment', models.TextField(blank=True)),
-                ('rating', models.IntegerField()),
-            ],
-            options={
-                'managed': False,
-                'db_table': 'multimedia_review',
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='Music',
             fields=[
                 ('multimedia', models.OneToOneField(to='multimedia.Multimedia', serialize=False, parent_link=True, primary_key=True)),
