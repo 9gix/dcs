@@ -6,7 +6,7 @@ from .models import (
 from crew.models import Crew
 from review.models import MultimediaReview
 from transaction.views import (
-    __hasItemInCart
+    hasItemInCart
 )
 
 no_preview = static('images/no-preview.png')
@@ -42,7 +42,7 @@ def book_detail(request, isbn13):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=book['id'])
 
-    canAdd = __hasItemInCart(request.user.id, book['id'])
+    canAdd = hasItemInCart(request.user.id, book['id'])
 
     return render(request, 'multimedia/book_detail.html',
         {'book': book, 'multimedia_id':book['id'], 'reviews':reviews, 'multimedia_type': 'Book', 'canAdd': canAdd})
@@ -83,7 +83,7 @@ def movie_detail(request, movie_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=movie_id)
 
-    canAdd = __hasItemInCart(request.user.id, movie['id'])
+    canAdd = hasItemInCart(request.user.id, movie['id'])
 
     return render(request, 'multimedia/movie_detail.html',
         {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews, 'multimedia_type': 'Movie', 'canAdd': canAdd})
@@ -119,7 +119,7 @@ def music_detail(request, music_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
 
-    canAdd = __hasItemInCart(request.user.id, music['id'])
+    canAdd = hasItemInCart(request.user.id, music['id'])
 
     return render(request, 'multimedia/music_detail.html',
         {'music': music, 'multimedia_id': music_id, 'reviews': reviews, 'multimedia_type': 'Music', 'canAdd': canAdd})
@@ -147,7 +147,7 @@ def application_detail(request, application_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
 
-    canAdd = __hasItemInCart(request.user.id, application['id'])
+    canAdd = hasItemInCart(request.user.id, application['id'])
 
     return render(request, 'multimedia/application_detail.html',
         {'application': application, 'multimedia_id': application_id, 'reviews': reviews, 'multimedia_type': 'Application', 'canAdd': canAdd})

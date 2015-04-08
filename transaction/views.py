@@ -116,7 +116,7 @@ def __addItem(user_id, multimedia_id, multimedia_type):
                      VALUES (%s, %s, %s)
         ''', [cart_id, multimedia_id, content_type.id])
 
-def __hasItemInCart(user_id, multimedia_id):
+def hasItemInCart(user_id, multimedia_id):
     cart_id = __getUserCartId(user_id)
 
     cart_item_raw = Cart.objects.raw("""SELECT ci.id 
