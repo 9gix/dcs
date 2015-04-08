@@ -1,0 +1,124 @@
+# Review app
+
+## SQL DDL
+
+CREATE TABLE IF NOT EXISTS multimedia_review (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    comment TEXT NOT NULL,
+    rating INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    multimedia_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
+    FOREIGN KEY (user_id) REFERENCES auth_user(id)
+);
+
+DROP TABLE IF EXISTS multimedia_review;
+
+## SQL SELECT
+
+### Select all review for a certain multimedia
+
+SELECT
+  username,
+  rating,
+  comment,
+  created_at AS datetime
+FROM multimedia_review mr, auth_user u
+WHERE u.id = mr.user_id
+  AND multimedia_id = %s;
+
+
+## SQL DML
+
+### Insert a review from a user
+
+INSERT INTO multimedia_review
+  (multimedia_id, user_id, comment, rating)
+VALUES (%s, %s, %s, %s);
+
+
+
+# Multimedia category
+
+## SQL DDL
+
+CREATE TABLE IF NOT EXISTS category (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL,
+    parent_category_id INT,
+    FOREIGN KEY (parent_category_id) REFERENCES category(id)
+);
+
+CREATE TABLE IF NOT EXISTS multimedia_category (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    multimedia_id INT NOT NULL,
+    category_id INT NOT NULL,
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
+    FOREIGN KEY (category_id) REFERENCES category(id)
+);
+
+DROP TABLE IF EXISTS multimedia_category;
+DROP TABLE IF EXISTS category;
+
+
+
+# Music
+
+## SQL DDL
+
+CREATE TABLE IF NOT EXISTS album (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS music (
+    multimedia_id INT NOT NULL PRIMARY KEY,
+    duration INT NULL,
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
+);
+
+CREATE TABLE IF NOT EXISTS album_music (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    album_id INT NOT NULL,
+    music_id INT NOT NULL,
+    FOREIGN KEY (album_id) REFERENCES album(id),
+    FOREIGN KEY (music_id) REFERENCES music(multimedia_id)
+);
+
+DROP TABLE IF EXISTS album_music;
+DROP TABLE IF EXISTS album;
+DROP TABLE IF EXISTS music;
+
+## SQL SELECT
+
+### Select all music with its album and organisation for listing
+
+SELECT
+  mul.id AS id,
+  mul.name AS name,
+  a.name AS album,
+  price,
+  o.name AS organisation
+FROM multimedia mul, music mus, album_music am, album a, organisation o
+WHERE mul.id = mus.multimedia_id
+  AND am.music_id = mus.multimedia_id
+  AND am.album_id = a.id
+  AND mul.organisation_id = o.id;
+
+### Select detailed information of a music
+
+SELECT
+  mul.id AS id,
+  mul.name AS name,
+  a.name AS album,
+  description,
+  duration,
+  price,
+  o.name AS organisation
+FROM multimedia mul, music mus, album_music am, album a, organisation o
+WHERE mul.id = mus.multimedia_id
+  AND am.music_id = mus.multimedia_id
+  AND am.album_id = a.id
+  AND mul.organisation_id = o.id
+  AND mul.id = %s;
