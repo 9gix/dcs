@@ -1,5 +1,39 @@
 # Review app
 
+
+        
+## SQL DDL
+
+    -- Insert Book, You need the Multimedia ID
+    
+    INSERT INTO multimedia (
+        name, 
+        description,
+        price,
+        created_at,
+        modified_at,
+        organisation_id)
+    VALUES (
+        '',
+        '',
+        NULL,
+        '2015-04-08 10:36:08.448069',
+        '2015-04-08 10:36:08.448069',
+        2);
+        
+    -- After Insert SQL query, it return the primary ke which then become multimedia id
+    INSERT INTO book (
+        multimedia_id,
+        isbn13,
+        isbn10,
+        published_on)
+    VALUES (
+        25,
+        '9876543210123',
+        '9876543210',
+        '2013-01-20');
+        
+        
 ## SQL DDL
 
     CREATE TABLE IF NOT EXISTS multimedia_review (
