@@ -6,6 +6,44 @@ from .utils import (
     dictfetchall, dictfetchone
 )
 
+class MovieManager(models.Manager):
+    def all(self):
+        movies = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT m.id, m.name, description, duration, price, o.name AS studio
+                FROM movie mo, multimedia m, organisation o
+                WHERE mo.multimedia_id = m.id
+                  AND m.organisation_id = o.id
+            ''')
+
+            for movie in dictfetchall(c):
+                movies.append(movie)
+
+        for movie in movies:
+            movie['url'] = reverse('multimedia:movie_detail', args=(movie['id'],))
+        return movies
+
+    def get(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT 
+                  m.id, 
+                  m.name, 
+                  description,
+                  duration,  
+                  price, 
+                  o.name AS studio
+                FROM 
+                  movie mo, 
+                  multimedia m, 
+                  organisation o
+                WHERE mo.multimedia_id = m.id
+                  AND m.organisation_id = o.id
+                  AND m.id = %s
+            ''', [kwargs['id'], ])
+            return dictfetchone(c)
+
 class ApplicationManager(models.Manager):
     def all(self):
         applications = []
@@ -83,7 +121,6 @@ class MusicManager(models.Manager):
                   mul.id AS id,
                   mul.name AS name,
                   a.name AS album,
-                  duration,
                   price,
                   o.name AS organisation
                 FROM multimedia mul, music mus, album_music am, album a, organisation o
@@ -153,7 +190,7 @@ class MultimediaManager(models.Manager):
             m.name AS name,
             m.description AS description,
             m.price AS price,
-            'application' AS url_prefix,
+            'app' AS url_prefix,
             m.id AS url_suffix
         FROM multimedia m, application a
         WHERE m.id = a.multimedia_id

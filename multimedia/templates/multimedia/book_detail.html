@@ -20,7 +20,10 @@
 <p class="description">
   {{ book.description }}
   <dl>
-    <!-- crew here -->
+    <dt>Author</dt>
+    {% for author in book.authors %}
+    <dd>{{ author.person }}</dd>
+    {% endfor %}
     <dt>Publisher</dt>
     <dd>{{ book.publisher }}</dd>
     <dt>ISBN13</dt>

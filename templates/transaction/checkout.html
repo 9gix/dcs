@@ -1,0 +1,70 @@
+{% extends "transaction/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Checkout
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/checkout.css" %}">
+{% endblock css %}
+
+{% block content %}
+<h1> Shopping Cart </h1>
+<div class="container">
+    <table class="table table-striped" id="{{cart_id}}">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th></th>
+                <th>Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        {% if cart_items %}
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td></td>
+                <td>${{ item.price }}</td>
+                <td>
+                    <button type="button" class="delete" class="btn btn-default" id="{{item.id}}">Delete
+                    </button>
+                </td>
+            </tr>   
+            {% endfor %}        
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td><b>Total Price:</b></td>    
+                <td>${{ total_price }}</td> 
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button type="button" class="btn btn-success" id="purchase">Purchase</button>
+                </td>
+            </tr>
+        </tfoot>
+        {% else %}
+        <tbody>
+            <tr>
+                <td colspan="4" id="empty">There are no items added to the cart</td>
+            </tr>   
+        </tbody>
+        {% endif %}
+    </table>
+    
+    
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static "js/cart.js" %}"></script>   
+{% endblock %}

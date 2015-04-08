@@ -1,0 +1,39 @@
+{% extends "multimedia/base_detail.html" %}
+{% load staticfiles %}
+
+{% block title %}
+{{ movie.name }}
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/movie.css" %}">
+{% endblock css %}
+
+{% block preview %}
+<!-- Thumbnail here -->
+<img src="{{ movie.thumbnail }}" />
+{% endblock preview %}
+
+{% block description %}
+<h3>{{ movie.name }}</h3>
+<p class="description">
+  {{ movie.description }}
+  <dl>
+    <dt>Director</dt>
+    {% for director in movie.directors %}
+    <dd>{{ director.person }}</dd>
+    {% endfor %}
+    <dt>Actors</dt>
+    {% for actor in movie.actors %}
+    <dd>{{ actor.person }}</dd>
+    {% endfor %}
+    <dt>Studio</dt>
+    <dd>{{ movie.studio }}</dd>
+    <dt>Duration</dt>
+    <dd>{{ movie.duration_min }} minutes</dd>
+    <dt>Price</dt>
+    <dd>${{ movie.price }}</dd>
+  </dl>
+</p>
+{% endblock description %}

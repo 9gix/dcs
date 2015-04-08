@@ -25,16 +25,16 @@ cp dcs/__local_settings.py dcs/local_settings.py
 # Migrate Database
 python manage.py migrate
 
-# Media folder
-1. Download public media folder [here][media]
-2. Unzip file on the project-level directory
-
 # Create Super User
 python manage.py createsuperuser
 
 # Start Local Server
 python manage.py runserver
 ```
+
+## Media folder
+1. Download public media folder [here][media]
+2. Unzip file on the project-level directory
 
 ## Database Guide
 
