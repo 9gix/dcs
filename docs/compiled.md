@@ -14,8 +14,8 @@
         modified_at,
         organisation_id)
     VALUES (
-        '',
-        '',
+        'Algorithm Design',
+        'Book About Algorithms',
         NULL,
         '2015-04-08 10:36:08',
         '2015-04-08 10:36:08',
