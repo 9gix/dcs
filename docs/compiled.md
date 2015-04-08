@@ -17,8 +17,8 @@
         '',
         '',
         NULL,
-        '2015-04-08 10:36:08.448069',
-        '2015-04-08 10:36:08.448069',
+        '2015-04-08 10:36:08',
+        '2015-04-08 10:36:08',
         2);
         
     -- After Insert SQL query, it return the primary ke which then become multimedia id
