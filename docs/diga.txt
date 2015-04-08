@@ -122,3 +122,40 @@ WHERE mul.id = mus.multimedia_id
   AND am.album_id = a.id
   AND mul.organisation_id = o.id
   AND mul.id = %s;
+
+
+
+# Book
+
+## SQL DDL
+
+CREATE TABLE IF NOT EXISTS book (
+    multimedia_id INT NOT NULL,
+    isbn13 CHAR(13) NULL,
+    isbn10 CHAR(10) NULL,
+    published_on DATE NULL,
+    PRIMARY KEY (multimedia_id),
+    CONSTRAINT fk_book_multimedia
+        FOREIGN KEY (multimedia_id)
+        REFERENCES multimedia (id)
+);
+
+DROP TABLE IF EXISTS book;
+
+
+## SQL SELECT
+
+### Select all books for listing
+
+SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+FROM book, multimedia m, organisation o
+WHERE book.multimedia_id = m.id
+  AND m.organisation_id = o.id;
+
+### Select detailed information of a book
+
+SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+FROM book, multimedia m, organisation o
+WHERE book.multimedia_id = m.id
+  AND m.organisation_id = o.id
+  AND book.isbn13 = %s
