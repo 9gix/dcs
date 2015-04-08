@@ -71,7 +71,10 @@ def movie_detail(request, movie_id):
     image = multimedia_images.first()
     movie['thumbnail'] = image.thumb250x250.url if image else no_preview_150
 
-    return render(request, 'multimedia/movie_detail.html', {'movie': movie})
+    reviews = MultimediaReview.objects.filter(multimedia_id=movie_id)
+
+    return render(request, 'multimedia/movie_detail.html',
+        {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews})
 
 def music_list(request):
     musics = Music.objects.all()
