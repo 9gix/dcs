@@ -50,7 +50,9 @@ def movie_list(request):
         directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
         movie['actors'] = actors
         movie['directors'] = directors
-        print(directors)
+
+        minute = movie['duration'] // 60
+        movie['duration_min'] = minute
 
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=movie['id']).first()
         if multimedia_image:
@@ -67,11 +69,17 @@ def movie_detail(request, movie_id):
     movie['actors'] = actors
     movie['directors'] = directors
 
+    minute = movie['duration'] // 60
+    movie['duration_min'] = minute
+
     multimedia_images = MultimediaImage.objects.filter(multimedia_id=movie['id'])
     image = multimedia_images.first()
     movie['thumbnail'] = image.thumb250x250.url if image else no_preview_150
 
-    return render(request, 'multimedia/movie_detail.html', {'movie': movie})
+    reviews = MultimediaReview.objects.filter(multimedia_id=movie_id)
+
+    return render(request, 'multimedia/movie_detail.html',
+        {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews})
 
 def music_list(request):
     musics = Music.objects.all()
