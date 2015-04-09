@@ -5,7 +5,6 @@ from .models import (
         Category, MultimediaCategory,
         MultimediaContent, MultimediaImage
 )
-from dcs import admin as dcs_admin
 
 class MultimediaImageInline(admin.TabularInline):
     model = MultimediaImage
@@ -28,5 +27,3 @@ admin.site.register(Category)
 admin.site.register(MultimediaCategory)
 admin.site.register(MultimediaContent)
 admin.site.register(MultimediaImage)
-
-#dcs_admin.site.register(Book)
