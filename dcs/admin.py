@@ -3,9 +3,6 @@ from django.conf.urls import patterns, include, url
 
 from . import admin_urls
 
-def list_book(request):
-    return render(request, 'admin/book.html')
-
 
 class DCSAdminSite(AdminSite):
     site_header = "Digital Content Store Basic Administration"
