@@ -3,6 +3,8 @@ from .models import Book
 
 
 class BookAdminForm(forms.ModelForm):
-    model = Book
+    class Meta:
+        model = Book
+        fields = ['isbn13', 'isbn10', 'name', 'description', 'organisation']
 
 
