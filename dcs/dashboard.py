@@ -18,8 +18,26 @@ class DCSDashboard(Dashboard):
             column=1,
             children=[
                 {
+                    'title': _('Application'),
+                    'url': reverse('dcsadmin:app:index',
+                        current_app='admin'),
+                    'external': False,
+                },
+                {
+                    'title': _('Music'),
+                    'url': reverse('dcsadmin:music:index',
+                        current_app='admin'),
+                    'external': False,
+                },
+                {
+                    'title': _('Movie'),
+                    'url': reverse('dcsadmin:movie:index',
+                        current_app='admin'),
+                    'external': False,
+                },
+                {
                     'title': _('Book'),
-                    'url': reverse('dcsadmin:multimedia:book_list',
+                    'url': reverse('dcsadmin:book:index',
                         current_app='admin'),
                     'external': False,
                 },

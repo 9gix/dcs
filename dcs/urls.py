@@ -10,7 +10,7 @@ from . import admin as dcs_admin
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^basic-admin/', include(dcs_admin.site.urls)),
+    url(r'^dcsadmin/', include(dcs_admin.site.urls)),
     url(r'^nimda/', include('grappelli.urls')),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^carts/', include('transaction.urls', namespace='carts')),

@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 
 from .views import home
 
+from multimedia import admin_urls
+
 urlpatterns = [
-    url(r'^', include('multimedia.admin_urls', namespace='multimedia')),
+    url(r'^', include(admin_urls.urlpatterns)),
 ]
