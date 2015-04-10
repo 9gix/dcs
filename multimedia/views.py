@@ -151,5 +151,5 @@ def search_result(request):
         if multimedia_image:
             item['thumbnail'] = multimedia_image.thumb150x150.url
         else:
-            item['thumbnail'] = ''
+            item['thumbnail'] = no_preview_150
     return render(request, 'multimedia/search_result.html', {'multimedia': multimedia, 'multimedia_type': 'Result'})
