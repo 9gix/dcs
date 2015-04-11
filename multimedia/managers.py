@@ -282,6 +282,9 @@ class MultimediaManager(models.Manager):
 
 
     def search(self, multimedia_types=['application', 'movie', 'book', 'music'], **kwargs):
+        print(multimedia_types)
+        if len(multimedia_types) == 0:
+            multimedia_types = ['application', 'movie', 'book', 'music']
         clauses = []
         for mul_type in multimedia_types:
             clauses.append(self.__get_whole_query(mul_type, **kwargs))

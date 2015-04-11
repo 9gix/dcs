@@ -1,0 +1,25 @@
+{% extends "multimedia/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+{{ block.super }}
+<h2>Advanced Search</h2>
+<form action="/search/" method="GET">
+  <div class = "form-group">
+    <label> Keywords </label>
+    <input class="form-control" type="text" id="keywords" placeholder="Keywords" name="keyword">
+  </div>
+  <div class = "checkbox">
+    <label><input name="types[]" type="checkbox" value="book">Book</label>
+  </div>
+  <div class = "checkbox">
+    <label><input name = "types[]" type="checkbox" value="application">Application</label>
+  </div>
+  <div class = "checkbox">
+    <label><input name = "types[]" type="checkbox" value="music">Music</label>
+  </div>
+  <div class = "checkbox">
+    <label><input name = "types[]" type="checkbox" value="movie"">Movie</label>
+  </div>
+</form>
+{% endblock content %}

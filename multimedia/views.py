@@ -123,9 +123,7 @@ def application_list(request):
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=application['id']).first()
         if multimedia_image:
             application['thumbnail'] = multimedia_image.thumb150x150.url
-        else:
-            application['thumbnail'] = no_preview_150
-
+        else: application['thumbnail'] = no_preview_150 
     return render(request, 'multimedia/application_list.html', {'multimedia': applications, 'multimedia_type': 'Application'})
 
 
@@ -139,17 +137,21 @@ def application_detail(request, application_id):
     reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
 
     return render(request, 'multimedia/application_detail.html',
-        {'application': application, 'multimedia_id': application_id, 'reviews': reviews})
+        {'application': application, 'multimedia_id': application_id, 'reviews': reviews}) 
 
 def search_result(request):
-    kws = request.GET.get('keyword')
-    multimedia = Multimedia.objects.search(keywords=kws)
+    keywords = request.GET.get('keyword')
+    types = request.GET.getlist('types[]')
+    multimedia = Multimedia.objects.search(multimedia_types=types, keywords=keywords)
 
     for item in multimedia:
-        item['url'] = '../' + item['url_prefix'] + '/' + item['url_suffix']
+        item['url'] = '../' + str(item['url_prefix']) + '/' + str(item['url_suffix'])
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=item['id']).first()
         if multimedia_image:
             item['thumbnail'] = multimedia_image.thumb150x150.url
         else:
             item['thumbnail'] = no_preview_150
     return render(request, 'multimedia/search_result.html', {'multimedia': multimedia, 'multimedia_type': 'Result'})
+
+def advanced_search(request):
+    return render(request, 'multimedia/advanced_search.html')
