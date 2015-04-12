@@ -1,6 +1,6 @@
 {% extends "admin/change_list.html" %}
 
-{% load i18n grp_tags admin_static %}
+{% load i18n grp_tags admin_static admin_urls %}
 
 <!-- BREADCRUMBS -- >
 {% block breadcrumbs %}
@@ -10,6 +10,11 @@
             <li>{{ cl.opts.verbose_name_plural|capfirst }}</li>
         </ul>
     {% endif %}
+{% endblock %}
+
+<!-- OBJECT-TOOLS -->
+{% block object-tools-items %}
+    <li><a href="{% url 'dcsadmin:book:add' %}" class="grp-add-link grp-state-focus">Add Book</a></li>
 {% endblock %}
 
 <!-- CONTENT -- >
