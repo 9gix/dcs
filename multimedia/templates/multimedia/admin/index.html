@@ -1,4 +1,24 @@
-{% extends "admin/base.html" %}
+{% extends "admin/change_list.html" %}
 
+{% load i18n grp_tags admin_static %}
+
+<!-- BREADCRUMBS -- >
+{% block breadcrumbs %}
+    {% if not is_popup %}
+        <ul class="grp-horizontal-list">
+            <li><a href="{% url 'dcsadmin:index' %}">{% trans "Home" %}</a></li>
+            <li>{{ cl.opts.verbose_name_plural|capfirst }}</li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+<!-- CONTENT -- >
 {% block content %}
+<div class="grp-module grp-changelist-results">
+    <table id="result_list" cellspacing="0" class="grp-sortable">
+        {% for item in items %}
+            <tr class="grp-row {% cycle 'grp-row-even' 'grp-row-odd' %}"><td><a href='{{ item.admin_url }}'>{{ item.name }}</a></td></tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock content %}

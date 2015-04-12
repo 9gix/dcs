@@ -10,8 +10,6 @@ urlpatterns = [
                 views.ListBookView.as_view(), name='index'),
             url(r'^add/',
                 views.AddBookView.as_view(), name='add'),
-            url(r'^(?P<pk>\d+)/', 
-                views.DetailBookView.as_view(), name='detail'),
             url(r'^(?P<pk>\d+)/edit/',
                 views.EditBookView.as_view(), name='edit'),
             url(r'^(?P<pk>\d+)/delete/',

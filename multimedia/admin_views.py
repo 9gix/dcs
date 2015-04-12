@@ -1,24 +1,22 @@
 from django.shortcuts import render
+from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.views.generic.edit import (
         FormMixin, ProcessFormView, DeletionMixin
 )
 
 from . import forms
+from .models import Book
 
 class ListBookView(View):
     template_name = 'multimedia/admin/index.html'
 
     def get(self, request, *args, **kwargs):
-        context = {}
-        return render(request, self.template_name, context)
-
-
-class DetailBookView(View):
-    template_name = 'multimedia/admin/detail.html'
-
-    def get(self, request, *args, **kwargs):
-        context = {}
+        context = {'items': []}
+        context['items'] = Book.objects.all()
+        for item in context['items']:
+            item['admin_url'] = reverse('dcsadmin:book:edit',
+                    kwargs={'pk': item['id'],})
         return render(request, self.template_name, context)
 
 
