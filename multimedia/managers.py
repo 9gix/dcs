@@ -288,7 +288,7 @@ class MultimediaManager(models.Manager):
             WHERE m.category_id = c.id
             AND c.name LIKE %(category)s)
         '''
-        substitutes = {"category": category};
+        substitutes = {"category": '%' + category + '%'};
         return (clause, substitutes)
 
     def __merge_dicts(self, x, y):
