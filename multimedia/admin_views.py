@@ -33,7 +33,9 @@ class AddBookView(FormMixin, ProcessFormView, View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            return redirect('admin:book:index')
+            book = form.save(commit=False)
+            book.insert()
+            return redirect('dcsadmin:book:index')
         context = {'form': form}
         return render(request, self.template_name, context)
 
@@ -50,7 +52,7 @@ class EditBookView(FormMixin, ProcessFormView, View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            return redirect('admin:book:index')
+            return redirect('dcsadmin:book:index')
         context = {'form': form}
         return render(request, self.template_name, context)
 
