@@ -6,3 +6,4 @@ django-registration-redux>=1.1,<1.2
 Pillow>=2.8,<2.9
 django-imagekit>=3.2,<3.3
 django-grappelli>=2.6,<2.7
+gunicorn>=19.3,<20.0
