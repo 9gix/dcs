@@ -111,6 +111,12 @@ class BookManager(models.Manager):
             ''', [kwargs['isbn13'], ])
             return dictfetchone(c)
 
+    def delete(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                DELETE FROM multimedia
+                WHERE id = %s
+            ''', [kwargs['id'], ])
 
 class MusicManager(models.Manager):
     def all(self):

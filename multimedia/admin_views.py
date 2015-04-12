@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.views.generic import View
 from django.views.generic.edit import (
@@ -54,6 +54,10 @@ class EditBookView(FormMixin, ProcessFormView, View):
         context = {'form': form}
         return render(request, self.template_name, context)
 
-class DeleteBookView(DeletionMixin, View):
-    pass
+class DeleteBookView(View):
+    def post(self, request, *args, **kwargs):
+        Book.objects.delete(id=kwargs.get('pk'))
+        return redirect('dcsadmin:book:index')
+
+    
 
