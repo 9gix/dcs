@@ -1,4 +1,5 @@
-from django.db import models
+from django.db import models, connection
+from django.utils import timezone
 
 from imagekit.models import ImageSpecField
 from pilkit import processors
@@ -64,6 +65,33 @@ class Book(Multimedia):
     class Meta:
         managed = False
         db_table = 'book'
+
+    def insert(self):
+        with connection.cursor() as c:
+            c.execute('''
+                INSERT INTO multimedia
+                  (name, description, price, organisation_id,
+                    created_at, modified_at)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            ''', [self.name, self.description, self.price, self.organisation_id,
+                    timezone.now(), timezone.now()])
+
+            mul_id = c.lastrowid
+            self.multimedia = Multimedia.objects.get(id=mul_id)
+
+            c.execute('''
+                INSERT INTO book
+                  (multimedia_id, isbn13, isbn10, published_on)
+                VALUES (%s, %s, %s, %s)
+            ''', [mul_id, self.isbn13, self.isbn10, self.published_on])
+
+            for category in self.categories.all():
+                c.execute('''
+                    INSERT INTO multimedia_category
+                      (multimedia_id, category_id)
+                    VALUES (%s, %s)
+                ''', [mul_id, category.id])
+
 
 class Movie(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
