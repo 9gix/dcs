@@ -231,6 +231,11 @@ class MultimediaManager(models.Manager):
             query += " OR " + clause[0] + ")"
             substitutes = self.__merge_dicts(substitutes, clause[1])
 
+        if ('category' in kwargs):
+            clause = self.__generate_category_clause(kwargs['category'])
+            query += " AND " + clause[0]
+            substitutes = self.__merge_dicts(substitutes, clause[1])
+
         return (query, substitutes)
 
     def __generate_title_clause(self, keywords):
@@ -275,6 +280,17 @@ class MultimediaManager(models.Manager):
             substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
 
         return (clause, substitutes)
+
+    def __generate_category_clause(self, category):
+        clause = '''
+            m.id IN (SELECT m.multimedia_id FROM
+            multimedia_category m, category c
+            WHERE m.category_id = c.id
+            AND c.name LIKE %(category)s)
+        '''
+        substitutes = {"category": category};
+        return (clause, substitutes)
+
     def __merge_dicts(self, x, y):
         z = x.copy()
         z.update(y)
@@ -282,7 +298,6 @@ class MultimediaManager(models.Manager):
 
 
     def search(self, multimedia_types=['application', 'movie', 'book', 'music'], **kwargs):
-        print(multimedia_types)
         if len(multimedia_types) == 0:
             multimedia_types = ['application', 'movie', 'book', 'music']
         clauses = []

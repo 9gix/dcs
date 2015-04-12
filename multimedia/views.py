@@ -142,7 +142,8 @@ def application_detail(request, application_id):
 def search_result(request):
     keywords = request.GET.get('keyword')
     types = request.GET.getlist('types[]')
-    multimedia = Multimedia.objects.search(multimedia_types=types, keywords=keywords)
+    category = request.GET.get('category')
+    multimedia = Multimedia.objects.search(multimedia_types=types, keywords=keywords, category=category)
 
     for item in multimedia:
         item['url'] = '../' + str(item['url_prefix']) + '/' + str(item['url_suffix'])
