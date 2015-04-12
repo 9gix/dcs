@@ -19,12 +19,10 @@ def delete_multimedia(apps, schema_editor):
     Multimedia = apps.get_model('multimedia', 'Multimedia')
     Organisation = apps.get_model('multimedia', 'Organisation')
     Category = apps.get_model('multimedia', 'Category')
-    MultimediaContent = apps.get_model('multimedia', 'MultimediaContent')
     MultimediaCategory = apps.get_model('multimedia', 'MultimediaCategory')
 
     AlbumMusic.objects.all().delete()
     MultimediaCategory.objects.all().delete()
-    MultimediaContent.objects.all().delete()
     Category.objects.all().delete()
     Book.objects.all().delete()
     Music.objects.all().delete()

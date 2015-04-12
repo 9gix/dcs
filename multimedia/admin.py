@@ -2,8 +2,7 @@ from django.contrib import admin
 from .models import (
         Organisation, Multimedia, Book, Movie, Application,
         Album, Music, AlbumMusic,
-        Category, MultimediaCategory,
-        MultimediaContent, MultimediaImage
+        Category, MultimediaCategory, MultimediaImage
 )
 
 class MultimediaImageInline(admin.TabularInline):
@@ -25,5 +24,4 @@ admin.site.register(Album)
 admin.site.register(AlbumMusic)
 admin.site.register(Category)
 admin.site.register(MultimediaCategory)
-admin.site.register(MultimediaContent)
 admin.site.register(MultimediaImage)

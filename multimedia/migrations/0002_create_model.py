@@ -114,21 +114,6 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='MultimediaContent',
-            fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True)),
-                ('caption', models.CharField(max_length=128)),
-                ('url', models.URLField()),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('modified_at', models.DateTimeField(auto_now=True)),
-            ],
-            options={
-                'managed': False,
-                'db_table': 'multimedia_content',
-            },
-            bases=(models.Model,),
-        ),
-        migrations.CreateModel(
             name='Music',
             fields=[
                 ('multimedia', models.OneToOneField(to='multimedia.Multimedia', serialize=False, parent_link=True, primary_key=True)),
@@ -161,6 +146,7 @@ class Migration(migrations.Migration):
                 ('multimedia', models.ForeignKey(to='multimedia.Multimedia')),
             ],
             options={
+                'managed': False,
                 'db_table': 'multimedia_image',
             },
             bases=(models.Model,),

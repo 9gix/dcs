@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS crew (
     multimedia_id INT NOT NULL,
     person_id INT NOT NULL,
     role_id INT NOT NULL,
-    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id),
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id) ON DELETE CASCADE,
     FOREIGN KEY (person_id) REFERENCES person(id),
     FOREIGN KEY (role_id) REFERENCES role(id)
 );

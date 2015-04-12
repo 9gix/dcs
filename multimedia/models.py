@@ -48,6 +48,7 @@ class MultimediaImage(models.Model):
             processors=[processors.ResizeToFit(250, 250)], format='JPEG')
 
     class Meta:
+        managed = False
         db_table = 'multimedia_image'
 
 
@@ -151,19 +152,3 @@ class MultimediaCategory(models.Model):
 
     def __str__(self):
         return "{}{}".format(self.multimedia, self.category)
-
-
-class MultimediaContent(models.Model):
-    id = models.AutoField(primary_key=True)
-    multimedia = models.ForeignKey('Multimedia')
-    caption = models.CharField(max_length=128)
-    url = models.URLField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        managed = False
-        db_table = 'multimedia_content'
-
-    def __str__(self):
-        return self.caption
