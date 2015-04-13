@@ -9,7 +9,8 @@ from .managers import (
     BookManager,
     MusicManager,
     ApplicationManager,
-    MovieManager
+    MovieManager,
+    MultimediaCategoryManager,
 )
 
 class Organisation(models.Model):
@@ -193,6 +194,8 @@ class MultimediaCategory(models.Model):
     multimedia = models.ForeignKey('Multimedia')
     category = models.ForeignKey('Category')
 
+    objects = MultimediaCategoryManager()
+
     class Meta:
         managed = False
         db_table = 'multimedia_category'
@@ -200,3 +203,11 @@ class MultimediaCategory(models.Model):
 
     def __str__(self):
         return "{}{}".format(self.multimedia, self.category)
+
+    def insert(self):
+        with connection.cursor() as c:
+            c.execute('''
+                INSERT INTO multimedia_category
+                  (multimedia_id, category_id)
+                VALUES (%s, %s)
+            ''', [self.multimedia_id, self.category_id])
