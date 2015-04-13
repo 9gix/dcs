@@ -45,7 +45,8 @@ class EditBookView(FormMixin, ProcessFormView, View):
     form_class = forms.BookAdminForm
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class(initial=self.initial)
+        book = Book.objects.get(id=kwargs['pk'])
+        form = self.form_class(book)
         context = {'form': form}
         return render(request, self.template_name, context)
 

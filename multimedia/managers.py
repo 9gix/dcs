@@ -103,7 +103,8 @@ class BookManager(models.Manager):
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
-                SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+                SELECT m.id, m.name, description, isbn13, isbn10, price,
+                  m.organisation_id AS organisation, o.name AS publisher, published_on
                 FROM book, multimedia m, organisation o
                 WHERE book.multimedia_id = m.id
                   AND m.organisation_id = o.id
