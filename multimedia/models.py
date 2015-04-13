@@ -90,7 +90,7 @@ class Book(Multimedia):
 
 
     @transaction.atomic
-    def update(self):
+    def update(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
                 UPDATE multimedia
@@ -102,7 +102,7 @@ class Book(Multimedia):
                   modified_at = %s
                 WHERE id = %s
             ''', [self.name, self.description, self.price, self.organisation_id,
-                    timezone.now(), self.multimedia_id])
+                    timezone.now(), kwargs['multimedia_id']])
 
             c.execute('''
                 UPDATE book
@@ -111,7 +111,8 @@ class Book(Multimedia):
                   isbn10 = %s,
                   published_on = %s
                 WHERE multimedia_id = %s
-            ''', [self.isbn13, self.isbn10, self.published_on, self.multimedia_id])
+            ''', [self.isbn13, self.isbn10, self.published_on,
+                    kwargs['multimedia_id']])
 
 
 class Movie(Multimedia):

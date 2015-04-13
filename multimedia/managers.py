@@ -167,13 +167,17 @@ class MusicManager(models.Manager):
 
 class MultimediaCategoryManager(models.Manager):
     def filter(self, *args, **kwargs):
+        result = []
         with connection.cursor() as c:
             c.execute('''
                 SELECT * FROM multimedia_category
                 WHERE multimedia_id = %s
             ''', [kwargs['multimedia_id']])
 
-        return dictfetchall(c)
+            for category in dictfetchall(c):
+                result.append(category)
+
+        return result
 
     def delete(self, *args, **kwargs):
         with connection.cursor() as c:
