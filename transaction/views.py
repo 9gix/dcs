@@ -111,6 +111,10 @@ def __deleteItem(cart_id, cart_item_id):
 def __addItem(user_id, multimedia_id, multimedia_type):
     content_type = ContentType.objects.get(model=multimedia_type)
     cart_id = __getUserCartId(user_id)
+    if cart_id == -1:
+        newCart = Cart(buyer_id=user_id)
+        newCart.insert()
+        cart_id = __getUserCartId(user_id)
     with connection.cursor() as c:
         c.execute('''INSERT INTO cart_item(cart_id, object_id, content_type_id) 
                      VALUES (%s, %s, %s)
