@@ -1,0 +1,23 @@
+{% extends "multimedia/base_list.html" %}
+{% load staticfiles %}
+
+{% block title %}
+Search Results - Digital Content Store
+{% endblock title %}
+
+{% block css %}
+{{ block.super }}
+{% endblock css %}
+
+{% block content %}
+{{ block.super }}
+<a href="/advanced_search"> Advanced Search </a>
+{% endblock content %}
+{% block info %}
+<p>
+  <dl>
+    <dt>Price</dt>
+    <dd>${{ item.price }}</dd>
+  </dl>
+</p>
+{% endblock info %}

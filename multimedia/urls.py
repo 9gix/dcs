@@ -24,5 +24,6 @@ urlpatterns = [
         name='movie_list'),
     url(r'^movie/(?P<movie_id>\d+)/', views.movie_detail,
         name='movie_detail'),
+    url(r'^search/', views.search_result, name='search_result'),
+    url(r'^advanced_search/', views.advanced_search, name='advanced_search')
 ]
-

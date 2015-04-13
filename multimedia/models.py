@@ -7,6 +7,7 @@ from .managers import (
     BookManager,
     MusicManager,
     ApplicationManager,
+    MultimediaManager,
     MovieManager
 )
 
@@ -30,6 +31,8 @@ class Multimedia(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     organisation = models.ForeignKey('Organisation')
+
+    objects = MultimediaManager()
 
     class Meta:
         managed = False
@@ -99,7 +102,7 @@ class Music(Multimedia):
 class Album(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
-    musics = models.ManyToManyField('Music', 
+    musics = models.ManyToManyField('Music',
         through='AlbumMusic')
 
     class Meta:
