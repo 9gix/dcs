@@ -97,7 +97,7 @@ class BookManager(models.Manager):
                 books.append(book)
 
         for book in books:
-            book['url'] = reverse('multimedia:book_detail', args=(book['isbn13'],))
+            book['url'] = reverse('multimedia:book_detail', args=(book['id'],))
         return books
 
     def get(self, *args, **kwargs):
@@ -107,8 +107,8 @@ class BookManager(models.Manager):
                 FROM book, multimedia m, organisation o
                 WHERE book.multimedia_id = m.id
                   AND m.organisation_id = o.id
-                  AND book.isbn13 = %s
-            ''', [kwargs['isbn13'], ])
+                  AND book.multimedia_id = %s
+            ''', [kwargs['id']])
             return dictfetchone(c)
 
     def delete(self, *args, **kwargs):

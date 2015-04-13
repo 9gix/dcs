@@ -27,8 +27,8 @@ def book_list(request):
     return render(request, 'multimedia/book_list.html', {'multimedia': books, 'multimedia_type': 'Book'})
 
 
-def book_detail(request, isbn13):
-    book = Book.objects.get(isbn13=isbn13)
+def book_detail(request, book_id):
+    book = Book.objects.get(id=book_id)
 
     authors = Crew.objects.filterRole(multimedia_id=book['id'], role='Author')
     book['authors'] = authors
