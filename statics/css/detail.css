@@ -1,3 +1,7 @@
 p.description {
     white-space: pre-wrap;
 }
+
+#add_item_form {
+    text-align: center;
+}

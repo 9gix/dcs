@@ -19,4 +19,4 @@ DATABASES = {
 }
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'tik8g&=7)8mjbv@ji2r#=7i_yz0n_)_uu8%ad#0^vkks40%e5h'
+SECRET_KEY = '3sd98vb&%00jbv@ji2r#=7i_yz0n_)_uu8%ad#0^vkks40%e5h'
