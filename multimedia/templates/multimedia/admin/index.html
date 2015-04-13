@@ -1,0 +1,36 @@
+{% extends "admin/change_list.html" %}
+
+{% load i18n grp_tags admin_static admin_urls %}
+
+<!-- BREADCRUMBS -- >
+{% block breadcrumbs %}
+    {% if not is_popup %}
+        <ul class="grp-horizontal-list">
+            <li><a href="{% url 'dcsadmin:index' %}">{% trans "Home" %}</a></li>
+            <li>{{ cl.opts.verbose_name_plural|capfirst }}</li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+<!-- OBJECT-TOOLS -->
+{% block object-tools-items %}
+    <li><a href="{% url 'dcsadmin:book:add' %}" class="grp-add-link grp-state-focus">Add Book</a></li>
+{% endblock %}
+
+<!-- CONTENT -- >
+{% block content %}
+<div class="grp-module grp-changelist-results">
+    <table id="result_list" cellspacing="0" class="grp-sortable">
+        {% for item in items %}
+            <tr class="grp-row {% cycle 'grp-row-even' 'grp-row-odd' %}">
+                <td><a href='{{ item.admin_url }}'>{{ item.name }}</a></td>
+                <td>
+                    <form action='{% url 'dcsadmin:book:delete' item.id %}' method='POST'>{% csrf_token %}
+                        <input type='submit' value='Delete' />
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}
