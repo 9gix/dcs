@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS multimedia_content;
 DROP TABLE IF EXISTS multimedia_category;
 DROP TABLE IF EXISTS category;
 DROP TABLE IF EXISTS book;
