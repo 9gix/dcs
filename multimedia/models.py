@@ -87,12 +87,6 @@ class Book(Multimedia):
                 VALUES (%s, %s, %s, %s)
             ''', [mul_id, self.isbn13, self.isbn10, self.published_on])
 
-            for category in self.categories.all():
-                c.execute('''
-                    INSERT INTO multimedia_category
-                      (multimedia_id, category_id)
-                    VALUES (%s, %s)
-                ''', [mul_id, category.id])
 
     @transaction.atomic
     def update(self):
@@ -117,17 +111,6 @@ class Book(Multimedia):
                   published_on = %s
                 WHERE multimedia_id = %s
             ''', [self.isbn13, self.isbn10, self.published_on, self.multimedia_id])
-
-            c.execute('''
-                DELETE FROM multimedia_category WHERE multimedia_id = %s
-            ''', [self.multimedia_id])
-
-            for category in self.categories.all():
-                c.execute('''
-                    INSERT INTO multimedia_category
-                      (multimedia_id, category_id)
-                    VALUES (%s, %s)
-                ''', [mul_id, category.id])
 
 
 class Movie(Multimedia):

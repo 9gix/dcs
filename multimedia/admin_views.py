@@ -62,5 +62,3 @@ class DeleteBookView(View):
         Book.objects.delete(id=kwargs.get('pk'))
         return redirect('dcsadmin:book:index')
 
-    
-
