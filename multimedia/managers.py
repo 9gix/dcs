@@ -174,7 +174,7 @@ class MultimediaManager(models.Manager):
             m.description AS description,
             m.price AS price,
             'books' AS url_prefix,
-            b.isbn13 AS url_suffix
+            m.id AS url_suffix
         FROM multimedia m, book b
         WHERE m.id = b.multimedia_id
     '''
