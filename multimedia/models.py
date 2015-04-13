@@ -153,7 +153,7 @@ class MultimediaCategory(models.Model):
         verbose_name_plural = "multimedia categories"
 
     def __str__(self):
-        return "{}{}".format(self.multimedia, self.category)
+        return "{} in {}".format(self.multimedia, self.category)
 
 
 class MultimediaContent(models.Model):
