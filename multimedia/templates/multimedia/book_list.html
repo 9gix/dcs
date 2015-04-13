@@ -14,8 +14,8 @@ Books - Digital Content Store
 <p>
   <dl>
     <dt>Author</dt>
-    {% for author in item.authors %}
-    <dd>{{ author.person }}</dd>
+    {% for author in item.crew_set.all %}
+        <dd>{{ author.person.name }}</dd>
     {% endfor %}
     <dt>ISBN13</dt>
     <dd>{{ item.isbn13 }}</dd>

@@ -7,19 +7,19 @@
 <h2>{{ multimedia_type }} List</h2>
 <div class="container">
   <ul class="list-unstyled">
-    {% for item in multimedia %}
+    {% for item in object_list %}
     <li>
       <div class="panel">
         <div class="panel-body">
           <div class="media">
             <div class="media-left media-middle">
               <!-- Insert thumbnail here -->
-              <a href="{{ item.url }}">
-                <img class="media-object" src="{{ item.thumbnail }}">
+              <a href="{{ item.get_absolute_url }}">
+                <img class="media-object" src="{{ item.multimediaimage_set.first.thumb150x150.url }}">
               </a>
             </div>
             <div class="media-body">
-              <h4 class="media-heading"><a href="{{ item.url }}">{{ item.name }}</a></h4>
+              <h4 class="media-heading"><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></h4>
               <!-- Item info eg author, singer, isbn, version, price here -->
               {% block info %}{% endblock info %}
             </div>

@@ -1,158 +1,55 @@
 from django.shortcuts import render
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
 from .models import (
         Movie, Application, Book, Music, MultimediaImage, Multimedia
 )
 from crew.models import Crew
 from review.models import MultimediaReview
-from transaction.views import (
-    hasItemInCart
-)
-
-no_preview = static('images/no-preview.png')
-no_preview_150 = static('images/no-preview-150.png')
-
-def book_list(request):
-    books = Book.objects.all()
-    book_ids = list(map(lambda book: book['id'], books))
-    multimedia_images = MultimediaImage.objects.filter(multimedia_id__in=book_ids)
-
-    for book in books:
-        multimedia_image = multimedia_images.filter(multimedia_id=book['id']).first()
-        if multimedia_image:
-            book['thumbnail'] = multimedia_image.thumb150x150.url
-        else:
-            book['thumbnail'] = no_preview_150
-
-        authors = Crew.objects.filterRole(multimedia_id=book['id'], role='Author')
-        book['authors'] = authors
-
-    return render(request, 'multimedia/book_list.html', {'multimedia': books, 'multimedia_type': 'Book'})
 
 
-def book_detail(request, book_id):
-    book = Book.objects.get(id=book_id)
-
-    authors = Crew.objects.filterRole(multimedia_id=book['id'], role='Author')
-    book['authors'] = authors
-
-    multimedia_images = MultimediaImage.objects.filter(multimedia_id=book['id'])
-    image = multimedia_images.first()
-    book['thumbnail'] = image.thumb250x250.url if image else no_preview
-
-    reviews = MultimediaReview.objects.filter(multimedia_id=book['id'])
-
-    canAdd = hasItemInCart(request.user.id, book['id'])
-
-    return render(request, 'multimedia/book_detail.html',
-        {'book': book, 'multimedia_id':book['id'], 'reviews':reviews, 'multimedia_type': 'Book', 'canAdd': canAdd})
-
-def movie_list(request):
-    movies = Movie.objects.all()
-
-    for movie in movies:
-        actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
-        directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
-        movie['actors'] = actors
-        movie['directors'] = directors
-
-        minute = movie['duration'] // 60
-        movie['duration_min'] = minute
-
-        multimedia_image = MultimediaImage.objects.filter(multimedia_id=movie['id']).first()
-        if multimedia_image:
-            movie['thumbnail'] = multimedia_image.thumb150x150.url
-        else:
-            movie['thumbnail'] = no_preview_150
-
-    return render(request, 'multimedia/movie_list.html', {'multimedia': movies, 'multimedia_type': 'Movie'})
-
-def movie_detail(request, movie_id):
-    movie = Movie.objects.get(id=movie_id)
-    actors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Actor')
-    directors = Crew.objects.filterRole(multimedia_id=movie['id'], role = 'Director')
-    movie['actors'] = actors
-    movie['directors'] = directors
-
-    minute = movie['duration'] // 60
-    movie['duration_min'] = minute
-
-    multimedia_images = MultimediaImage.objects.filter(multimedia_id=movie['id'])
-    image = multimedia_images.first()
-    movie['thumbnail'] = image.thumb250x250.url if image else no_preview_150
-
-    reviews = MultimediaReview.objects.filter(multimedia_id=movie_id)
-
-    canAdd = hasItemInCart(request.user.id, movie['id'])
-
-    return render(request, 'multimedia/movie_detail.html',
-        {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews, 'multimedia_type': 'Movie', 'canAdd': canAdd})
-
-def music_list(request):
-    musics = Music.objects.all()
-
-    for music in musics:
-        crews = Crew.objects.filter(multimedia_id=music['id'])
-        music['crews'] = crews
-
-        multimedia_image = MultimediaImage.objects.filter(multimedia_id=music['id']).first()
-        if multimedia_image:
-            music['thumbnail'] = multimedia_image.thumb150x150.url
-        else:
-            music['thumbnail'] = no_preview_150
-
-    return render(request, 'multimedia/music_list.html', {'multimedia': musics, 'multimedia_type': 'Music'})
-
-def music_detail(request, music_id):
-    music = Music.objects.get(id=music_id)
-
-    minute, second = divmod(music['duration'], 60)
-    music['duration_min'] = minute
-    music['duration_sec'] = second
-
-    crews = Crew.objects.filter(multimedia_id=music_id)
-    music['crews'] = crews
-
-    multimedia_images = MultimediaImage.objects.filter(multimedia_id=music['id'])
-    image = multimedia_images.first()
-    music['thumbnail'] = image.thumb250x250.url if image else no_preview
-
-    reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
-
-    canAdd = hasItemInCart(request.user.id, music['id'])
-
-    return render(request, 'multimedia/music_detail.html',
-        {'music': music, 'multimedia_id': music_id, 'reviews': reviews, 'multimedia_type': 'Music', 'canAdd': canAdd})
-
-def application_list(request):
-    applications = Application.objects.all()
-
-    for application in applications:
-
-        multimedia_image = MultimediaImage.objects.filter(multimedia_id=application['id']).first()
-        if multimedia_image:
-            application['thumbnail'] = multimedia_image.thumb150x150.url
-        else: application['thumbnail'] = no_preview_150 
-    return render(request, 'multimedia/application_list.html', {'multimedia': applications, 'multimedia_type': 'Application'})
+class BookListView(ListView):
+    model = Book
 
 
-def application_detail(request, application_id):
-    application = Application.objects.get(id=application_id)
+class BookDetailView(DetailView):
+    model = Book
 
-    multimedia_images = MultimediaImage.objects.filter(multimedia_id=application['id'])
-    image = multimedia_images.first()
-    application['thumbnail'] = image.thumb250x250.url if image else no_preview
 
-    reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
+class MovieListView(ListView):
+    model = Movie
 
-    canAdd = hasItemInCart(request.user.id, application['id'])
 
-    return render(request, 'multimedia/application_detail.html',{
-                'application': application,
-                'multimedia_id': application_id,
-                'reviews': reviews,
-                'multimedia_type': 'Application',
-                'canAdd': canAdd})
+class MovieDetailView(DetailView):
+    model = Movie
+
+
+class MusicListView(ListView):
+    model = Music
+
+
+class MusicDetailView(DetailView):
+    model = Music
+
+
+class ApplicationListView(ListView):
+    model = Application
+
+
+class ApplicationDetailView(DetailView):
+    model = Application
+
+
+book_list = BookListView.as_view()
+book_detail = BookDetailView.as_view()
+movie_list = MovieListView.as_view()
+movie_detail = MovieDetailView.as_view()
+music_list = MusicListView.as_view()
+music_detail = MusicDetailView.as_view()
+application_list = ApplicationListView.as_view()
+application_detail = ApplicationDetailView.as_view()
 
 
 def search_result(request):

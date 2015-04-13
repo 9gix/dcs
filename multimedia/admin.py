@@ -11,7 +11,6 @@ class MultimediaImageInline(admin.TabularInline):
 
 class MultimediaAdmin(admin.ModelAdmin):
     inlines = [
-        MultimediaImageInline,
     ]
 
 

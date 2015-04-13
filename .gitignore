@@ -1,5 +1,6 @@
 # Project Specific File
 local_settings.py
+*.db
 
 # Compiled static and media files
 public

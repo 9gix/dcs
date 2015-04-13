@@ -5,17 +5,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import home
-from . import admin as dcs_admin
 
 urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dcsadmin/', include(dcs_admin.site.urls)),
     url(r'^nimda/', include('grappelli.urls')),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^carts/', include('transaction.urls', namespace='carts')),
     url(r'^review/', include('review.urls', namespace='review')),
-    url(r'^', include('multimedia.urls', namespace='multimedia')),
+    url(r'^', include('multimedia.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

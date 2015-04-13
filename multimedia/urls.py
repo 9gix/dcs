@@ -5,25 +5,35 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^books/$', views.book_list,
-        name='book_list'),
-    url(r'^books/(?P<book_id>\d+)/', views.book_detail,
-        name='book_detail'),
+    url(r'^books/', include([
+            url(r'^$', views.book_list,
+                name='list'),
+            url(r'^(?P<pk>\d+)/$', views.book_detail,
+                name='detail'),
+        ], 'multimedia', 'book')
+    ),
+    url(r'^music/', include([
+            url(r'^$', views.music_list,
+                name='list'),
+            url(r'^(?P<pk>\d+)/$', views.music_detail,
+                name='detail'),
+        ], 'multimedia', 'music')
+    ),
+    url(r'^app/', include([
+            url(r'^$', views.application_list,
+                name='list'),
+            url(r'^(?P<pk>\d+)/$', views.application_detail,
+                name='detail'),
+        ], 'multimedia', 'app')
+    ),
+    url(r'^movie/', include([        
+        url(r'^$', views.movie_list,
+            name='list'),
+        url(r'^(?P<pk>\d+)/$', views.movie_detail,
+            name='detail'),
+        ], 'multimedia', 'movie')
+    ),
 
-    url(r'^music/$', views.music_list,
-        name='music_list'),
-    url(r'^music/(?P<music_id>\d+)/', views.music_detail,
-        name='music_detail'),
-
-    url(r'^app/$', views.application_list,
-        name='application_list'),
-    url(r'^app/(?P<application_id>\d+)/', views.application_detail,
-        name='application_detail'),
-
-    url(r'^movie/$', views.movie_list,
-        name='movie_list'),
-    url(r'^movie/(?P<movie_id>\d+)/', views.movie_detail,
-        name='movie_detail'),
     url(r'^search/', views.search_result, name='search_result'),
     url(r'^advanced_search/', views.advanced_search, name='advanced_search')
 ]
