@@ -1,398 +1,521 @@
 [
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 1,
         "person": 1,
-        "multimedia": 2,
-        "role": 1
+        "multimedia": 2
     },
-    "pk": 2,
-    "model": "crew.crew"
+    "pk": 2
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 1,
         "person": 2,
-        "multimedia": 3,
-        "role": 1
+        "multimedia": 3
     },
-    "pk": 3,
-    "model": "crew.crew"
+    "pk": 3
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 2,
         "person": 3,
-        "multimedia": 10,
-        "role": 2
+        "multimedia": 10
     },
-    "pk": 4,
-    "model": "crew.crew"
+    "pk": 4
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 4,
-        "multimedia": 10,
-        "role": 3
+        "multimedia": 10
     },
-    "pk": 5,
-    "model": "crew.crew"
+    "pk": 5
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 2,
         "person": 5,
-        "multimedia": 11,
-        "role": 2
+        "multimedia": 11
     },
-    "pk": 6,
-    "model": "crew.crew"
+    "pk": 6
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 2,
         "person": 6,
-        "multimedia": 11,
-        "role": 2
+        "multimedia": 11
     },
-    "pk": 7,
-    "model": "crew.crew"
+    "pk": 7
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 7,
-        "multimedia": 11,
-        "role": 3
+        "multimedia": 11
     },
-    "pk": 8,
-    "model": "crew.crew"
+    "pk": 8
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 8,
-        "multimedia": 11,
-        "role": 3
+        "multimedia": 11
     },
-    "pk": 9,
-    "model": "crew.crew"
+    "pk": 9
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 2,
         "person": 9,
-        "multimedia": 12,
-        "role": 2
+        "multimedia": 12
     },
-    "pk": 10,
-    "model": "crew.crew"
+    "pk": 10
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 10,
-        "multimedia": 12,
-        "role": 3
+        "multimedia": 12
     },
-    "pk": 11,
-    "model": "crew.crew"
+    "pk": 11
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 11,
-        "multimedia": 12,
-        "role": 3
+        "multimedia": 12
     },
-    "pk": 12,
-    "model": "crew.crew"
+    "pk": 12
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 12,
-        "multimedia": 10,
-        "role": 3
+        "multimedia": 10
     },
-    "pk": 13,
-    "model": "crew.crew"
+    "pk": 13
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 2,
         "person": 9,
-        "multimedia": 13,
-        "role": 2
+        "multimedia": 13
     },
-    "pk": 14,
-    "model": "crew.crew"
+    "pk": 14
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 13,
-        "multimedia": 13,
-        "role": 3
+        "multimedia": 13
     },
-    "pk": 15,
-    "model": "crew.crew"
+    "pk": 15
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 3,
         "person": 14,
-        "multimedia": 13,
-        "role": 3
+        "multimedia": 13
     },
-    "pk": 16,
-    "model": "crew.crew"
+    "pk": 16
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 16,
-        "multimedia": 9,
-        "role": 5
+        "multimedia": 9
     },
-    "pk": 27,
-    "model": "crew.crew"
+    "pk": 27
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 17,
-        "multimedia": 8,
-        "role": 5
+        "multimedia": 8
     },
-    "pk": 28,
-    "model": "crew.crew"
+    "pk": 28
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 18,
-        "multimedia": 7,
-        "role": 5
+        "multimedia": 7
     },
-    "pk": 30,
-    "model": "crew.crew"
+    "pk": 30
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 19,
-        "multimedia": 6,
-        "role": 5
+        "multimedia": 6
     },
-    "pk": 31,
-    "model": "crew.crew"
+    "pk": 31
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 20,
-        "multimedia": 6,
-        "role": 5
+        "multimedia": 6
     },
-    "pk": 32,
-    "model": "crew.crew"
+    "pk": 32
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 21,
-        "multimedia": 6,
-        "role": 5
+        "multimedia": 6
     },
-    "pk": 33,
-    "model": "crew.crew"
+    "pk": 33
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 22,
-        "multimedia": 6,
-        "role": 5
+        "multimedia": 6
     },
-    "pk": 34,
-    "model": "crew.crew"
+    "pk": 34
 },
 {
+    "model": "crew.crew",
     "fields": {
+        "role": 5,
         "person": 23,
-        "multimedia": 4,
-        "role": 5
+        "multimedia": 4
     },
-    "pk": 35,
-    "model": "crew.crew"
+    "pk": 35
 },
 {
+    "model": "crew.crew",
+    "fields": {
+        "role": 2,
+        "person": 24,
+        "multimedia": 25
+    },
+    "pk": 36
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 3,
+        "person": 13,
+        "multimedia": 25
+    },
+    "pk": 37
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 3,
+        "person": 25,
+        "multimedia": 25
+    },
+    "pk": 38
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 2,
+        "person": 26,
+        "multimedia": 24
+    },
+    "pk": 39
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 3,
+        "person": 27,
+        "multimedia": 24
+    },
+    "pk": 40
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 3,
+        "person": 28,
+        "multimedia": 24
+    },
+    "pk": 41
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 1,
+        "person": 2,
+        "multimedia": 32
+    },
+    "pk": 42
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 1,
+        "person": 29,
+        "multimedia": 27
+    },
+    "pk": 43
+},
+{
+    "model": "crew.crew",
+    "fields": {
+        "role": 1,
+        "person": 29,
+        "multimedia": 26
+    },
+    "pk": 44
+},
+{
+    "model": "crew.role",
     "fields": {
         "name": "Singer"
     },
-    "pk": 1,
-    "model": "crew.role"
+    "pk": 1
 },
 {
+    "model": "crew.role",
     "fields": {
         "name": "Director"
     },
-    "pk": 2,
-    "model": "crew.role"
+    "pk": 2
 },
 {
+    "model": "crew.role",
     "fields": {
         "name": "Actor"
     },
-    "pk": 3,
-    "model": "crew.role"
+    "pk": 3
 },
 {
+    "model": "crew.role",
     "fields": {
         "name": "Developer"
     },
-    "pk": 4,
-    "model": "crew.role"
+    "pk": 4
 },
 {
+    "model": "crew.role",
     "fields": {
         "name": "Author"
     },
-    "pk": 5,
-    "model": "crew.role"
+    "pk": 5
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Pharrell Williams"
     },
-    "pk": 1,
-    "model": "crew.person"
+    "pk": 1
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Ed Sheeran"
     },
-    "pk": 2,
-    "model": "crew.person"
+    "pk": 2
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Alejandro Gonzalez Inarritu"
     },
-    "pk": 3,
-    "model": "crew.person"
+    "pk": 3
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Michael Keaton"
     },
-    "pk": 4,
-    "model": "crew.person"
+    "pk": 4
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Don Hall"
     },
-    "pk": 5,
-    "model": "crew.person"
+    "pk": 5
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Chris Williams"
     },
-    "pk": 6,
-    "model": "crew.person"
+    "pk": 6
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Scott Adsit"
     },
-    "pk": 7,
-    "model": "crew.person"
+    "pk": 7
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Ryan Potter"
     },
-    "pk": 8,
-    "model": "crew.person"
+    "pk": 8
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Christopher Nolan"
     },
-    "pk": 9,
-    "model": "crew.person"
+    "pk": 9
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Anne Hathaway"
     },
-    "pk": 10,
-    "model": "crew.person"
+    "pk": 10
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Matthew McConaughey"
     },
-    "pk": 11,
-    "model": "crew.person"
+    "pk": 11
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Emma Stone"
     },
-    "pk": 12,
-    "model": "crew.person"
+    "pk": 12
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Michael Caine"
     },
-    "pk": 13,
-    "model": "crew.person"
+    "pk": 13
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Leonardo DiCaprio"
     },
-    "pk": 14,
-    "model": "crew.person"
+    "pk": 14
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Stephen King"
     },
-    "pk": 16,
-    "model": "crew.person"
+    "pk": 16
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Erik Larson"
     },
-    "pk": 17,
-    "model": "crew.person"
+    "pk": 17
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Steven Skiena"
     },
-    "pk": 18,
-    "model": "crew.person"
+    "pk": 18
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Thomas Cormen"
     },
-    "pk": 19,
-    "model": "crew.person"
+    "pk": 19
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Charles Leiserson"
     },
-    "pk": 20,
-    "model": "crew.person"
+    "pk": 20
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Ronald Rivest"
     },
-    "pk": 21,
-    "model": "crew.person"
+    "pk": 21
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Clifford Stein"
     },
-    "pk": 22,
-    "model": "crew.person"
+    "pk": 22
 },
 {
+    "model": "crew.person",
     "fields": {
         "name": "Dave Shreiner"
     },
-    "pk": 23,
-    "model": "crew.person"
+    "pk": 23
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Louis Leterrier"
+    },
+    "pk": 24
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Jesse Eisenberg"
+    },
+    "pk": 25
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Wes Anderson"
+    },
+    "pk": 26
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Ralph Fiennes"
+    },
+    "pk": 27
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Willem Dafoe"
+    },
+    "pk": 28
+},
+{
+    "model": "crew.person",
+    "fields": {
+        "name": "Michael Learns to Rock"
+    },
+    "pk": 29
 }
 ]
