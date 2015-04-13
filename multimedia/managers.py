@@ -208,76 +208,87 @@ class MultimediaManager(models.Manager):
         WHERE m.id = mov.multimedia_id
     '''
 
+    QUERY_TABLE = {
+        'application': APPLICATION_QUERY,
+        'book': BOOK_QUERY,
+        'movie': MOVIE_QUERY,
+        'music': MUSIC_QUERY
+    }
+
     def __get_whole_query(self, multimedia_type, **kwargs):
-        query = ""
         substitutes = {}
-        if (multimedia_type == "application"):
-            query = self.APPLICATION_QUERY
-        elif (multimedia_type == "book"):
-            query = self.BOOK_QUERY
-        elif (multimedia_type == "movie"):
-            query = self.MOVIE_QUERY
-        elif (multimedia_type == "music"):
-            query = self.MUSIC_QUERY
 
-        if (('keywords' in kwargs) and (kwargs['keywords'] is not None)):
-            clause = self.__generate_title_clause(kwargs['keywords'])
-            query += " AND (" + clause[0]
-            substitutes = self.__merge_dicts(substitutes, clause[1])
-            clause = self.__generate_description_clause(kwargs['keywords'])
-            query += " OR " + clause[0]
-            substitutes = self.__merge_dicts(substitutes, clause[1])
-            clause = self.__generate_crew_clause(kwargs['keywords'])
-            query += " OR " + clause[0] + ")"
-            substitutes = self.__merge_dicts(substitutes, clause[1])
+        keywords = kwargs.get('keywords')
+        if keywords:
+            title_clause = self.__generate_title_clause(keywords)
+            desc_clause = self.__generate_description_clause(keywords)
+            crew_clause = self.__generate_crew_clause(keywords)
+            clauses = {
+                'title': title_clause[0],
+                'desc': desc_clause[0],
+                'crew': crew_clause[0],
+            }
+            cond_query = " AND ({title} OR {desc} OR {crew})".format(**clauses)
 
-        if (('category' in kwargs) and (kwargs['category'] is not None)):
-            clause = self.__generate_category_clause(kwargs['category'])
-            query += " AND " + clause[0]
+            substitutes = self.__merge_dicts(substitutes, title_clause[1])
+            substitutes = self.__merge_dicts(substitutes, desc_clause[1])
+            substitutes = self.__merge_dicts(substitutes, crew_clause[1])
+        else:
+            cond_query = ""
+
+
+        category = kwargs.get('category')
+        if category:
+            clause = self.__generate_category_clause(category)
+            cat_query = " AND {}".format(clause[0])
             substitutes = self.__merge_dicts(substitutes, clause[1])
+        else:
+            cat_query = ""
+
+        query = "{} {} {}".format(
+                self.QUERY_TABLE.get(multimedia_type, ''),
+                cond_query,
+                cat_query)
 
         return (query, substitutes)
 
     def __generate_title_clause(self, keywords):
-        split_keywords = keywords.split(" ")
+        split_keywords = keywords.split()
         clauses = []
-        for i in range(0, len(split_keywords)):
-            clauses.append("m.name LIKE %(keyword" + str(i) + ")s")
         connector = " AND "
         substitutes = {}
 
-        for i in range(0, len(split_keywords)):
-            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+        for i, keyword in enumerate(split_keywords):
+            clauses.append("m.name LIKE %(keyword{})s".format(i))
+            substitutes["keyword{}".format(i)] = '%{}%'.format(keyword)
 
         return (connector.join(clauses), substitutes)
 
     def __generate_description_clause(self, keywords):
-        split_keywords = keywords.split(" ")
+        split_keywords = keywords.split()
         clauses = []
-        for i in range(0, len(split_keywords)):
-            clauses.append("m.description LIKE %(keyword" + str(i) + ")s")
         connector = " AND "
         substitutes = {}
 
-        for i in range(0, len(split_keywords)):
-            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+        for i, keyword in enumerate(split_keywords):
+            clauses.append("m.description LIKE %(keyword{})s".format(i))
+            substitutes["keyword{}".format(i)] = '%{}%'.format(keyword)
 
         return (connector.join(clauses), substitutes)
 
     def __generate_crew_clause(self, keywords):
-        split_keywords = keywords.split(" ")
-        clauses = []
+        split_keywords = keywords.split()
         clause = '''
             m.id IN (SELECT c.multimedia_id FROM
             crew c, person p
             WHERE c.person_id = p.id
         '''
-        for i in range(0, len(split_keywords)):
-            clause += "AND p.name LIKE %(keyword" + str(i) + ")s"
-        clause += ")"
         substitutes = {}
-        for i in range(0, len(split_keywords)):
-            substitutes["keyword" + str(i)] = '%' + split_keywords[i] + '%'
+
+        for i, keyword in enumerate(split_keywords):
+            clause += "AND p.name LIKE %(keyword{})s".format(i)
+            substitutes["keyword{}".format(i)] = '%{}%'.format(keyword)
+        clause += ")"
 
         return (clause, substitutes)
 
@@ -288,7 +299,7 @@ class MultimediaManager(models.Manager):
             WHERE m.category_id = c.id
             AND c.name LIKE %(category)s)
         '''
-        substitutes = {"category": '%' + category + '%'};
+        substitutes = {"category": '%{}%'.format(category)};
         return (clause, substitutes)
 
     def __merge_dicts(self, x, y):
@@ -297,7 +308,7 @@ class MultimediaManager(models.Manager):
         return z
 
 
-    def search(self, multimedia_types=['application', 'movie', 'book', 'music'], **kwargs):
+    def search(self, multimedia_types, **kwargs):
         if len(multimedia_types) == 0:
             multimedia_types = ['application', 'movie', 'book', 'music']
         clauses = []
