@@ -7,7 +7,7 @@ from . import views
 urlpatterns = [
     url(r'^books/$', views.book_list,
         name='book_list'),
-    url(r'^books/(?P<isbn13>\d{13})/', views.book_detail,
+    url(r'^books/(?P<book_id>\d+)/', views.book_detail,
         name='book_detail'),
 
     url(r'^music/$', views.music_list,

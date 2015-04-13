@@ -1,3 +1,11 @@
 code {
-  font-size: 80%;
+    font-size: 80%;
+}
+
+h1 {
+    font-size: 420%;
+    font-weight: 100;
+    font-family: 'Calibri';
+    text-align: center;
+    color: #BDBDBD;
 }

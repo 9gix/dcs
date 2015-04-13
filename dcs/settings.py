@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
 
     # Django Admin Overwrite (must be placed before contrib.admin)
+    'grappelli.dashboard',
     'grappelli',
 
 
@@ -130,6 +131,12 @@ LOGIN_REDIRECT_URL = '/'
 # Email Backend
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+
+# Admin
+GRAPPELLI_INDEX_DASHBOARD = {
+    'dcs.admin.site': 'dcs.dashboard.DCSDashboard',
+    'django.contrib.admin.site': 'dcs.dashboard.DjangoDashboard',
+}
 
 # Local Settings
 try:

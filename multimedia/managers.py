@@ -97,20 +97,27 @@ class BookManager(models.Manager):
                 books.append(book)
 
         for book in books:
-            book['url'] = reverse('multimedia:book_detail', args=(book['isbn13'],))
+            book['url'] = reverse('multimedia:book_detail', args=(book['id'],))
         return books
 
     def get(self, *args, **kwargs):
         with connection.cursor() as c:
             c.execute('''
-                SELECT m.id, m.name, description, isbn13, isbn10, price, o.name AS publisher
+                SELECT m.id, m.name, description, isbn13, isbn10, price,
+                  m.organisation_id AS organisation, o.name AS publisher, published_on
                 FROM book, multimedia m, organisation o
                 WHERE book.multimedia_id = m.id
                   AND m.organisation_id = o.id
-                  AND book.isbn13 = %s
-            ''', [kwargs['isbn13'], ])
+                  AND book.multimedia_id = %s
+            ''', [kwargs['id']])
             return dictfetchone(c)
 
+    def delete(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                DELETE FROM multimedia
+                WHERE id = %s
+            ''', [kwargs['id'], ])
 
 class MusicManager(models.Manager):
     def all(self):
@@ -329,3 +336,24 @@ class MultimediaManager(models.Manager):
             for item in  dictfetchall(c):
                 items.append(item)
         return items
+
+class MultimediaCategoryManager(models.Manager):
+    def filter(self, *args, **kwargs):
+        result = []
+        with connection.cursor() as c:
+            c.execute('''
+                SELECT * FROM multimedia_category
+                WHERE multimedia_id = %s
+            ''', [kwargs['multimedia_id']])
+
+            for category in dictfetchall(c):
+                result.append(category)
+
+        return result
+
+    def delete(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                DELETE FROM multimedia_category
+                WHERE multimedia_id = %s
+            ''', [kwargs['multimedia_id']])

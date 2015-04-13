@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS book (
     CONSTRAINT fk_book_multimedia
         FOREIGN KEY (multimedia_id)
         REFERENCES multimedia (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS movie (
@@ -35,6 +36,7 @@ CREATE TABLE IF NOT EXISTS movie (
     CONSTRAINT fk_movie_multimedia
         FOREIGN KEY (multimedia_id)
         REFERENCES multimedia (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS application (
@@ -44,6 +46,7 @@ CREATE TABLE IF NOT EXISTS application (
     CONSTRAINT fk_application_multimedia
         FOREIGN KEY(multimedia_id) 
         REFERENCES multimedia (id)
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS album (
@@ -54,7 +57,7 @@ CREATE TABLE IF NOT EXISTS album (
 CREATE TABLE IF NOT EXISTS music (
     multimedia_id INT NOT NULL PRIMARY KEY,
     duration INT NULL,
-    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS album_music (
@@ -62,7 +65,7 @@ CREATE TABLE IF NOT EXISTS album_music (
     album_id INT NOT NULL,
     music_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES album(id),
-    FOREIGN KEY (music_id) REFERENCES music(multimedia_id)
+    FOREIGN KEY (music_id) REFERENCES music(multimedia_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS category (
@@ -80,12 +83,10 @@ CREATE TABLE IF NOT EXISTS multimedia_category (
     FOREIGN KEY (category_id) REFERENCES category(id)
 );
 
-CREATE TABLE IF NOT EXISTS multimedia_content (
+CREATE TABLE IF NOT EXISTS multimedia_image (
     id INT PRIMARY KEY AUTO_INCREMENT,
     multimedia_id INT NOT NULL,
-    caption VARCHAR(128) NOT NULL,
-    url VARCHAR(200) NOT NULL,
-    created_at DATETIME NOT NULL,
-    modified_at DATETIME NOT NULL,
-    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id)
+    caption VARCHAR(100) NOT NULL,
+    original VARCHAR(100) NOT NULL,
+    FOREIGN KEY (multimedia_id) REFERENCES multimedia(id) ON DELETE CASCADE
 );
