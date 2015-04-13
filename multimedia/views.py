@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from .models import (
-        Movie, Application, Book, Music, MultimediaImage
+        Movie, Application, Book, Music, MultimediaImage, Multimedia
 )
 from crew.models import Crew
 from review.models import MultimediaReview
+from transaction.views import (
+    hasItemInCart
+)
 
 no_preview = static('images/no-preview.png')
 no_preview_150 = static('images/no-preview-150.png')
@@ -39,8 +42,10 @@ def book_detail(request, book_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=book['id'])
 
+    canAdd = hasItemInCart(request.user.id, book['id'])
+
     return render(request, 'multimedia/book_detail.html',
-        {'book': book, 'multimedia_id':book['id'], 'reviews':reviews})
+        {'book': book, 'multimedia_id':book['id'], 'reviews':reviews, 'multimedia_type': 'Book', 'canAdd': canAdd})
 
 def movie_list(request):
     movies = Movie.objects.all()
@@ -78,8 +83,10 @@ def movie_detail(request, movie_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=movie_id)
 
+    canAdd = hasItemInCart(request.user.id, movie['id'])
+
     return render(request, 'multimedia/movie_detail.html',
-        {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews})
+        {'movie': movie, 'multimedia_id': movie_id, 'reviews': reviews, 'multimedia_type': 'Movie', 'canAdd': canAdd})
 
 def music_list(request):
     musics = Music.objects.all()
@@ -112,8 +119,10 @@ def music_detail(request, music_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=music_id)
 
+    canAdd = hasItemInCart(request.user.id, music['id'])
+
     return render(request, 'multimedia/music_detail.html',
-        {'music': music, 'multimedia_id': music_id, 'reviews': reviews})
+        {'music': music, 'multimedia_id': music_id, 'reviews': reviews, 'multimedia_type': 'Music', 'canAdd': canAdd})
 
 def application_list(request):
     applications = Application.objects.all()
@@ -123,9 +132,7 @@ def application_list(request):
         multimedia_image = MultimediaImage.objects.filter(multimedia_id=application['id']).first()
         if multimedia_image:
             application['thumbnail'] = multimedia_image.thumb150x150.url
-        else:
-            application['thumbnail'] = no_preview_150
-
+        else: application['thumbnail'] = no_preview_150 
     return render(request, 'multimedia/application_list.html', {'multimedia': applications, 'multimedia_type': 'Application'})
 
 
@@ -138,5 +145,32 @@ def application_detail(request, application_id):
 
     reviews = MultimediaReview.objects.filter(multimedia_id=application_id)
 
-    return render(request, 'multimedia/application_detail.html',
-        {'application': application, 'multimedia_id': application_id, 'reviews': reviews})
+    canAdd = hasItemInCart(request.user.id, application['id'])
+
+    return render(request, 'multimedia/application_detail.html',{
+                'application': application,
+                'multimedia_id': application_id,
+                'reviews': reviews,
+                'multimedia_type': 'Application',
+                'canAdd': canAdd})
+
+
+def search_result(request):
+    keywords = request.GET.get('keyword')
+    types = request.GET.getlist('types[]')
+    category = request.GET.get('category')
+    if (category == ''):
+        category = None
+    multimedia = Multimedia.objects.search(multimedia_types=types, keywords=keywords, category=category)
+
+    for item in multimedia:
+        item['url'] = '../' + str(item['url_prefix']) + '/' + str(item['url_suffix'])
+        multimedia_image = MultimediaImage.objects.filter(multimedia_id=item['id']).first()
+        if multimedia_image:
+            item['thumbnail'] = multimedia_image.thumb150x150.url
+        else:
+            item['thumbnail'] = no_preview_150
+    return render(request, 'multimedia/search_result.html', {'multimedia': multimedia, 'multimedia_type': 'Result'})
+
+def advanced_search(request):
+    return render(request, 'multimedia/advanced_search.html')
