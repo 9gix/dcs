@@ -220,7 +220,7 @@ class MultimediaManager(models.Manager):
         elif (multimedia_type == "music"):
             query = self.MUSIC_QUERY
 
-        if ('keywords' in kwargs):
+        if (('keywords' in kwargs) and (kwargs['keywords'] is not None)):
             clause = self.__generate_title_clause(kwargs['keywords'])
             query += " AND (" + clause[0]
             substitutes = self.__merge_dicts(substitutes, clause[1])
@@ -231,7 +231,7 @@ class MultimediaManager(models.Manager):
             query += " OR " + clause[0] + ")"
             substitutes = self.__merge_dicts(substitutes, clause[1])
 
-        if ('category' in kwargs):
+        if (('category' in kwargs) and (kwargs['category'] is not None)):
             clause = self.__generate_category_clause(kwargs['category'])
             query += " AND " + clause[0]
             substitutes = self.__merge_dicts(substitutes, clause[1])
