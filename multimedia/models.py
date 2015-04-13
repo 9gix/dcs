@@ -1,5 +1,6 @@
-from django.db import models, connection
+from django.db import models, connection, transaction
 from django.utils import timezone
+from django.core.validators import MinLengthValidator
 
 from imagekit.models import ImageSpecField
 from pilkit import processors
@@ -55,8 +56,8 @@ class MultimediaImage(models.Model):
 
 class Book(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    isbn13 = models.CharField(max_length=13)
-    isbn10 = models.CharField(max_length=10)
+    isbn13 = models.CharField(max_length=13, validators=[MinLengthValidator(13)])
+    isbn10 = models.CharField(max_length=10, validators=[MinLengthValidator(10)])
 
     published_on = models.DateField()
 
@@ -66,6 +67,7 @@ class Book(Multimedia):
         managed = False
         db_table = 'book'
 
+    @transaction.atomic
     def insert(self):
         with connection.cursor() as c:
             c.execute('''
