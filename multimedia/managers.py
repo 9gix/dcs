@@ -230,16 +230,19 @@ class MultimediaManager(models.Manager):
             title_clause = self.__generate_title_clause(keywords)
             desc_clause = self.__generate_description_clause(keywords)
             crew_clause = self.__generate_crew_clause(keywords)
+            org_clause = self.__generate_organisation_clause(keywords)
             clauses = {
                 'title': title_clause[0],
                 'desc': desc_clause[0],
                 'crew': crew_clause[0],
+                'org': org_clause[0]
             }
-            cond_query = " AND ({title} OR {desc} OR {crew})".format(**clauses)
+            cond_query = " AND ({title} OR {desc} OR {crew} OR {org} )".format(**clauses)
 
             substitutes = self.__merge_dicts(substitutes, title_clause[1])
             substitutes = self.__merge_dicts(substitutes, desc_clause[1])
             substitutes = self.__merge_dicts(substitutes, crew_clause[1])
+            substitutes = self.__merge_dicts(substitutes, org_clause[1])
         else:
             cond_query = ""
 
@@ -295,6 +298,23 @@ class MultimediaManager(models.Manager):
         for i, keyword in enumerate(split_keywords):
             clause += "AND p.name LIKE %(keyword{})s".format(i)
             substitutes["keyword{}".format(i)] = '%{}%'.format(keyword)
+        clause += ")"
+
+        return (clause, substitutes)
+
+    def __generate_organisation_clause(self, keywords):
+        split_keywords = keywords.split()
+        clause = '''
+            m.organisation_id IN (SELECT id FROM
+            organisation
+            WHERE
+        '''
+        conditions = []
+        substitutes = {}
+        for i, keyword in enumerate(split_keywords):
+            conditions.append("name LIKE %(keywords{})s".format(i))
+            substitutes["keywords{}".format(i)] = '%{}%'.format(keyword)
+        clause += " AND ".join(conditions)
         clause += ")"
 
         return (clause, substitutes)
