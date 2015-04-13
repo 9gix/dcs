@@ -58,7 +58,7 @@ def cart_purchase(request):
 
     new_cart_id = __getUserCartId(user.id)
 
-    return HttpResponseRedirect("/carts/")
+    return redirect("carts:cart_item_list")
 
 def cart_item_delete(request):
     cart_id = request.POST['cart_id']
@@ -66,7 +66,7 @@ def cart_item_delete(request):
 
     __deleteItem(cart_id, cart_item_id)
 
-    return redirect("/carts/")
+    return redirect("carts:cart_item_list")
 
 def cart_item_add(request, multimedia_id, multimedia_type):
     user_id = request.user.id
@@ -75,17 +75,17 @@ def cart_item_add(request, multimedia_id, multimedia_type):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def __getUserCartId(user_id):
-    cart_raw = Cart.objects.raw("""SELECT c1.id 
+    cart_raw = Cart.objects.raw("""SELECT c1.id
                                    FROM cart c1
                                    WHERE c1.buyer_id = %s AND
                                          c1.is_completed = false AND
                                          c1.created_at >= ALL (SELECT c2.created_at FROM cart c2);
                                 """, [user_id])
-    
+
     result = sum(1 for row in cart_raw)
 
     new_cart_id = 0
-    
+
     if result == 0:
         new_cart_id = -1
     elif result == 1:
@@ -127,9 +127,4 @@ def hasItemInCart(user_id, multimedia_id):
 
     result = sum(1 for row in cart_item_raw)
 
-    if result:
-        return False
-    else:
-        return True
-
-
+    return not result
