@@ -1,4 +1,6 @@
-from django.db import models
+from django.db import models, connection, transaction
+from django.utils import timezone
+from django.core.validators import MinLengthValidator
 
 from imagekit.models import ImageSpecField
 from pilkit import processors
@@ -8,7 +10,8 @@ from .managers import (
     MusicManager,
     ApplicationManager,
     MultimediaManager,
-    MovieManager
+    MovieManager,
+    MultimediaCategoryManager,
 )
 
 class Organisation(models.Model):
@@ -57,8 +60,8 @@ class MultimediaImage(models.Model):
 
 class Book(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
-    isbn13 = models.CharField(max_length=13)
-    isbn10 = models.CharField(max_length=10)
+    isbn13 = models.CharField(max_length=13, validators=[MinLengthValidator(13)])
+    isbn10 = models.CharField(max_length=10, validators=[MinLengthValidator(10)])
 
     published_on = models.DateField()
 
@@ -67,6 +70,53 @@ class Book(Multimedia):
     class Meta:
         managed = False
         db_table = 'book'
+
+    @transaction.atomic
+    def insert(self):
+        with connection.cursor() as c:
+            c.execute('''
+                INSERT INTO multimedia
+                  (name, description, price, organisation_id,
+                    created_at, modified_at)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            ''', [self.name, self.description, self.price, self.organisation_id,
+                    timezone.now(), timezone.now()])
+
+            mul_id = c.lastrowid
+            self.multimedia = Multimedia.objects.get(id=mul_id)
+
+            c.execute('''
+                INSERT INTO book
+                  (multimedia_id, isbn13, isbn10, published_on)
+                VALUES (%s, %s, %s, %s)
+            ''', [mul_id, self.isbn13, self.isbn10, self.published_on])
+
+
+    @transaction.atomic
+    def update(self, *args, **kwargs):
+        with connection.cursor() as c:
+            c.execute('''
+                UPDATE multimedia
+                SET
+                  name = %s,
+                  description = %s,
+                  price = %s,
+                  organisation_id = %s,
+                  modified_at = %s
+                WHERE id = %s
+            ''', [self.name, self.description, self.price, self.organisation_id,
+                    timezone.now(), kwargs['multimedia_id']])
+
+            c.execute('''
+                UPDATE book
+                SET
+                  isbn13 = %s,
+                  isbn10 = %s,
+                  published_on = %s
+                WHERE multimedia_id = %s
+            ''', [self.isbn13, self.isbn10, self.published_on,
+                    kwargs['multimedia_id']])
+
 
 class Movie(Multimedia):
     multimedia = models.OneToOneField('Multimedia', parent_link=True)
@@ -148,6 +198,8 @@ class MultimediaCategory(models.Model):
     multimedia = models.ForeignKey('Multimedia')
     category = models.ForeignKey('Category')
 
+    objects = MultimediaCategoryManager()
+
     class Meta:
         managed = False
         db_table = 'multimedia_category'
@@ -155,3 +207,11 @@ class MultimediaCategory(models.Model):
 
     def __str__(self):
         return "{}{}".format(self.multimedia, self.category)
+
+    def insert(self):
+        with connection.cursor() as c:
+            c.execute('''
+                INSERT INTO multimedia_category
+                  (multimedia_id, category_id)
+                VALUES (%s, %s)
+            ''', [self.multimedia_id, self.category_id])
