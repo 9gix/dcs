@@ -143,6 +143,8 @@ def search_result(request):
     keywords = request.GET.get('keyword')
     types = request.GET.getlist('types[]')
     category = request.GET.get('category')
+    if (category == ''):
+        category = None
     multimedia = Multimedia.objects.search(multimedia_types=types, keywords=keywords, category=category)
 
     for item in multimedia:
